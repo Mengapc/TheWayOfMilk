@@ -1,7 +1,5 @@
 # TheWayOfMilk
 
-Estamos fazendo extória aqui porra
-
 Nome: The way of Milk - Mistério e Investigação
 
 pitch: Um jogo de investigação no cenário pos-apocalíptico, onde vacas estão em extinção e o protagonista procura o que aconteceu com elas, nessa busca ele escuta o mito da Shakira, a Vaca dos Mil Leites, só ela sabe o que aconteceu com o leite.  
