@@ -2,15 +2,15 @@
 
 Estamos fazendo extória aqui porra
 
-Nome: The way of Milk - 
+Nome: The way of Milk - Mistério e Investigação
 
-pitch: 
+pitch: Um jogo de investigação no cenário pos-apocalíptico, onde vacas estão em extinção e o protagonista procura o que aconteceu com elas, nessa busca ele escuta o mito da Shakira, a Vaca dos Mil Leites, só ela sabe o que aconteceu com o leite.  
 
-História: Um humano descobre que é capaz de dobrar leite após passar anos estudando sobre VACAS! Ao sair de seu laboratório ele descobre que o captalismo dominou as mentes dos humanos, e eles estão prendendo as vacas em fabricas de laticinios. Horrorizado com tal visão, decide ir atras de um ser mitico, uma vaca lendaria chamada "Shakira, a leitosa" para achar alguma forma de recuperar a liberdade das vacas, para que elas retomem a sua antiga glória.
+O que torna esse jogo único: Sua estética cativante, seu mundo curioso e gameplay imersiva. 
 
-Core mechanic:
+Core mechanic: Exploração.
 
-Core Loop: 
+Core Loop: Curto - Investigar a sala; Médio: Lidar com armadilhas do cenário; Longo: Avançar para a próxima fase.
 
 Referências da dobragem de leite:
 
