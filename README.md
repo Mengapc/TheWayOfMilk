@@ -6,7 +6,7 @@
 
 ---
 
-<img width="941" height="944" alt="a" src="https://github.com/user-attachments/assets/5f3b124f-2a60-4cc7-be5c-d62ed00c1df2" />
+![Captura de tela de 2025-06-25 11-58-38](https://github.com/user-attachments/assets/5f3b124f-2a60-4cc7-be5c-d62ed00c1df2")
 
 ### Hamud Michel 
 **Função:** Artista 2D e 3D 
