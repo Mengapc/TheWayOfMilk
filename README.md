@@ -6,7 +6,7 @@
 
 ---
 
-![a](https://github.com/user-attachments/assets/5f3b124f-2a60-4cc7-be5c-d62ed00c1df2")
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/f889c94c-69fc-4626-8a91-0f9a315e5a5b" />
 
 ### Hamud Michel 
 **Função:** Artista 2D e 3D 
@@ -15,7 +15,7 @@ Desenvolveu os concepts do personagem e posters presentes no jogo.
 
 ---
 
-![Captura de tela de 2025-06-25 11-58-38](https://github.com/user-attachments/assets/49a98530-e988-4097-93a3-0ab484b31e82)
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/8ace4551-27d4-4c31-a519-cbe3bcd78aac" />
 
 ### Gabriel Dias  
 **Função:** Programador e Game Designer  
@@ -24,7 +24,7 @@ Responsável pelas mecânicas principais, build do jogo e Game Design/Level Desi
 
 ---
 
-![Captura de tela de 2025-06-25 12-01-00](https://github.com/user-attachments/assets/44cc162b-24cd-430d-a749-466f37ad6278)
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/058b7ae2-d52b-4b41-a3ba-09b6021d14a4" />
 
 ### Gabriel Furlan Mengarelli                                                                                                                            
 **Função:** Programador e Sonorizador  
@@ -33,7 +33,7 @@ Configurou e programou os efeitos da câmera, criou todas as músicas/sfx e a do
 
 ---
 
-![Captura de tela de 2025-06-25 12-00-25](https://github.com/user-attachments/assets/dd7e0c4e-e1df-438f-97e5-652acb825986)
+<img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/08ff0561-ac29-4d10-9b74-c562538fbe09" />
 
 ### Guilherme Alves  
 **Função:** Artista 3D e VFX  
