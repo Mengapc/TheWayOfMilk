@@ -1,23 +1,15 @@
-# TheWayOfMilk
+# Lactrópolis
 
-Nome: The way of Milk - Puzzle e Exploração.
+## Introdução ao mundo
 
-pitch: Um jogo de investigação no cenário pos-apocalíptico, onde vacas estão em extinção e o protagonista procura o que aconteceu com elas, nessa busca ele escuta o mito da Shakira, a Vaca dos Mil Leites, só ela sabe o que aconteceu com o leite.  
+No início dos anos 40, a empresa hoje conhecida como LactoNuke, mas que na época se chamava TupperWare, focava em desenvolver materiais sintéticos. Seus cientistas, em busca de um plástico mais resistente, voltaram sua atenção para a caseína, a principal proteína do leite, conhecida por sua maleabilidade e resistência natural. A equipe de pesquisa estava tentando entender sua estrutura molecular em um nível atômico. Para isso, eles usaram a Cristalografia por Difração de Elétrons, uma técnica de ponta da época. A ideia era criar cristais de caseína e bombardeá-los com um feixe de elétrons para mapear sua estrutura. No entanto, durante um dos testes, algo inesperado aconteceu. O feixe de elétrons, ao atingir o cristal, não o difratou como esperado. Em vez disso, a estrutura atômica da caseína colapsou em um instante, rearranjando-se em uma nova e instável configuração. Um brilho esverdeado, como o de uma lâmpada fluorescente quebrando, preencheu a câmara de vácuo, seguido por uma onda de calor que derreteu parte do equipamento. O pesquisador, chocado e fascinado, conseguiu isolar essa nova forma de caseína, apelidando-a de 'Caseína-235' - uma alusão sombria ao Urânio-235. Ele descobriu que essa nova substância, ao ser ativada por uma carga elétrica mínima, liberava uma explosão de energia atômica, abrindo um caminho destrutivo e inimaginável. A partir desse momento, a TupperWare deixou de fazer potes e passou a construir um novo e terrível arsenal, selando o destino do mundo e das vacas para sempre.
 
-O que torna esse jogo único: Sua estética cativante, seu mundo curioso e gameplay divertida. 
+## Arny Longsing
 
-Core mechanic: Exploração.
+Dezessete anos após a descoberta que mudou o mundo, o pesquisador Arny Longsing emergiu de seu esconderijo. Um homem que cresceu em uma fazenda, Arny sempre teve uma conexão profunda com as vacas. Quando um incêndio na plantação de trigo do vizinho tirou a vida de seu pai, ele precisou amadurecer rápido para ajudar sua mãe a cuidar da fazenda da família. Enquanto aprendia a arar a terra e alimentar os animais, sua paixão pelas vacas cresceu, transformando-o em um estudioso dedicado.
 
-Core Loop: Curto - Investigar a sala; Médio: Lidar com armadilhas do cenário; Longo: Avançar para a próxima fase.
+Em 1942, sua expertise chamou a atenção da TupperWare. A empresa, famosa por seus potes, fez uma proposta que prometia mudar o futuro. Eles queriam que Arny usasse seu conhecimento para aumentar drasticamente a produção de leite, que seria transformado no que eles chamaram de 'leite nuclear'. Furioso, Arny viu a proposta como um ciclo de crueldade e exploração. Ele expressou seu repúdio pela ideia, sendo rapidamente expulso da sede e juramentado a nunca revelar o projeto.
 
-Referências da dobragem de leite:
-
-https://e4-misfits.fandom.com/wiki/Lactokinesis
-
-https://psychonauts.fandom.com/wiki/The_Milkman
-
-https://zelda.fandom.com/wiki/Lon_Lon_Ranch
-
+Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, transformando-a em um esconderijo para reunir o máximo de informações sobre as vacas e mapear os problemas que a TupperWare (agora LactoNuke) estava causando. Ele documentou o desaparecimento das populações de bovinos, a ascensão da Lactrópolis - uma sociedade construída sobre o dinheiro do leite nuclear - e os eventos catastróficos que se seguiam. Por anos, ele tentou avisar amigos e conhecidos com poder, mas ninguém se importava com suas informações. Agora, com a raça à beira da extinção, Arny escutou um rumor que reacendeu sua esperança: a lenda da vaca Xuxa, a última de sua espécie, protegida em uma fazenda-labirinto por um fazendeiro com enigmas indecifráveis. Arny decide então se aventurar, com o objetivo de encontrar a lendária vaca e, talvez, descobrir uma forma de salvar a espécie da aniquilação total.
 
 # Pesquisas
-
