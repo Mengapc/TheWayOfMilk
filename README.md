@@ -56,8 +56,6 @@ Aqui você vai encontrar:
 - 🐛 **Roadmap e problemas conhecidos**
 - 📚 **Tutoriais, links úteis e referências**
 
-Nosso objetivo é fazer um jogo com o tema **"Gambito"**, onde o jogador precisa sacrificar suas armas para avançar, assim modificando aspectos das fases seguintes.
-
 # 📦 Instalação e Configuração
 
 ## Requisitos
