@@ -1,63 +1,41 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PuzzleManager : MonoBehaviour
 {
-    [SerializeField] private DoorController doorController; // Arraste a porta que este puzzle controla
-    [SerializeField] private List<int> correctSequence; // Defina a sequência correta de números (ex: 5, 6, 2)
+    [Tooltip("Referência para o controlador da porta que será aberta ao completar o puzzle")]
+    [SerializeField] private DoorController doorController; 
 
-    private List<int> currentSequence = new List<int>();
+    [Header("Configurações do Puzzle")]
+    [Tooltip("Lista de tubos no puzzle")]
+    [SerializeField] private List<Tubes> tubes; 
 
-    private void Awake()
+    private bool isPlayerNear = false;
+
+
+
+    //Funções para o reset do puzzle
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        TubeController.puzzleManager = this;
-    }
-
-    public void TubeFilled(int value)
-    {
-        if (!currentSequence.Contains(value)) // Evita adicionar o mesmo tubo duas vezes
+        if (context.performed && isPlayerNear)
         {
-            currentSequence.Add(value);
-        }
 
-        // Verifica se a sequência está correta a cada bola inserida
-        if (currentSequence.Count == correctSequence.Count)
-        {
-            // A função SequenceEqual verifica se as duas listas são idênticas na mesma ordem
-            if (currentSequence.SequenceEqual(correctSequence))
-            {
-                Debug.Log("Sequência correta! Abrindo a porta.");
-                if (doorController != null)
-                {
-                    doorController.OpenDoor();
-                }
-            }
-            else // Se a contagem é a mesma mas a sequência está errada, avisa o jogador.
-            {
-                Debug.Log("Sequência incorreta. Interaja com o botão de reset para tentar novamente.");
-            }
         }
     }
-
-    // Função pública para resetar o estado do puzzle
-    public void ResetPuzzle()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Resetando o puzzle...");
-        currentSequence.Clear();
-
-        // Encontra todos os tubos na cena e chama a função para resetá-los
-        TubeController[] tubes = FindObjectsOfType<TubeController>();
-        foreach (TubeController tube in tubes)
+        if (other.CompareTag("Player"))
         {
-            tube.ResetTube();
+            isPlayerNear = true;
         }
-
-        // Encontra todas as bolas na cena e chama a função para resetá-las
-        BallController[] balls = FindObjectsOfType<BallController>();
-        foreach (BallController ball in balls)
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            ball.ResetPosition();
+            isPlayerNear = false;
         }
     }
 }
