@@ -197,8 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39361532}
-  - component: {fileID: 39361533}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Elevador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,23 +222,6 @@ Transform:
   - {fileID: 1253813182}
   m_Father: {fileID: 1335743141}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &39361533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39361531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46554c983f934f4eabe726e3b4107d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cabine: {fileID: 2125178038}
-  pontoPrimeiroAndar: {fileID: 1291194165}
-  pontoSegundoAndar: {fileID: 1253813182}
-  velocidade: 2
-  painel: {fileID: 593308657}
 --- !u!1 &116969173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 523588981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +1892,7 @@ GameObject:
   - component: {fileID: 876784841}
   - component: {fileID: 876784840}
   - component: {fileID: 876784839}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2292,7 +2274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 39361533}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
         m_MethodName: MoverElevador
         m_Mode: 1
@@ -3103,7 +3085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253813182}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Andar_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3272,7 +3254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291194165}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Andar_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4026,7 +4008,7 @@ GameObject:
   - component: {fileID: 1775897716}
   - component: {fileID: 1775897715}
   - component: {fileID: 1775897714}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4746,7 +4728,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2125178038}
   - component: {fileID: 2125178039}
-  m_Layer: 6
+  - component: {fileID: 2125178040}
+  m_Layer: 7
   m_Name: Cabine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4791,6 +4774,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2125178040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125178037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46554c983f934f4eabe726e3b4107d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cabine: {fileID: 2125178038}
+  pontoPrimeiroAndar: {fileID: 1291194165}
+  pontoSegundoAndar: {fileID: 1253813182}
+  velocidade: 2
+  painel: {fileID: 593308657}
 --- !u!1 &2126035914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5231,6 +5231,10 @@ PrefabInstance:
     - target: {fileID: 1056676188086769789, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056676188086769789, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5543770541191418349, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
       propertyPath: m_LocalPosition.x
