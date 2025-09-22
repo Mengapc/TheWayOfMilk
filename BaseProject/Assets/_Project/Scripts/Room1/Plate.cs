@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Porta : MonoBehaviour
+public class Plate : MonoBehaviour
 {
     [SerializeField] private Transform box;
     [SerializeField] private GameObject door;
