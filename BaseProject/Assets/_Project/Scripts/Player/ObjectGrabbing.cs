@@ -25,12 +25,6 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
-    [Header("Configurações da Trajetória")]
-    [Tooltip("O número de pontos que a linha da trajetória terá.")]
-    [SerializeField] private int pontosDaTrajetoria = 30;
-    [Tooltip("O intervalo de tempo simulado entre cada ponto da linha.")]
-    [SerializeField] private float intervaloDeTempoDosPontos = 0.05f;
-
     [Header("Referências Externas")]
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
     [SerializeField] private Movement movementScript;
