@@ -29,6 +29,11 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
     [SerializeField] private Movement movementScript;
 
+    [SerializeField] private float carga;
+    [SerializeField] private float forcaH;
+    [SerializeField] private float forcaA;
+    [SerializeField] private float ters4;
+
     private GameObject objetoSegurado = null;
     private Rigidbody objetoSeguradoRb = null;
 
@@ -129,6 +134,10 @@ public class ObjectGrabbing : MonoBehaviour
 
         objetoSegurado = null;
         objetoSeguradoRb = null;
+
+        carga = porcentagemCarga;
+        forcaH = forcaHorizontalAtual;
+        forcaA = forcaVerticalAtual;
     }
 
 }

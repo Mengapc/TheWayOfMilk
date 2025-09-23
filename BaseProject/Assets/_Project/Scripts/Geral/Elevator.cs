@@ -15,9 +15,14 @@ public class Elevator : MonoBehaviour
     [Tooltip("Velocidade de movimento da cabine.")]
     [SerializeField] private float velocidade = 2f;
     [Tooltip("Curva de movimento do elevador")]
-    [Range(0f, 1f)]
     [SerializeField] private AnimationCurve movementAanimation;
-    [SerializeField] private GameObject painel;
+    [Tooltip("Tempo de animação")]
+    [Range(1f, 3f)]
+    [SerializeField] private float durationAnimation;
+    [Space]
+    [Range(0f,1f)]
+    [SerializeField] private float porcentagemDistancia;
+    //[SerializeField] private GameObject painel;
 
     // A referência ao jogador será pega quando ele entrar no elevador
     private Movement playerMovement;
@@ -31,8 +36,17 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = GetComponent<Movement>();
-        playerTransform = GetComponent<Transform>();
+        distance = Vector3.Distance(pontoPrimeiroAndar.position, pontoSegundoAndar.position);
+    }
+    private void Update()
+    {
+        cabine.transform.position = Vector3.Lerp(pontoPrimeiroAndar.position, pontoSegundoAndar.position, porcentagemDistancia);
     }
 
+    private IEnumerator IniciarPercurso(Vector3 startPos, Vector3 endPos)
+    {
+
+
+        yield return null;
+    }
 }
