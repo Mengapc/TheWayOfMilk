@@ -15,7 +15,7 @@ C:/Projetos/TheWayOfMilk/BaseProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53987
+49851
 -job-worker-count
 5
 -background-job-worker-count
@@ -59,14 +59,14 @@ C:/Projetos/TheWayOfMilk/BaseProject
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [20368]  Target information:
+Player connection [10436]  Target information:
 
-Player connection [20368]  * "[IP] 26.170.209.134 [Port] 0 [Flags] 2 [Guid] 4009514033 [EditorId] 4009514033 [Version] 1048832 [Id] WindowsEditor(7,Moonguito) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [10436]  * "[IP] 26.170.209.134 [Port] 0 [Flags] 2 [Guid] 3504263607 [EditorId] 3504263607 [Version] 1048832 [Id] WindowsEditor(7,Moonguito) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [20368]  * "[IP] 192.168.1.107 [Port] 0 [Flags] 2 [Guid] 4009514033 [EditorId] 4009514033 [Version] 1048832 [Id] WindowsEditor(7,Moonguito) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [10436]  * "[IP] 192.168.1.107 [Port] 0 [Flags] 2 [Guid] 3504263607 [EditorId] 3504263607 [Version] 1048832 [Id] WindowsEditor(7,Moonguito) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [20368] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [20368] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [10436] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [10436] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -78,7 +78,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 230.66 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 11.10 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.35f1 (9a3bc604008a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/Resources/UnitySubsystems
@@ -94,48 +94,48 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56004
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56660
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.011440 seconds.
-- Loaded All Assemblies, in  2.283 seconds
+Registered in 0.017600 seconds.
+- Loaded All Assemblies, in  0.973 seconds
 Native extension for LinuxStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 425 ms
+Android Extension - Scanning For ADB Devices 511 ms
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.001 seconds
-Domain Reload Profiling: 3281ms
-	BeginReloadAssembly (1798ms)
+- Finished resetting the current domain, in  1.089 seconds
+Domain Reload Profiling: 2057ms
+	BeginReloadAssembly (382ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (56ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (84ms)
-	LoadAllAssembliesAndSetupDomain (326ms)
-		LoadAssemblies (1794ms)
+		CreateAndSetChildDomain (3ms)
+	RebuildCommonClasses (77ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (142ms)
+	LoadAllAssembliesAndSetupDomain (346ms)
+		LoadAssemblies (375ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (320ms)
-			TypeCache.Refresh (317ms)
-				TypeCache.ScanAssembly (296ms)
+		AnalyzeDomain (338ms)
+			TypeCache.Refresh (335ms)
+				TypeCache.ScanAssembly (309ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (1002ms)
+	FinalizeReload (1090ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (936ms)
+		SetupLoadedEditorAssemblies (1043ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (564ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (73ms)
-			ProcessInitializeOnLoadAttributes (187ms)
-			ProcessInitializeOnLoadMethodAttributes (106ms)
+			InitializePlatformSupportModulesInManaged (660ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (84ms)
+			ProcessInitializeOnLoadAttributes (209ms)
+			ProcessInitializeOnLoadMethodAttributes (83ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -147,11 +147,11 @@ Import Worker Mode flag is 0x00
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.935 seconds
+- Loaded All Assemblies, in  1.639 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 3.73 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 4.20 ms, found 3 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
@@ -161,52 +161,124 @@ Package Manager log level set to [2]
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.402 seconds
-Domain Reload Profiling: 4322ms
-	BeginReloadAssembly (266ms)
+- Finished resetting the current domain, in  1.361 seconds
+Domain Reload Profiling: 2994ms
+	BeginReloadAssembly (260ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (43ms)
-	RebuildCommonClasses (53ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (61ms)
-	LoadAllAssembliesAndSetupDomain (2523ms)
-		LoadAssemblies (2302ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (1251ms)
+		LoadAssemblies (798ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (393ms)
-			TypeCache.Refresh (285ms)
-				TypeCache.ScanAssembly (259ms)
-			BuildScriptInfoCaches (88ms)
-			ResolveRequiredComponents (15ms)
-	FinalizeReload (1402ms)
+		AnalyzeDomain (606ms)
+			TypeCache.Refresh (440ms)
+				TypeCache.ScanAssembly (411ms)
+			BuildScriptInfoCaches (137ms)
+			ResolveRequiredComponents (21ms)
+	FinalizeReload (1361ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1084ms)
+		SetupLoadedEditorAssemblies (1063ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (22ms)
-			SetLoadedEditorAssemblies (10ms)
-			BeforeProcessingInitializeOnLoad (205ms)
-			ProcessInitializeOnLoadAttributes (718ms)
-			ProcessInitializeOnLoadMethodAttributes (120ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (214ms)
+			ProcessInitializeOnLoadAttributes (660ms)
+			ProcessInitializeOnLoadMethodAttributes (157ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (10ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 6.62 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.55 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 214 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6479 unused Assets / (3.7 MB). Loaded Objects now: 7181.
-Memory consumption went from 164.5 MB to 160.7 MB.
-Total: 54.250300 ms (FindLiveObjects: 7.253100 ms CreateObjectMapping: 3.162200 ms MarkObjects: 29.266400 ms  DeleteObjects: 14.560900 ms)
+Unloading 6479 unused Assets / (4.9 MB). Loaded Objects now: 7182.
+Memory consumption went from 164.8 MB to 159.8 MB.
+Total: 15.202500 ms (FindLiveObjects: 2.467800 ms CreateObjectMapping: 1.016800 ms MarkObjects: 6.552900 ms  DeleteObjects: 5.160700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3162.269820 seconds.
-  path: Assets/_Project
-  artifactKey: Guid(bb42a4c52ae47e244b5e9b4909e34ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Project using Guid(bb42a4c52ae47e244b5e9b4909e34ed8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bdd655c9f73b6d6790eae0916a4e8ef1') in 0.0666731 seconds
+  Time since last request: 4479.046199 seconds.
+  path: Assets/_Project/Scenes/Prefabs.unity
+  artifactKey: Guid(475622ac885c18042b0c147017fcf841) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Scenes/Prefabs.unity using Guid(475622ac885c18042b0c147017fcf841) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21d5fa73efab83a39ffe37e43ef75945') in 0.0145959 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1525.120401 seconds.
+  path: Assets/_Project/Prefabs/AreaBalanca.fbx
+  artifactKey: Guid(5299f4b6cac269440b0c8dafcf4ccbaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/AreaBalanca.fbx using Guid(5299f4b6cac269440b0c8dafcf4ccbaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a1d38116341fa5246c1555d5f719b1c') in 7.1140503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 122.246041 seconds.
+  path: Assets/_Project/Prefabs/PortaGeral.fbx
+  artifactKey: Guid(0b7023f0715e48c49a46a5288d6710c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/PortaGeral.fbx using Guid(0b7023f0715e48c49a46a5288d6710c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '04f813e25a0a6170ab1e4194975ab3ae') in 8.10649 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 24
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.843991 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b134bac1173e1dccdacfa56b45c362ce') in 0.4707151 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 147
+
+========================================================================
+Received Import Request.
+  Time since last request: 71.905279 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4bf7b95b1b226392e7c1c68baea8e50f') in 0.3094781 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 147
+
+========================================================================
+Received Import Request.
+  Time since last request: 120.545454 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '17260622a29c57eca13aafd1fbc1017a') in 0.3751268 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 147
+
+========================================================================
+Received Import Request.
+  Time since last request: 90.528325 seconds.
+  path: Assets/_Project/Prefabs/TopoBalanca.fbx
+  artifactKey: Guid(814ec8862fac7724f8db81704aaca860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/TopoBalanca.fbx using Guid(814ec8862fac7724f8db81704aaca860) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc2e5b5ac35ca25c333e63de867f2083') in 0.3455779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 122
+
+========================================================================
+Received Import Request.
+  Time since last request: 106.191274 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f5ee3a140c7904a5f7e9db3ab4da41de') in 0.5329903 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 149
+
+========================================================================
+Received Import Request.
+  Time since last request: 296.756602 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bff38f9c23c4ed5a169d27dda8941ec2') in 0.538058 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 149
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.286136 seconds.
+  path: Assets/_Project/Prefabs/Balanca.fbx
+  artifactKey: Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Balanca.fbx using Guid(f221f402bc5026949bc2e7416bad5114) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'be3bbc2c51cc5dae4683f74acd82a3a6') in 0.6620867 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 149
 
