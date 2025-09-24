@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
 
-public class MovimentoSuave : MonoBehaviour
+public class Elevator : MonoBehaviour
 {
     [Header("Componentes")]
     [Tooltip("A cabine do elevador que se move entre os andares.")]
@@ -11,38 +11,39 @@ public class MovimentoSuave : MonoBehaviour
     [SerializeField] private Transform pontoPrimeiroAndar;
     [Tooltip("O ponto do segundo andar onde a cabine deve parar.")]
     [SerializeField] private Transform pontoSegundoAndar;
+    [Tooltip("Transform do jogador.")]
+    [SerializeField] private Transform player;
+     [Space]
+    [Header("Váriaveis")]
     [Tooltip("Curva de movimento do elevador")]
     [SerializeField] private AnimationCurve movementAanimation;
     [Tooltip("Tempo de animação")]
     [Range(1f, 5f)] 
     [SerializeField] private float durationAnimation = 2f;
-    [Space]
     [Range(0f, 1f)]
     [SerializeField] private float porcentagemDistancia; 
 
-    private Movement playerMovement;
-    private Transform playerTransform;
-
     private bool movendo = false;
     private bool primeiroAndar = true;
+    public bool colliderPlayer = false;
 
     private void Update()
     {
-        ElevatorActivation();
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && !movendo && colliderPlayer)
+        {
+            ElevatorActivation();
+        }
     }
 
     private void ElevatorActivation()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && !movendo)
+        if (primeiroAndar)
         {
-            if (primeiroAndar)
-            {
-                StartCoroutine(MoverCabine(pontoPrimeiroAndar.position, pontoSegundoAndar.position));
-            }
-            else
-            {
-                StartCoroutine(MoverCabine(pontoSegundoAndar.position, pontoPrimeiroAndar.position));
-            }
+            StartCoroutine(MoverCabine(pontoPrimeiroAndar.position, pontoSegundoAndar.position));
+        }
+        else
+        {
+            StartCoroutine(MoverCabine(pontoSegundoAndar.position, pontoPrimeiroAndar.position));
         }
     }
 
@@ -51,6 +52,7 @@ public class MovimentoSuave : MonoBehaviour
     {
         movendo = true;
         float tempoDecorrido = 0f;
+        cabine.SetParent(player.transform,true);
 
         while (tempoDecorrido < durationAnimation)
         {
@@ -65,7 +67,7 @@ public class MovimentoSuave : MonoBehaviour
         }
 
         cabine.position = finalPos;
-
+        cabine.SetParent(player.transform, false);
         ChangeFloor(); 
         movendo = false;
     }
@@ -77,4 +79,3 @@ public class MovimentoSuave : MonoBehaviour
         primeiroAndar = !primeiroAndar;
     }
 }
-

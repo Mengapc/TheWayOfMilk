@@ -2476,7 +2476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577271982746144159}
-  - component: {fileID: 6936087867704019394}
+  - component: {fileID: 7759088852799605797}
   m_Layer: 7
   m_Name: Elevador
   m_TagString: Untagged
@@ -2502,7 +2502,7 @@ Transform:
   - {fileID: 6562002650013060714}
   m_Father: {fileID: 9046518755809427174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6936087867704019394
+--- !u!114 &7759088852799605797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2530,6 +2530,15 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 3.124408
+      outSlope: 3.124408
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06666672
+    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 0
@@ -2541,7 +2550,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  durationAnimation: 1
+  durationAnimation: 3
   porcentagemDistancia: 0
 --- !u!1 &4088740730395892280
 GameObject:

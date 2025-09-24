@@ -119,6 +119,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &393758425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1056676188086769789, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
+  m_PrefabInstance: {fileID: 3994492153582873771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &467427949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7986075300155821167, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+  m_PrefabInstance: {fileID: 5354352824653739968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &467427952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467427949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15162708e921d434fb3f79153b62e728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 393758425}
+  elevador: {fileID: 790508150}
 --- !u!4 &572276790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5543770541191418349, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
@@ -129,6 +153,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3807914815053633915, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
   m_PrefabInstance: {fileID: 4352563402837903732}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &790508150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7759088852799605797, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+  m_PrefabInstance: {fileID: 5354352824653739968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46554c983f934f4eabe726e3b4107d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &855270591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1207669321526046327, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
@@ -145,7 +180,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8971123204159323816, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
   m_PrefabInstance: {fileID: 3994492153582873771}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 393758425}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d16c8fc6cb13c944bb5a893969cf24c9, type: 3}
@@ -1088,6 +1123,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6936087867704019394, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      propertyPath: cabine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936087867704019394, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      propertyPath: durationAnimation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936087867704019394, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      propertyPath: pontoSegundoAndar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936087867704019394, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      propertyPath: pontoPrimeiroAndar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936087867704019394, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      propertyPath: movementAanimation.m_Curve.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7364763951870760850, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.24
@@ -1186,6 +1241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1348563550475558334, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7986075300155821167, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467427952}
   m_SourcePrefab: {fileID: 100100000, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
 --- !u!1001 &6661928680357089500
 PrefabInstance:
