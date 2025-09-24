@@ -248,49 +248,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2240429804558440478, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.94252
-      objectReference: {fileID: 0}
-    - target: {fileID: 2240429804558440478, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.48429
-      objectReference: {fileID: 0}
-    - target: {fileID: 2240429804558440478, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.9411
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364411903885069457, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: durationAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364411903885069457, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: movementAanimation.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364411903885069457, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: movementAanimation.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364411903885069457, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: movementAanimation.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6145191504066404793, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
       propertyPath: m_Name
       value: Sala 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472871170743312279, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.94252
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472871170743312279, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.87432
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472871170743312279, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0039277
       objectReference: {fileID: 0}
     - target: {fileID: 9046518755809427174, guid: c2150903eb5a5b943a835efc0b89d5cf, type: 3}
       propertyPath: m_LocalPosition.x
