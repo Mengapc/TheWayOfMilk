@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 16
+  controlID: 98
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 25
+  controlID: 63
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -800,9 +800,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 152.4, y: 1, z: 5.1250067}
+    m_Target: {x: 88.18916, y: 10.339985, z: 33.69452}
     speed: 2
-    m_Value: {x: 152.4, y: 1, z: 5.1250067}
+    m_Value: {x: 88.18916, y: 10.339985, z: 33.69452}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -848,13 +848,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.19731921, y: 0.27260593, z: -0.05742677, w: 0.9399888}
+    m_Target: {x: 0.09984584, y: -0.16372475, z: 0.01650863, w: 0.981381}
     speed: 2
-    m_Value: {x: 0.19730681, y: 0.2725888, z: -0.057423163, w: 0.9399297}
+    m_Value: {x: 0.099737205, y: -0.1695968, z: 0.01710607, w: 0.9803045}
   m_Size:
-    m_Target: 21.445358
+    m_Target: 40.928707
     speed: 2
-    m_Value: 21.445358
+    m_Value: 40.928707
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1062,10 +1062,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a6efffff
-      m_LastClickedID: -4186
-      m_ExpandedIDs: acefffff86f1ffffeaf4ffff1cfbffff
+      scrollPos: {x: 0, y: 48}
+      m_SelectedIDs: f6faffff
+      m_LastClickedID: -1290
+      m_ExpandedIDs: 48f6ffff22f8ffff62f9ffff3afaffff96fafffff6fafffff8faffffc8af0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1136,7 +1136,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/_Project/Scripts/Geral/Elevador.Portas
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1147,14 +1148,14 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Gabriel.dias1\Documents\GitHub\TheWayOfMilk\BaseProject
+  m_LastProjectPath: C:\Users\gabriel.dias1\Documents\GitHub\TheWayOfMilk\BaseProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b0230000
     m_LastClickedID: 9136
-    m_ExpandedIDs: 00000000f8b10000fab10000fcb10000feb1000000b2000002b2000004b2000006b20000
+    m_ExpandedIDs: 0000000060b8000062b8000064b8000066b8000068b800006ab800006cb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1180,24 +1181,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 146.40002}
+    scrollPos: {x: 0, y: 54.400024}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000f8b10000fab10000fcb10000feb1000000b2000002b2000004b2000006b20000a0b70000
+    m_ExpandedIDs: ffffffff0000000060b8000062b8000064b8000066b8000068b800006ab800006cb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ElavatorCollider
-      m_OriginalName: ElavatorCollider
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 50596
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 9}

@@ -52,7 +52,7 @@ public class Elevator : MonoBehaviour
     {
         movendo = true;
         float tempoDecorrido = 0f;
-        cabine.SetParent(player.transform,true);
+        player.SetParent(cabine);
 
         while (tempoDecorrido < durationAnimation)
         {
@@ -67,7 +67,7 @@ public class Elevator : MonoBehaviour
         }
 
         cabine.position = finalPos;
-        cabine.SetParent(player.transform, false);
+        player.SetParent(null);
         ChangeFloor(); 
         movendo = false;
     }
