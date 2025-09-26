@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Boll
   - Ball
+  - Botao
+  - Image
+  - Logo
   layers:
   - Default
   - TransparentFX
