@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using System;
+using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor; // para SceneAsset
+#endif
 
 public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -11,58 +17,75 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] float jumpHeight = 1f;
     [SerializeField] float jumpForce = 1f;
 
+    public Action OnClickAction; // ação customizável (fallback)
+
+    // ----- Scene selection (arrastar a cena aqui no Inspector) -----
+#if UNITY_EDITOR
+    public SceneAsset sceneAsset; // arraste a cena .unity aqui (editor only)
+#endif
+    [SerializeField, HideInInspector] string sceneName; // name salvo para runtime
+
+    // ---------------------------------------------------------------
+
     private void Start()
     {
-        // Se registrar no gerenciador
-        MenuManager.Instance.RegisterButton(this);
+        // registra no MenuManager para hover/focus
+        if (MenuManager.Instance != null)
+            MenuManager.Instance.RegisterButton(this);
     }
 
-    // Quando o mouse entra no botão
+    // Executa no Editor quando você altera o SceneAsset no Inspector:
+    private void OnValidate()
+    {
+#if UNITY_EDITOR
+        if (sceneAsset != null)
+        {
+            sceneName = sceneAsset.name;
+        }
+#endif
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        MenuManager.Instance.FocusButton(this);
+        if (MenuManager.Instance != null)
+            MenuManager.Instance.FocusButton(this);
+        Focus();
     }
 
-    // Quando o mouse sai do botão
     public void OnPointerExit(PointerEventData eventData)
     {
         ResetSize();
     }
 
-    // Quando o botão é clicado
     public void OnPointerClick(PointerEventData eventData)
     {
-        switch (eventData.button)
+        // Prioriza cena configurada (se houver)
+        if (!string.IsNullOrEmpty(sceneName))
         {
-            case PointerEventData.InputButton.Left:
-                Debug.Log("Clique Esquerdo no botão " + gameObject.name);
-                JumpEffect();
-                break;
-
-            case PointerEventData.InputButton.Right:
-                Debug.Log("Clique Direito no botão " + gameObject.name);
-                break;
-
-            case PointerEventData.InputButton.Middle:
-                Debug.Log("Clique Scroll/Meio no botão " + gameObject.name);
-                break;
+            Debug.Log($"ButtonEffect: '{gameObject.name}' -> carregando cena '{sceneName}'");
+            if (MenuManager.Instance != null)
+                MenuManager.Instance.LoadSceneWithFade(sceneName);
+            else
+                SceneManager.LoadScene(sceneName);
+            return;
         }
+
+        // Senão, fallback para ação custom (se existir)
+        OnClickAction?.Invoke();
     }
 
-    // Foca este botão (usado pelo gerenciador)
     public void Focus()
     {
         transform.DOScale(focusedSize, effectTime);
     }
 
-    // Reseta o tamanho do botão
     public void ResetSize()
     {
         transform.DOScale(normalSize, effectTime);
     }
 
-    // Efeito de pulo ao clicar
-    private void JumpEffect()
+    // opcional: efeito de pulo (caso queira usar em clique)
+    public void JumpEffect()
     {
         transform.DOJump(
             new Vector3(transform.position.x, transform.position.y + jumpHeight, transform.position.z),
