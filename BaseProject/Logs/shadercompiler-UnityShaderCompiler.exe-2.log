@@ -1,4 +1,4 @@
-Base path: 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines'
+Base path: 'C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data', plugins path 'C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 
 Cmd: compileSnippet
