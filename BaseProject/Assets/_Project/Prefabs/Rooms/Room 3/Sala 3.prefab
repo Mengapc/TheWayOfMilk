@@ -2517,6 +2517,7 @@ MonoBehaviour:
   cabine: {fileID: 7953831435145476522}
   pontoPrimeiroAndar: {fileID: 8506773293865631298}
   pontoSegundoAndar: {fileID: 6562002650013060714}
+  player: {fileID: 0}
   movementAanimation:
     serializedVersion: 2
     m_Curve:
@@ -2552,6 +2553,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   durationAnimation: 3
   porcentagemDistancia: 0
+  colliderPlayer: 0
 --- !u!1 &4088740730395892280
 GameObject:
   m_ObjectHideFlags: 0
