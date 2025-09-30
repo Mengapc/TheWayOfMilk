@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float pulseAmount = 1.05f;
     [SerializeField] float pulseDuration = 1f;
 
+    bool isLoadingScene = false; // evita double-load
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -30,8 +33,11 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         CanvasGroup group = GetComponent<CanvasGroup>();
-        group.alpha = 0;
-        group.DOFade(1, fadeDuration);
+        if (group != null)
+        {
+            group.alpha = 0;
+            group.DOFade(1, fadeDuration);
+        }
 
         int i = 0;
         foreach (Transform child in transform)
@@ -56,12 +62,11 @@ public class MenuManager : MonoBehaviour
             // Se for logo ou imagem de destaque: adiciona rotação + float contínuo
             if (child.CompareTag("Logo") || child.CompareTag("Image"))
             {
-                // Float contínuo
+                // atenção: floatAmount pode ser pequeno (ex: 1-2) para não sair da tela
                 child.DOLocalMoveY(startPos.y + floatAmount, floatDuration)
                      .SetLoops(-1, LoopType.Yoyo)
                      .SetEase(Ease.InOutSine);
 
-                // Rotação leve contínua
                 child.DORotate(new Vector3(0, 0, rotationAmount), rotationDuration, RotateMode.FastBeyond360)
                      .SetLoops(-1, LoopType.Yoyo)
                      .SetEase(Ease.InOutSine);
@@ -76,6 +81,42 @@ public class MenuManager : MonoBehaviour
             }
 
             i++;
+        }
+    }
+
+    // Método público para o ButtonEffect chamar quando quiser trocar de cena
+    public void LoadSceneWithFade(string sceneName)
+    {
+        if (isLoadingScene)
+        {
+            Debug.Log("Já estamos carregando uma cena...");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogWarning("MenuManager: sceneName vazio.");
+            return;
+        }
+
+        isLoadingScene = true;
+
+        CanvasGroup group = GetComponent<CanvasGroup>();
+        if (group != null)
+        {
+            // desabilita interações para evitar múltiplos cliques
+            group.interactable = false;
+            group.blocksRaycasts = false;
+
+            group.DOFade(0f, fadeDuration).OnComplete(() =>
+            {
+                SceneManager.LoadScene(sceneName);
+            });
+        }
+        else
+        {
+            // se não tiver CanvasGroup, carrega direto
+            SceneManager.LoadScene(sceneName);
         }
     }
 

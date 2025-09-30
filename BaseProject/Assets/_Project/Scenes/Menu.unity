@@ -487,11 +487,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 12530713051007596, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
       propertyPath: m_text
-      value: Controles
+      value: "Configura\xE7\xF5es"
       objectReference: {fileID: 0}
     - target: {fileID: 2419661999261436930, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
       propertyPath: m_Name
       value: Botao_Menu (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510710432430599690, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5627391759266740455, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
       propertyPath: m_Pivot.x
@@ -575,8 +579,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6370443536456911262, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
       propertyPath: m_Name
-      value: controles_txt
+      value: configuracoes_txt
       objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneName
+      value: Configuracoes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 26a74a33180fdf649b1eaba5d6acbbbd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1076,6 +1088,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneName
+      value: SampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
