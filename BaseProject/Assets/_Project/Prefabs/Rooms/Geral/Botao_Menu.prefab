@@ -94,6 +94,12 @@ MonoBehaviour:
   normalSize: 1
   jumpHeight: 15
   jumpForce: 3
+  onClickSounds:
+  - {fileID: 8300000, guid: 28551d9853649644388d4a4f29415af5, type: 3}
+  - {fileID: 8300000, guid: e10f0a1a1e6adfe45ab3f077c96a924f, type: 3}
+  onHoverSound: {fileID: 8300000, guid: 60c00f638999a6c4481cba8654ee41d6, type: 3}
+  sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+  sceneName: SampleScene
 --- !u!1 &6370443536456911262
 GameObject:
   m_ObjectHideFlags: 0

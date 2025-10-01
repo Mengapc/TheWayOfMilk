@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.GraphView;
+
 
 #if UNITY_EDITOR
 using UnityEditor; // para SceneAsset
@@ -17,7 +19,11 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] float jumpHeight = 1f;
     [SerializeField] float jumpForce = 1f;
 
-    public Action OnClickAction; // ação customizável (fallback)
+    [SerializeField] private AudioClip[] onClickSounds;
+    [SerializeField] private AudioClip onHoverSound;
+
+
+    public Action OnClickAction;
 
     // ----- Scene selection (arrastar a cena aqui no Inspector) -----
 #if UNITY_EDITOR
@@ -49,6 +55,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (MenuManager.Instance != null)
             MenuManager.Instance.FocusButton(this);
+        SoundFXManager.instance.PlaySoundFXClip(onHoverSound, transform, 1f);
         Focus();
     }
 
@@ -59,6 +66,8 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        SoundFXManager.instance.PlayRandomSoundFXClip(onClickSounds, transform, 1f);
+        JumpEffect();
         // Prioriza cena configurada (se houver)
         if (!string.IsNullOrEmpty(sceneName))
         {
