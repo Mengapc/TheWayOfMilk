@@ -50,6 +50,7 @@ public class LightControler : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float percentage = elapsedTime / duration;
+            //INVERTED CURVE
             lightToControl.intensity = (1 - intensityCurve.Evaluate(percentage)) * initialIntensity + Random.Range(-flacker, flacker);
             yield return null;
         }
