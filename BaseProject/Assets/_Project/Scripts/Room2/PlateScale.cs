@@ -10,7 +10,7 @@ public class PlateScale : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            scaleManager
+            // scaleManager
         }
     }
     private void OnTriggerExit(Collider other)
