@@ -149,6 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08651b301dbb6b84a9ee9ee7ee640243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  rb: {fileID: 0}
+  roomIdentifier: 1
+  ballPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   resetavel: 1
   weight: 1
   color: {r: 0, g: 0, b: 0, a: 0}
