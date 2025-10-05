@@ -1,16 +1,28 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
+
+
+public enum RoomIdentifier
+{
+    Sala1,
+    Sala2,
+    Sala3
+}
 [RequireComponent(typeof(Rigidbody))]
 public class BallController : MonoBehaviour
 {
     [Header("Configurações Gerais da Bola")]
-    private Vector3 initialPosition; // Não precisa ser serializado se for pego no Awake
-    private Quaternion initialRotation; // Não precisa ser serializado se for pego no Awake
-    private Rigidbody rb;
+    [SerializeField] private Vector3 initialPosition;
+    [SerializeField] private Quaternion initialRotation;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] public RoomIdentifier roomIdentifier;
 
-    [Header("Propriedades da Bola")]
+    [Header("Propriedades da Bola Sala 1")]
+    [SerializeField] public GameObject ballPrefab;
+    [SerializeField] public Transform spawnPoint;
+
+    [Header("Propriedades da Bola Sala 2")]
     [SerializeField] public bool resetavel = true;
     [SerializeField] public int weight = 1;
     [SerializeField] private Color color;
@@ -24,12 +36,10 @@ public class BallController : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.rotation;
     }
-
     void Start()
     {
         InitiateBall();
     }
-
     private void InitiateBall()
     {
         // Esta lógica de inicialização está perfeita e não precisa mudar.
@@ -53,7 +63,6 @@ public class BallController : MonoBehaviour
             }
         }
     }
-
     public void ResetPosition()
     {
         rb.linearVelocity = Vector3.zero; // Corrigido de linearVelocity
@@ -64,8 +73,16 @@ public class BallController : MonoBehaviour
         transform.rotation = initialRotation;
     }
 
-    // MUDANÇA 3: O método GenerationNewBall() foi removido completamente.
-    // A responsabilidade de criar bolas agora é 100% do SpanwBalls.
+    public void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
 
-    public void DestroyBall() => Destroy(gameObject);
+    public void OnDestroy()
+    {
+        if (roomIdentifier == RoomIdentifier.Sala1)
+        {
+            Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
+        }
+    }
 }
