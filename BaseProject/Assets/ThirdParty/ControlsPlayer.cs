@@ -62,6 +62,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Painel_Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""33b63d2f-cd13-40f3-86b7-55283f6c6c33"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,17 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Painel_Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0808144d-714d-4470-bdde-a466fa46f4cc"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Painel_Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -833,6 +853,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Close = m_Player.FindAction("Close", throwIfNotFound: true);
         m_Player_Painel_Interact = m_Player.FindAction("Painel_Interact", throwIfNotFound: true);
+        m_Player_Painel_Reset = m_Player.FindAction("Painel_Reset", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -921,6 +942,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Close;
     private readonly InputAction m_Player_Painel_Interact;
+    private readonly InputAction m_Player_Painel_Reset;
     public struct PlayerActions
     {
         private @ControlsPlayer m_Wrapper;
@@ -929,6 +951,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Close => m_Wrapper.m_Player_Close;
         public InputAction @Painel_Interact => m_Wrapper.m_Player_Painel_Interact;
+        public InputAction @Painel_Reset => m_Wrapper.m_Player_Painel_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -950,6 +973,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Painel_Interact.started += instance.OnPainel_Interact;
             @Painel_Interact.performed += instance.OnPainel_Interact;
             @Painel_Interact.canceled += instance.OnPainel_Interact;
+            @Painel_Reset.started += instance.OnPainel_Reset;
+            @Painel_Reset.performed += instance.OnPainel_Reset;
+            @Painel_Reset.canceled += instance.OnPainel_Reset;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -966,6 +992,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Painel_Interact.started -= instance.OnPainel_Interact;
             @Painel_Interact.performed -= instance.OnPainel_Interact;
             @Painel_Interact.canceled -= instance.OnPainel_Interact;
+            @Painel_Reset.started -= instance.OnPainel_Reset;
+            @Painel_Reset.performed -= instance.OnPainel_Reset;
+            @Painel_Reset.canceled -= instance.OnPainel_Reset;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1206,6 +1235,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnClose(InputAction.CallbackContext context);
         void OnPainel_Interact(InputAction.CallbackContext context);
+        void OnPainel_Reset(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

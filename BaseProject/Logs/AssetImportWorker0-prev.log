@@ -15,7 +15,7 @@ D:/Trabalhos/TheWayOfMilk/BaseProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53919
+56443
 -job-worker-count
 5
 -background-job-worker-count
@@ -59,12 +59,12 @@ D:/Trabalhos/TheWayOfMilk/BaseProject
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [16828]  Target information:
+Player connection [22072]  Target information:
 
-Player connection [16828]  * "[IP] 192.168.15.6 [Port] 0 [Flags] 2 [Guid] 552361119 [EditorId] 552361119 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AITJD1L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [22072]  * "[IP] 192.168.15.11 [Port] 0 [Flags] 2 [Guid] 1929053164 [EditorId] 1929053164 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AITJD1L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [16828] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [16828] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [22072] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [22072] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 1.89 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 7.41 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.35f1 (9a3bc604008a)
 [Subsystems] Discovering subsystems at path C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/Resources/UnitySubsystems
@@ -92,45 +92,45 @@ Initialize mono
 Mono path[0] = 'C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56304
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Unity/Unity.ver/Installs/6000.0.35f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004712 seconds.
-- Loaded All Assemblies, in  0.416 seconds
+Registered in 0.007746 seconds.
+- Loaded All Assemblies, in  0.485 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.344 seconds
-Domain Reload Profiling: 757ms
-	BeginReloadAssembly (148ms)
+- Finished resetting the current domain, in  0.346 seconds
+Domain Reload Profiling: 828ms
+	BeginReloadAssembly (216ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (40ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (50ms)
-	LoadAllAssembliesAndSetupDomain (165ms)
-		LoadAssemblies (145ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (55ms)
+	LoadAllAssembliesAndSetupDomain (161ms)
+		LoadAssemblies (211ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (161ms)
-			TypeCache.Refresh (160ms)
-				TypeCache.ScanAssembly (144ms)
+		AnalyzeDomain (157ms)
+			TypeCache.Refresh (155ms)
+				TypeCache.ScanAssembly (143ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (345ms)
+	FinalizeReload (346ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (308ms)
+		SetupLoadedEditorAssemblies (295ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (29ms)
 			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (57ms)
-			ProcessInitializeOnLoadAttributes (158ms)
-			ProcessInitializeOnLoadMethodAttributes (58ms)
+			BeforeProcessingInitializeOnLoad (54ms)
+			ProcessInitializeOnLoadAttributes (151ms)
+			ProcessInitializeOnLoadMethodAttributes (55ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -142,11 +142,11 @@ Import Worker Mode flag is 0x00
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.966 seconds
+- Loaded All Assemblies, in  1.222 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 0.86 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.99 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
@@ -155,76 +155,148 @@ Package Manager log level set to [2]
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.861 seconds
-Domain Reload Profiling: 1825ms
-	BeginReloadAssembly (209ms)
+- Finished resetting the current domain, in  0.962 seconds
+Domain Reload Profiling: 2182ms
+	BeginReloadAssembly (208ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (42ms)
-	RebuildCommonClasses (36ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (44ms)
-	LoadAllAssembliesAndSetupDomain (664ms)
-		LoadAssemblies (533ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (909ms)
+		LoadAssemblies (739ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (258ms)
-			TypeCache.Refresh (191ms)
-				TypeCache.ScanAssembly (176ms)
-			BuildScriptInfoCaches (49ms)
-			ResolveRequiredComponents (14ms)
-	FinalizeReload (862ms)
+		AnalyzeDomain (288ms)
+			TypeCache.Refresh (213ms)
+				TypeCache.ScanAssembly (193ms)
+			BuildScriptInfoCaches (59ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (963ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (705ms)
+		SetupLoadedEditorAssemblies (755ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (3ms)
 			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (172ms)
-			ProcessInitializeOnLoadAttributes (441ms)
-			ProcessInitializeOnLoadMethodAttributes (78ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			BeforeProcessingInitializeOnLoad (184ms)
+			ProcessInitializeOnLoadAttributes (459ms)
+			ProcessInitializeOnLoadMethodAttributes (97ms)
+			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.31 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.36 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 214 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6544 unused Assets / (4.7 MB). Loaded Objects now: 7250.
-Memory consumption went from 163.7 MB to 159.0 MB.
-Total: 11.680300 ms (FindLiveObjects: 0.821700 ms CreateObjectMapping: 0.962900 ms MarkObjects: 6.803000 ms  DeleteObjects: 3.091300 ms)
+Unloading 6544 unused Assets / (4.6 MB). Loaded Objects now: 7250.
+Memory consumption went from 163.6 MB to 159.0 MB.
+Total: 10.811600 ms (FindLiveObjects: 1.396700 ms CreateObjectMapping: 0.912900 ms MarkObjects: 5.887900 ms  DeleteObjects: 2.612600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6468.446306 seconds.
+  Time since last request: 2154.205646 seconds.
   path: Assets/_Project/Prefabs/Rooms/Room 3/TubesPuzzle.prefab
   artifactKey: Guid(07d37ac4c373d004aac01dd3ad7071eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Project/Prefabs/Rooms/Room 3/TubesPuzzle.prefab using Guid(07d37ac4c373d004aac01dd3ad7071eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c01db0d29a8c3c1cd5a3e5a0f293d978') in 0.5163259 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 354
+Start importing Assets/_Project/Prefabs/Rooms/Room 3/TubesPuzzle.prefab using Guid(07d37ac4c373d004aac01dd3ad7071eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b431f059a2185987aa77a08962b2bf52') in 0.5053923 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 364
 
 ========================================================================
 Received Import Request.
-  Time since last request: 59.600630 seconds.
-  path: Assets/_Project/Scripts/Room3/TubeController.cs
-  artifactKey: Guid(47701387a6e4b3a4d9fe5e350e33419e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Project/Scripts/Room3/TubeController.cs using Guid(47701387a6e4b3a4d9fe5e350e33419e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '11265d8720df8df8ce91cd1be0a62746') in 0.0006978 seconds
+  Time since last request: 426.912065 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Room 1/ElevadorSala1_2.prefab
+  artifactKey: Guid(7cee964ca6391fc45a4844081aac19ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Room 1/ElevadorSala1_2.prefab using Guid(7cee964ca6391fc45a4844081aac19ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '98f6e6cec5be1521074125b3cb4fe482') in 0.0276831 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 40
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.289342 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab
+  artifactKey: Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab using Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e7014cda550a09153638febc0d7ef0c6') in 0.0205341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.451266 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab
+  artifactKey: Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab using Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f045456268722f1d4b777a2da0f152a4') in 0.0124594 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.345713 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab
+  artifactKey: Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab using Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '373d927e41b34e9fe39c3c7d8d0ead14') in 0.0214116 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 64
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.572477 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab
+  artifactKey: Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Elevador 1.prefab using Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '143550aea7e633c5995f49cd17b69061') in 0.0120479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 64
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.236614 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Elevador.prefab
+  artifactKey: Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Elevador.prefab using Guid(3199f98a24d9bdf4d98033b70ac95f9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b300f7417ed7ac6c8dcd8956d6f902d') in 0.0192777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 64
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.674302 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Room 1/Sala 1.prefab
+  artifactKey: Guid(19b3b80092b89bf40822212deacd1259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Room 1/Sala 1.prefab using Guid(19b3b80092b89bf40822212deacd1259) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c45429a1f327578c709c13f8d1651488') in 0.0353292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 442
+
+========================================================================
+Received Import Request.
+  Time since last request: 625.447202 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Room 2/BallSala2.prefab
+  artifactKey: Guid(337bb1d606db1a448904dc6b91b8d70d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Room 2/BallSala2.prefab using Guid(337bb1d606db1a448904dc6b91b8d70d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '52f6b60e583489219443796ea89e7df7') in 0.0228571 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 260.065822 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Player.prefab
+  artifactKey: Guid(4072b139eb328404b9791fb2834511e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Player.prefab using Guid(4072b139eb328404b9791fb2834511e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0d16d8a453635727be5bcd34d57cca6e') in 0.0204015 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.626888 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Cylinder.prefab
+  artifactKey: Guid(14cd98f80bca8394089d2acd1bae165f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Cylinder.prefab using Guid(14cd98f80bca8394089d2acd1bae165f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'de8a2957c17050b64c9b5bb93cb30caa') in 0.0166632 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.049705 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Cylinder.prefab
+  artifactKey: Guid(14cd98f80bca8394089d2acd1bae165f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Cylinder.prefab using Guid(14cd98f80bca8394089d2acd1bae165f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '95f5a250cdbeab95c926b3855cb4442f') in 0.0185878 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.466273 seconds.
+  path: Assets/_Project/Prefabs/Rooms/Geral/Controls
+  artifactKey: Guid(1d137023d8f057342a628b54780f8d89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Project/Prefabs/Rooms/Geral/Controls using Guid(1d137023d8f057342a628b54780f8d89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf9d0229e14bc80379d0b7ca5903461d') in 0.0007061 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.657190 seconds.
-  path: Assets/_Project/Scripts/UI
-  artifactKey: Guid(97aecae1aaa0052429f3bc4de10986b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Project/Scripts/UI using Guid(97aecae1aaa0052429f3bc4de10986b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b1932c0b255e77c959dfff6c7f4d7867') in 0.0005305 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 552.752617 seconds.
-  path: Assets/_Project/Prefabs/Rooms/Room 1/PuzzlePlaca.prefab
-  artifactKey: Guid(f512c2c23a504b54bad9f7d5a85d7a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Project/Prefabs/Rooms/Room 1/PuzzlePlaca.prefab using Guid(f512c2c23a504b54bad9f7d5a85d7a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '50057005cab8a641872b8c6a91fea6ba') in 0.039545 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 398
 
