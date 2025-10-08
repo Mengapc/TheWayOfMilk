@@ -85,9 +85,4 @@ public class BallController : MonoBehaviour
             Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
         }
     }
-
-    public void OnDestroy()
-    {
-        InstatiateBall();
-    }
 }

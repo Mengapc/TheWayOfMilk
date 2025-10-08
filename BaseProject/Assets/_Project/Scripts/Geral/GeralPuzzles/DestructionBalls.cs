@@ -18,7 +18,7 @@ public class DestructionBalls : MonoBehaviour
 
             if (ballController.roomIdentifier == RoomIdentifier.Sala1)
             {
-                Instantiate(ballController.ballPrefab, ballController.spawnPoint.position, Quaternion.identity);
+                ballController.InstatiateBall();
             }
             if (ballController.roomIdentifier == RoomIdentifier.Sala2)
             {
