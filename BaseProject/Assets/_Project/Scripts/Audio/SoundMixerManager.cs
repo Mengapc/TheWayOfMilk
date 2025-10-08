@@ -5,18 +5,22 @@ public class SoundMixerManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
 
+    // O parâmetro 'level' aqui vem direto do Slider (valor entre -80 e 0)
     public void SetMasterVolume(float level)
     {
-        audioMixer.SetFloat("masterVolume", Mathf.Log10(level) * 20f);
+        // Passa o valor de decibéis diretamente para o mixer
+        audioMixer.SetFloat("masterVolume", level);
     }
 
     public void SetSoundFXVolume(float level)
     {
-        audioMixer.SetFloat("soundFXVolume", Mathf.Log10(level) * 20f);
+        // Passa o valor de decibéis diretamente para o mixer
+        audioMixer.SetFloat("soundFXVolume", level);
     }
 
     public void SetMusicVolume(float level)
     {
-        audioMixer.SetFloat("musicVolume", Mathf.Log10(level) * 20f);
+        // Passa o valor de decibéis diretamente para o mixer
+        audioMixer.SetFloat("musicVolume", level);
     }
 }
