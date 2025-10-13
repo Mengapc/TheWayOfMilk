@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 using UnityEngine.InputSystem;
 
 public class Elevator : MonoBehaviour
@@ -13,7 +14,11 @@ public class Elevator : MonoBehaviour
     [SerializeField] private Transform pontoSegundoAndar;
     [Tooltip("Transform do jogador.")]
     [SerializeField] private Transform player;
-     [Space]
+    [Space]
+    [Header("Câmeras")]
+    [SerializeField] private CinemachineCamera mainCamera;
+    [SerializeField] private CinemachineClearShot elevatorCamera;
+    [Space]
     [Header("Váriaveis")]
     [Tooltip("Curva de movimento do elevador")]
     [SerializeField] private AnimationCurve movementAanimation;
@@ -21,8 +26,9 @@ public class Elevator : MonoBehaviour
     [Range(1f, 5f)] 
     [SerializeField] private float durationAnimation = 2f;
     [Range(0f, 1f)]
-    [SerializeField] private float porcentagemDistancia; 
+    [SerializeField] private float porcentagemDistancia;
 
+    
     private bool movendo = false;
     private bool primeiroAndar = true;
     public bool colliderPlayer = false;
@@ -50,6 +56,7 @@ public class Elevator : MonoBehaviour
 
     private IEnumerator MoverCabine(Vector3 startPos, Vector3 finalPos)
     {
+        SwitchToElevatorCamera();
         movendo = true;
         float tempoDecorrido = 0f;
         player.SetParent(cabine);
@@ -70,6 +77,7 @@ public class Elevator : MonoBehaviour
         player.SetParent(null);
         ChangeFloor(); 
         movendo = false;
+        SwitchToMainCamera();
     }
 
 
@@ -77,5 +85,35 @@ public class Elevator : MonoBehaviour
     {
         // Simplesmente inverte o valor booleano
         primeiroAndar = !primeiroAndar;
+    }
+
+    //Camera do elevador
+
+    private void SwitchToElevatorCamera()
+    {
+        if (mainCamera != null && elevatorCamera != null)
+        {
+            Debug.Log("Trocando para a câmera do elevador.");
+            mainCamera.gameObject.SetActive(false);
+            elevatorCamera.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Referências de câmera não configuradas no Inspector.");
+        }
+    }
+
+    private void SwitchToMainCamera()
+    {
+        if (mainCamera != null && elevatorCamera != null)
+        {
+            Debug.Log("Voltando para a câmera principal.");
+            elevatorCamera.gameObject.SetActive(false);
+            mainCamera.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Referências de câmera não configuradas no Inspector.");
+        }
     }
 }

@@ -12,14 +12,11 @@ public class Movement : MonoBehaviour
     [Header("Configurações de Física.")]
     [SerializeField] private float gravityValue = -9.81f;
 
-    
     private Vector3 inputDirection;
-    private Vector3 playerVelocity; 
+    private Vector3 playerVelocity;
     private CharacterController characterController;
     private ObjectGrabbing objectGrabbing;
 
-
-    private bool podeMover = true;
 
     private void Awake()
     {
@@ -35,12 +32,6 @@ public class Movement : MonoBehaviour
             playerVelocity.y = -2f;
         }
 
-        if (!podeMover)
-        {
-            characterController.Move(playerVelocity * Time.deltaTime);
-            return;
-        }
-
         Move();
         Rotate();
 
@@ -48,24 +39,11 @@ public class Movement : MonoBehaviour
         characterController.Move(playerVelocity * Time.deltaTime);
     }
 
-    public void ToggleMovement(bool enable)
-    {
-        podeMover = enable;
-        if (!enable)
-        {
-            inputDirection = Vector3.zero;
-        }
-        
-    }
+
 
     public void DirectionMovoment(InputAction.CallbackContext context)
     {
-        if (!podeMover)
-        {
-            inputDirection = Vector3.zero;
-            return;
-        }
-        ;
+
 
         Vector2 input = context.ReadValue<Vector2>();
         inputDirection = new Vector3(input.x, 0, input.y);
@@ -91,4 +69,3 @@ public class Movement : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
     }
 }
-

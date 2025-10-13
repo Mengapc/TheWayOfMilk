@@ -66,6 +66,142 @@ Aqui você vai encontrar:
 | Render Pipeline | Universal Render Pipeline (URP) |
 | Git | 2.47.1 |
 | Git LFS | Instalado (`git lfs install`) |
+| DOTWEEN | 1.2.765 |
+| CineMachine | 3.1.4 |
+
+### Passo a passo
+
+1. Clone o repositório:
+   ```
+   git clone https://github.com/Mengapc/TheWayOfMilk.git
+   cd TheWayOfMilk
+   git lfs install
+   git lfs pull
+
+2. Abra o projeto no Unity (6000.0.35f1)
+
+3. Cena inicial:
+
+       · Assets/Scenes/Menu.unity
+
+4. Recomendado: build manual via File > Build Settings
+
+# Documentação - Links, tutoriais, etc.
+
+ ## 💻️ Comandos do git
+
+### 🔹 Inicializar repositório
+ ```
+ git init
+ ```
+### 🔹 Adicionar arquivos para commit
+ ```
+ git add .
+ ```
+### 🔹 Fazer commit com mensagem
+ ```
+ git commit -m "Nome_commit"
+ ```
+### 🔹 Enviar mudanças para o repositório remoto (main)
+ ```
+ git push -u origin main
+ ```
+### Após a primeira vez, você pode usar apenas:
+ ```
+ git push
+ ```
+### 🔹 Atualizar sua branch com as mudanças da main (do remoto)
+ ```
+ git pull origin main
+ ```
+### Após a primeira vez, você pode usar apenas:
+ ```
+ git pull
+ ```
+### 🔹 Trocar de branch
+ ```
+ git checkout <nome_da_branch>
+ ```
+ ### 🔹 Junta as mudanças da sua branch na main
+ ```
+ git merge <nome_da_branch>
+ ```
+Exemplo: Se estiver na main e rodar git merge minha-branch, as mudanças da minha-branch serão aplicadas na main.
+
+🧹 Remover arquivos já versionados e ignorá-los corretamente
+Se você adicionou pastas como Logs ou UserSettings no .gitignore depois que elas já estavam sendo versionadas, siga o passo-a-passo abaixo para limpar o repositório:
+
+### 🔹 1. Remover os arquivos do versionamento, mas manter no seu computador
+ ```
+git rm --cached -r BaseProject/Logs/
+git rm --cached -r BaseProject/UserSettings/
+ ```
+### 🔹 2. Fazer commit da remoção
+ ```
+git commit -m "Removendo arquivos de Logs e UserSettings do versionamento"
+ ```
+### 🔹 3. Enviar as mudanças para o repositório remoto
+ ```
+git push
+ ```
+### 🔹 4. Limpar arquivos não monitorados do seu diretório local
+Use este comando para remover arquivos não rastreados que ainda estão no seu computador, evitando conflitos futuros ao mudar de branch.
+ ```
+git clean -fd
+ ```
+
+# 📜 Organização do Código
+
+## Scripts principais
+
+| Script                       | Função                                           |
+| ---------------------------- | ------------------------------------------------ |
+| MenuManager.cs | Gerencia os efeitos e fluxo das interações com o menu.         |
+| Elevator.cs  | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO |
+| MoveBox.cs             | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO  |
+| MovementScale.cs               | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO                 |
+| TubesPuzzleManager.cs           | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO              |
+
+### Lógicas aplicadas
+### TEMOS QUE ATUALIZAR ESSA PORRA AQUI
+
+· Armas montadas via Struct com 9 arrays:
+
+      · Tipo (espada, cajado, martelo)
+      · Gema (vento, água, galáxia)
+      · Prefabs específicos de ataque (Ex: Martelo_Vento)
+
+Sistema de mapa procedural:
+
+    · Armazena os tiles instanciados num Dictionary<Vector3, GameObject>
+    · Usa Clear() ao fim da fase para resetar o mapa
+
+Sistema de habilidades:
+
+    · SkillsManager armazena um dicionário de funções por tipo de arma
+    · Ativação dinâmica conforme ataque executado
+
+# 🎮 Build & Execução
+
+## Plataformas
+
+### 🖥️ Windows (.exe)
+
+### 🌐 WebGL (previsto para Itch.io)
+
+## Passos para build
+
+1. File > Build Settings
+
+2. Selecione a plataforma desejada
+
+3. Clique em Add Open Scenes e inclua testeprocedura.unity
+
+4. Configure se quiser em Player Settings
+
+5. Clique em Build
+
+_Não há configurações personalizadas no Player Settings._
 
 ## Introdução ao mundo
 
@@ -79,4 +215,80 @@ Em 1942, sua expertise chamou a atenção da TupperWare. A empresa, famosa por s
 
 Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, transformando-a em um esconderijo para reunir o máximo de informações sobre as vacas e mapear os problemas que a TupperWare (agora LactoNuke) estava causando. Ele documentou o desaparecimento das populações de bovinos, a ascensão da Lactrópolis - uma sociedade construída sobre o dinheiro do leite nuclear - e os eventos catastróficos que se seguiam. Por anos, ele tentou avisar amigos e conhecidos com poder, mas ninguém se importava com suas informações. Agora, com a raça à beira da extinção, Arny escutou um rumor que reacendeu sua esperança: a lenda da vaca Xuxa, a última de sua espécie, protegida em uma fazenda-labirinto por um fazendeiro com enigmas indecifráveis. Arny decide então se aventurar, com o objetivo de encontrar a lendária vaca e, talvez, descobrir uma forma de salvar a espécie da aniquilação total.
 
-# Pesquisas
+# 🚧 Roadmap & Problemas Conhecidos
+
+## Funcionalidades
+
+| Status | Item                | Descrição                                    |
+| ------ | ------------------- | -------------------------------------------- |
+| ✅      | Altar de Sacrifício | Mecânica principal que ajusta a dificuldade. |
+| ✅      | Geração Procedural  | Mapas e armas com combinações únicas.        |
+| ⚙️     | Mecânicas de Armas  | Algumas feitas, outras planejadas.           |
+| 🔜     | Loja 2x1            | Troca de dois itens por um melhor.           |
+| 🔜     | IA Variada          | Novos padrões de inimigos.                   |
+| 🔜     | Bossfights          | Temáticos, como “medo do escuro”.            |
+| 🔜     | Estéticas de Fase   | Ex: fase com visibilidade reduzida.          |
+
+## Bugs Conhecidos
+
+| Área      | Problema            | Descrição                         |
+| --------- | ------------------- | --------------------------------- |
+| Knockback | Força instável      | Pode jogar inimigos fora do mapa. |
+| Player    | Rotação na morte    | Personagem revive deitado.        |
+| Dash      | Player fora do mapa | Há respawn, mas precisa melhoria. |
+
+## Organização
+
+· Código-fonte: GitHub
+
+![25231](https://github.com/user-attachments/assets/404d27a5-61c0-4625-bbff-45b3bf03d08c)
+
+· Tarefas: Hack n Plan
+
+![images](https://github.com/user-attachments/assets/cb43d901-921f-4dbd-a7a6-b34029d296b2)
+
+## 📚️📚️ Links de Auxílio
+
+ | Aulas | Resumos |
+ |------|---------|
+ | Git LFS em Unity | - [Link](https://www.youtube.com/watch?v=_ewoEQFEURg) |
+ | Arquivos base git | - [Link](https://www.patreon.com/posts/63076977) |
+ | Unity - Collaborating with version control| - [Link](https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3) |
+ | Substituir arquivos locais | - [Link](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files) |
+ 
+
+
+ - [Digital Innovation One](https://web.dio.me/home).https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3
+ - [Documentação Git](https://git-scm.com/doc)
+ - [Documentação GitHub](https://docs.github.com/)
+ - [Github Material de Apoio](https://github.com/elidianaandrade/dio-curso-git-github)
+ - [Apresentação Versionamento de Código](https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EYjkgVZuUv5HsVgJUEPv1_oB_QWs8MFBY_PBQ2UAtLqucg?rtime=FOF68ttW3Ug)
+
+### 🐛🐛 Resolução de bugs
+
+ - [Git branches bug](https://graphite.dev/guides/git-branch-not-showing-all-branches).
+
+ ## 🎬️🎬️ Vídeos de Auxílio
+ 
+ ### 1 - [Mapa Procedural 2D](https://www.youtube.com/watch?v=-QOCX6SVFsk&list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v&pp=0gcJCV8EOCosWNin)
+ 
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=-QOCX6SVFsk&list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v&pp=0gcJCV8EOCosWNin)
+ 
+ ### 2 - [CineMachine](https://www.youtube.com/watch?v=wB-EQH7jvFY)
+ 
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=wB-EQH7jvFY)
+
+
+ 
+ ## 🔎 Inspirações e Referências
+
+ | Jogos | Inspirou | Link |
+ |------|---------| -------|
+ | Bulb Boy | Inspiração | - [Link](https://store.steampowered.com/app/390290/Bulb_Boy/ ) |
+ | Elden Ring | Inimigos | - [Link](https://store.steampowered.com/app/1245620/ELDEN_RING/) |
+ | Little Nightmares | Player | - [Link](https://store.steampowered.com/app/424840/Little_Nightmares/ ) |
+ | HADES | Gameplay | - [Link](https://store.steampowered.com/app/1145360/Hades/) |
+
+![littlenightmares](https://github.com/user-attachments/assets/46bd2138-b2b2-4160-b49f-3a192773f952)
+![eldenmid](https://github.com/user-attachments/assets/12ff3fe5-0e67-4114-94c0-3a3953198cf0)
+![Captura de tela de 2025-06-25 12-09-04](https://github.com/user-attachments/assets/8030ae11-787e-4009-866f-e0796cab5d8e)

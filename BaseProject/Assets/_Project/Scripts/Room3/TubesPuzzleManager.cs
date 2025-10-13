@@ -12,8 +12,9 @@ public class TubesPuzzleManager : MonoBehaviour
     [Tooltip("Lista de tubos no puzzle e a quantidade de bolas necessárias em cada um")]
     [SerializeField] private List<Tubes> tubes;
     [SerializeField] private List<GameObject> balls;
+    [SerializeField] private BallController bc;
 
-    private bool isPlayerNear = false;
+    [SerializeField] private bool isPlayerNear = false;
     
     private BallController[] allBalls;
 
@@ -45,7 +46,7 @@ public class TubesPuzzleManager : MonoBehaviour
     }
 
     //Funções para o reset do puzzle
-    public void OnInteract(InputAction.CallbackContext context)
+    public void ResetPuzzle(InputAction.CallbackContext context)
     {
         if (context.performed && isPlayerNear)
         {
@@ -59,9 +60,10 @@ public class TubesPuzzleManager : MonoBehaviour
                     BallController ballController = ballObject.GetComponent<BallController>();
                     if (ballController != null)
                     {
-                        ballController.ResetPosition();
+                        ballController.Destroy();
                     }
                 }
+                
             }
 
             // 2. Resetar a contagem de bolas em cada tubo (PASSO ADICIONADO)
@@ -79,6 +81,15 @@ public class TubesPuzzleManager : MonoBehaviour
 
             // 3. Opcional, mas recomendado: verificar o estado do puzzle após o reset
             CheckPuzzleCompletion();
+            bc.InstatiateBall();
+        }
+    }
+
+    public void ResetBall(InputAction.CallbackContext context)
+    {
+        if (context.performed && isPlayerNear)
+        {
+            bc.InstatiateBall();
         }
     }
 
