@@ -77,7 +77,7 @@ Aqui você vai encontrar:
    cd TheWayOfMilk
    git lfs install
    git lfs pull
-
+   ```
 2. Abra o projeto no Unity (6000.0.35f1)
 
 3. Cena inicial:
@@ -171,12 +171,12 @@ git clean -fd
       · Gema (vento, água, galáxia)
       · Prefabs específicos de ataque (Ex: Martelo_Vento)
 
-Sistema de mapa procedural:
+· Sistema de mapa procedural:
 
     · Armazena os tiles instanciados num Dictionary<Vector3, GameObject>
     · Usa Clear() ao fim da fase para resetar o mapa
 
-Sistema de habilidades:
+· Sistema de habilidades:
 
     · SkillsManager armazena um dicionário de funções por tipo de arma
     · Ativação dinâmica conforme ataque executado
@@ -254,9 +254,6 @@ Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, t
  | Git LFS em Unity | - [Link](https://www.youtube.com/watch?v=_ewoEQFEURg) |
  | Arquivos base git | - [Link](https://www.patreon.com/posts/63076977) |
  | Unity - Collaborating with version control| - [Link](https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3) |
- | Substituir arquivos locais | - [Link](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files) |
- 
-
 
  - [Digital Innovation One](https://web.dio.me/home).https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3
  - [Documentação Git](https://git-scm.com/doc)
@@ -266,13 +263,12 @@ Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, t
 
 ### 🐛🐛 Resolução de bugs
 
- - [Git branches bug](https://graphite.dev/guides/git-branch-not-showing-all-branches).
 
  ## 🎬️🎬️ Vídeos de Auxílio
  
- ### 1 - [Mapa Procedural 2D](https://www.youtube.com/watch?v=-QOCX6SVFsk&list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v&pp=0gcJCV8EOCosWNin)
+ ### 1 - [How To Add Sound Effects the RIGHT Way | Unity Tutorial](https://www.youtube.com/watch?v=DU7cgVsU2rM&t=87s)
  
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=-QOCX6SVFsk&list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v&pp=0gcJCV8EOCosWNin)
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=DU7cgVsU2rM&t=87s)
  
  ### 2 - [CineMachine](https://www.youtube.com/watch?v=wB-EQH7jvFY)
  
@@ -283,12 +279,9 @@ Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, t
  ## 🔎 Inspirações e Referências
 
  | Jogos | Inspirou | Link |
- |------|---------| -------|
- | Bulb Boy | Inspiração | - [Link](https://store.steampowered.com/app/390290/Bulb_Boy/ ) |
- | Elden Ring | Inimigos | - [Link](https://store.steampowered.com/app/1245620/ELDEN_RING/) |
- | Little Nightmares | Player | - [Link](https://store.steampowered.com/app/424840/Little_Nightmares/ ) |
- | HADES | Gameplay | - [Link](https://store.steampowered.com/app/1145360/Hades/) |
+ | ----------------- | ------------------- | ------------------------------------------------------------------------------ |
+ |   Série Fallout   |       Universo      | - [Link](https://store.steampowered.com/bundle/3782/Fallout_Franchise_Bundle/) |
+ | Little Nightmares | 2D com Profundidade | - [Link](https://store.steampowered.com/app/424840/Little_Nightmares/ )        |
 
+![fallout-resume](https://github.com/user-attachments/assets/b6e6eddd-2631-4c4e-8358-3783d461b3b0)
 ![littlenightmares](https://github.com/user-attachments/assets/46bd2138-b2b2-4160-b49f-3a192773f952)
-![eldenmid](https://github.com/user-attachments/assets/12ff3fe5-0e67-4114-94c0-3a3953198cf0)
-![Captura de tela de 2025-06-25 12-09-04](https://github.com/user-attachments/assets/8030ae11-787e-4009-866f-e0796cab5d8e)
