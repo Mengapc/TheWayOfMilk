@@ -13,9 +13,6 @@ public class TubeController : MonoBehaviour // Remova a herança de PuzzleManager
         // Verifica se o objeto que entrou tem a tag "Ball"
         if (other.CompareTag("Ball"))
         {
-            // Opcional: Se você tiver um BallController, pode verificar o tipo da bola
-            // BallController ball = other.GetComponent<BallController>();
-            // if (ball != null && ball.ballType == this.tubeType) {
 
             currentBallCount++;
             Debug.Log("Bola entrou no tubo ,Total: " + currentBallCount);
@@ -25,7 +22,7 @@ public class TubeController : MonoBehaviour // Remova a herança de PuzzleManager
             {
                 tubesPuzzle.CheckPuzzleCompletion();
             }
-            // }
+            
         }
     }
 
@@ -34,9 +31,6 @@ public class TubeController : MonoBehaviour // Remova a herança de PuzzleManager
         // Verifica se o objeto que saiu tem a tag "Ball"
         if (other.CompareTag("Ball"))
         {
-            // Opcional: Se você tiver um BallController, pode verificar o tipo da bola
-            // BallController ball = other.GetComponent<BallController>();
-            // if (ball != null && ball.ballType == this.tubeType) {
 
             currentBallCount--;
             Debug.Log("Bola saiu do tubo ,Total: " + currentBallCount);
@@ -52,7 +46,7 @@ public class TubeController : MonoBehaviour // Remova a herança de PuzzleManager
             {
                 tubesPuzzle.CheckPuzzleCompletion();
             }
-            // }
+            
         }
     }
 

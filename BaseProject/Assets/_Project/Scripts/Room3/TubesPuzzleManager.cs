@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,10 +14,19 @@ public class TubesPuzzleManager : MonoBehaviour
     [SerializeField] private List<Tubes> tubes;
     [SerializeField] private List<GameObject> balls;
     [SerializeField] private BallController bc;
+    [SerializeField] private ColliderRespanw colliderRespawn;
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private float resetDelay = 2f;
 
     [SerializeField] private bool isPlayerNear = false;
-    
-    private BallController[] allBalls;
+
+    private void Update()
+    {
+        if (colliderRespawn != null  && !colliderRespawn.isBall)
+        {
+            StartCoroutine(ResetBall(resetDelay));
+        }
+    }
 
     // Função para checar se o puzzle foi concluído
     public void CheckPuzzleCompletion()
@@ -81,15 +91,24 @@ public class TubesPuzzleManager : MonoBehaviour
 
             // 3. Opcional, mas recomendado: verificar o estado do puzzle após o reset
             CheckPuzzleCompletion();
-            bc.InstatiateBall();
+            Instantiate(bc.ballPrefab, bc.spawnPoint.position, bc.spawnPoint.rotation);
         }
     }
 
-    public void ResetBall(InputAction.CallbackContext context)
+    private IEnumerator ResetBall(float delay)
     {
-        if (context.performed && isPlayerNear)
+        yield return new WaitForSeconds(delay);
+        GameObject addGameObject = Instantiate(bc.ballPrefab, respawnPoint.position, respawnPoint.rotation);
+        balls.Add(addGameObject);
+        yield return new WaitForSeconds(delay);
+        if (!colliderRespawn.isBall)
         {
-            bc.InstatiateBall();
+            StartCoroutine(ResetBall(delay));
+            yield break;
+        }
+        else
+        {
+            yield break;
         }
     }
 

@@ -77,12 +77,4 @@ public class BallController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
-    public void InstatiateBall()
-    {
-        if (roomIdentifier == RoomIdentifier.Sala1 || roomIdentifier == RoomIdentifier.Sala3)
-        {
-            Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
-        }
-    }
 }
