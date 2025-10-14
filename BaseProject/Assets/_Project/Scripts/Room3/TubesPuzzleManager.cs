@@ -66,14 +66,9 @@ public class TubesPuzzleManager : MonoBehaviour
             foreach (var ballObject in balls)
             {
                 if (ballObject != null)
-                {
-                    BallController ballController = ballObject.GetComponent<BallController>();
-                    if (ballController != null)
-                    {
-                        ballController.Destroy();
-                    }
+                { 
+                    Destroy(ballObject);
                 }
-                
             }
 
             // 2. Resetar a contagem de bolas em cada tubo (PASSO ADICIONADO)
@@ -91,7 +86,7 @@ public class TubesPuzzleManager : MonoBehaviour
 
             // 3. Opcional, mas recomendado: verificar o estado do puzzle após o reset
             CheckPuzzleCompletion();
-            Instantiate(bc.ballPrefab, bc.spawnPoint.position, bc.spawnPoint.rotation);
+            Instantiate(bc.ballPrefab, respawnPoint.position, respawnPoint.rotation);
         }
     }
 

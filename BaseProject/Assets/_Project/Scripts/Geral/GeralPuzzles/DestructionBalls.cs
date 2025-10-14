@@ -9,21 +9,25 @@ public class DestructionBalls : MonoBehaviour
     [SerializeField] private SpanwBalls spanwBalls;
     [Tooltip("Referência ao script BallController para acessar propriedades da bola.")]
     [SerializeField] private BallController ballController;
+ 
     private void OnTriggerEnter(Collider other)
     {
+        ballController = other.GetComponent<BallController>();
         if (other.CompareTag("Ball"))
         {
-            ballController = other.GetComponent<BallController>();
-            ballController.Destroy();
-
+            
+            /* Arrumar para o primeira puzzle
             if (ballController.roomIdentifier == RoomIdentifier.Sala1)
             {
                 Instantiate(ballController.ballPrefab, ballController.spawnPoint.position, ballController.spawnPoint.rotation);
             }
+            */
             if (ballController.roomIdentifier == RoomIdentifier.Sala2)
             {
                 spanwBalls.spawnedBalls--;
             }
+            Destroy(ballController);
+            Destroy(other);
         }
     }
 }

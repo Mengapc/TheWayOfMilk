@@ -132,8 +132,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -149,18 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08651b301dbb6b84a9ee9ee7ee640243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPosition: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 4661948129395947351}
   roomIdentifier: 1
   ballPrefab: {fileID: 379223267286698283, guid: 01ecd563f79e32646ab4686f3a43d471, type: 3}
-  spawnPoint: {fileID: 0}
   resetavel: 1
   weight: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  baseMaterial: {fileID: 0}
-  possibleWeights: 010000000200000003000000
-  possibleColors:
-  - {r: 0, g: 1, b: 0.16816235, a: 0}
-  - {r: 1, g: 0.93442965, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}

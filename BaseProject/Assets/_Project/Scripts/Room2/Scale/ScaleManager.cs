@@ -38,14 +38,6 @@ public class ScaleManager : MonoBehaviour
     [Tooltip("Lista de objetos atualmente na balança (para debug).")]
     [SerializeField] public List<GameObject> objectsOnPlate;
 
-    // --- NOVA LÓGICA DE INICIALIZAÇÃO ---
-    private void Start()
-    {
-        // Esta função irá procurar por todas as bolas na cena
-        // e garantir que a física delas seja ativada.
-        WakeUpAllBalls();
-    }
-
     private void Update()
     {
         if (!isFinalized)
@@ -118,24 +110,6 @@ public class ScaleManager : MonoBehaviour
         armScale.localRotation = Quaternion.Slerp(armScale.localRotation, finalTargetRotation, Time.deltaTime * ajustSpeed);
     }
 
-    private void WakeUpAllBalls()
-    {
-        // Encontra todos os objetos na cena que têm o script BallController.
-        BallController[] allBalls = FindObjectsOfType<BallController>();
-
-        // Passa por cada bola encontrada.
-        foreach (BallController ball in allBalls)
-        {
-            // Tenta pegar o componente Rigidbody da bola.
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                // "Acorda" o Rigidbody, forçando o motor de física a recalculá-lo.
-                rb.WakeUp();
-            }
-        }
-        Debug.Log("Foram acordadas " + allBalls.Length + " bolas na cena.");
-    }
 
     private void OpenDoor()
     {
