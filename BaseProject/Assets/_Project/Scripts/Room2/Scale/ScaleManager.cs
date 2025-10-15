@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class ScaleManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class ScaleManager : MonoBehaviour
     [SerializeField] private float ajustSpeed = 3f;
 
     [Header("Configuração de Peso")]
+    [Tooltip("Peso minimo para finalizar")]
+    [SerializeField] private float minWisghtFinilize = 3;
     [Tooltip("Script da placa esquerda para acessar o peso.")]
     [SerializeField] private PlateScale leftPlateScript;
     [Tooltip("Script da placa direita para acessar o peso.")]
@@ -35,16 +38,10 @@ public class ScaleManager : MonoBehaviour
     [SerializeField] private float leftWeight = 0f;
     [Tooltip("Peso total na placa direita.")]
     [SerializeField] private float rightWeight = 0f;
+    [Tooltip("Script de geração de bolas.")] 
+    [SerializeField] private SpanwBalls spanwBalls;
     [Tooltip("Lista de objetos atualmente na balança (para debug).")]
     [SerializeField] public List<GameObject> objectsOnPlate;
-
-    // --- NOVA LÓGICA DE INICIALIZAÇÃO ---
-    private void Start()
-    {
-        // Esta função irá procurar por todas as bolas na cena
-        // e garantir que a física delas seja ativada.
-        WakeUpAllBalls();
-    }
 
     private void Update()
     {
@@ -73,7 +70,7 @@ public class ScaleManager : MonoBehaviour
 
     private void UpdateScaleState()
     {
-        if (leftWeight == rightWeight && leftWeight > 0 && rightWeight > 0)
+        if (leftWeight == rightWeight && leftWeight > minWisghtFinilize && rightWeight > minWisghtFinilize)
         {
             StartCoroutine(FinalizePuzzleWithDelay(finalizedTime));
         }
@@ -84,6 +81,49 @@ public class ScaleManager : MonoBehaviour
 
     }
 
+    public void ResetPuzzle(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            // *** CORREÇÃO APLICADA AQUI ***
+            // Verificamos se as referências existem antes de usá-las.
+            // Isso evita o erro 'NullReferenceException'.
+
+            if (leftPlateScript != null)
+            {
+                leftPlateScript.weightBall = 0;
+            }
+            if (rightPlateScript != null)
+            {
+                rightPlateScript.weightBall = 0;
+            }
+
+            leftWeight = 0f;
+            rightWeight = 0f;
+
+            // Esta é a linha que estava causando o erro.
+            // A verificação impede que o erro ocorra e avisa sobre o problema.
+            if (spanwBalls != null)
+            {
+                spanwBalls.spawnedBalls = 0;
+            }
+            else
+            {
+                Debug.LogError("A referência para 'SpanwBalls' não foi atribuída no Inspector do ScaleManager!", this.gameObject);
+            }
+
+            foreach (GameObject ball in objectsOnPlate)
+            {
+                // É uma boa prática verificar se o objeto não é nulo antes de destruí-lo.
+                if (ball != null)
+                {
+                    Destroy(ball);
+                }
+            }
+            objectsOnPlate.Clear();
+        }
+    }
+
     private void AjustPositionPlate()
     {
         leftPlate.transform.position = pointLeftPlate.position;
@@ -92,18 +132,18 @@ public class ScaleManager : MonoBehaviour
 
     private void AjustWeight()
     {
-        leftWeight = leftPlateScript.WeightBall;
-        rightWeight = rightPlateScript.WeightBall;
+        leftWeight = leftPlateScript.weightBall;
+        rightWeight = rightPlateScript.weightBall;
     }
 
     private void CombineRotationsAndAjustPlate()
     {
         float targetAngleFromWeight = 0f;
-        if (leftWeight > rightWeight)
+        if (leftWeight < rightWeight)
         {
             targetAngleFromWeight = maxAngleFromWeight;
         }
-        else if (rightWeight > leftWeight)
+        else if (rightWeight < leftWeight)
         {
             targetAngleFromWeight = -maxAngleFromWeight;
         }
@@ -118,29 +158,9 @@ public class ScaleManager : MonoBehaviour
         armScale.localRotation = Quaternion.Slerp(armScale.localRotation, finalTargetRotation, Time.deltaTime * ajustSpeed);
     }
 
-    private void WakeUpAllBalls()
-    {
-        // Encontra todos os objetos na cena que têm o script BallController.
-        BallController[] allBalls = FindObjectsOfType<BallController>();
-
-        // Passa por cada bola encontrada.
-        foreach (BallController ball in allBalls)
-        {
-            // Tenta pegar o componente Rigidbody da bola.
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                // "Acorda" o Rigidbody, forçando o motor de física a recalculá-lo.
-                rb.WakeUp();
-            }
-        }
-        Debug.Log("Foram acordadas " + allBalls.Length + " bolas na cena.");
-    }
-
     private void OpenDoor()
     {
         door.OpenDoor();
     }
-
 }
 

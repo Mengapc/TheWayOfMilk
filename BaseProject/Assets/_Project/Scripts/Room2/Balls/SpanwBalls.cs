@@ -8,7 +8,7 @@ public class SpanwBalls : MonoBehaviour
     [Tooltip("Área onde as bolas serão spawnadas.")]
     [SerializeField] private Collider areaSpanw;
     [Tooltip("Número total de bolas a serem spawnadas.")]
-    [SerializeField] public int numberOfBalls = 10;
+    [SerializeField] public int maxBalls = 10;
     [Tooltip("Intervalo de tempo entre cada spawn de bola.")]
     [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private ScaleManager scaleManager;
@@ -28,7 +28,7 @@ public class SpanwBalls : MonoBehaviour
 
     private void Update()
     {
-        if (spawnedBalls >= numberOfBalls && scaleManager.isFinalized) return;
+        if (spawnedBalls >= maxBalls && scaleManager.isFinalized) return;
         timer += Time.deltaTime;
 
         if (timer >= spawnInterval)
@@ -39,7 +39,7 @@ public class SpanwBalls : MonoBehaviour
 
     private void SpawnBall()
     {
-        if (spawnedBalls >= numberOfBalls) return;
+        if (spawnedBalls >= maxBalls) return;
 
         spawnPosition = new Vector3(
             Random.Range(areaSpanw.bounds.min.x, areaSpanw.bounds.max.x),
@@ -55,7 +55,7 @@ public class SpanwBalls : MonoBehaviour
 
     public void ForceSpawnNewBall()
     {
-        if (spawnedBalls < numberOfBalls)
+        if (spawnedBalls < maxBalls)
         {
             SpawnBall();
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PainelScaleCollider : MonoBehaviour
 {
     [SerializeField] private MovementScale movementScale;
-    private bool isColliding = false;
+    [SerializeField] private bool isColliding = false;
     public bool IsColliding => isColliding;
     private void OnTriggerEnter(Collider other)
     {

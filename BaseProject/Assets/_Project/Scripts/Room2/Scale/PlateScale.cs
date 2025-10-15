@@ -5,8 +5,7 @@ public class PlateScale : MonoBehaviour
 {
     private ScaleManager scaleManager;
     private BallController ballController;
-    [SerializeField] private float weightBall;
-    public float WeightBall { get { return weightBall; } }
+    public float weightBall;
 
     private void Start()
     {
@@ -16,13 +15,9 @@ public class PlateScale : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            object ball = other.GetComponent<BallController>();
-            ballController = (BallController)ball;
-            weightBall =+ ballController.weight;
-            if (ballController.resetavel)
-            {
-                scaleManager.objectsOnPlate.Add(other.gameObject);
-            }
+            ballController = other.GetComponent<BallController>();
+            weightBall += ballController.weight;
+            scaleManager.objectsOnPlate.Add(other.gameObject);
             ballController = null;
         }
     }
@@ -30,11 +25,10 @@ public class PlateScale : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            object ball = other.GetComponent<BallController>();
-            ballController = (BallController)ball;
-            weightBall = weightBall - ballController.weight;
+            ballController = other.GetComponent<BallController>();
+            weightBall -= ballController.weight;
             ballController = null;
+            scaleManager.objectsOnPlate.Remove(other.gameObject);
         }
     }
-
 }

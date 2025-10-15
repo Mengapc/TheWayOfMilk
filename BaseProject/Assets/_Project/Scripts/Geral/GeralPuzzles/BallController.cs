@@ -23,7 +23,6 @@ public class BallController : MonoBehaviour
     [SerializeField] public Transform spawnPoint;
 
     [Header("Propriedades da Bola Sala 2")]
-    [SerializeField] public bool resetavel = true;
     [SerializeField] public int weight = 1;
     [SerializeField] private Color color;
     [SerializeField] private Material baseMaterial;

@@ -712,6 +712,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""bfaa725b-fd9c-40cd-927d-48f1840aad19"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -778,6 +787,17 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f945d18a-8211-4c6f-8822-be396615ccdd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -870,6 +890,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Scale = asset.FindActionMap("Scale", throwIfNotFound: true);
         m_Scale_Movement = m_Scale.FindAction("Movement", throwIfNotFound: true);
         m_Scale_Exit = m_Scale.FindAction("Exit", throwIfNotFound: true);
+        m_Scale_Reset = m_Scale.FindAction("Reset", throwIfNotFound: true);
     }
 
     ~@ControlsPlayer()
@@ -1136,12 +1157,14 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private List<IScaleActions> m_ScaleActionsCallbackInterfaces = new List<IScaleActions>();
     private readonly InputAction m_Scale_Movement;
     private readonly InputAction m_Scale_Exit;
+    private readonly InputAction m_Scale_Reset;
     public struct ScaleActions
     {
         private @ControlsPlayer m_Wrapper;
         public ScaleActions(@ControlsPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Scale_Movement;
         public InputAction @Exit => m_Wrapper.m_Scale_Exit;
+        public InputAction @Reset => m_Wrapper.m_Scale_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Scale; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1157,6 +1180,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Exit.started += instance.OnExit;
             @Exit.performed += instance.OnExit;
             @Exit.canceled += instance.OnExit;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IScaleActions instance)
@@ -1167,6 +1193,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Exit.started -= instance.OnExit;
             @Exit.performed -= instance.OnExit;
             @Exit.canceled -= instance.OnExit;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IScaleActions instance)
@@ -1254,5 +1283,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
