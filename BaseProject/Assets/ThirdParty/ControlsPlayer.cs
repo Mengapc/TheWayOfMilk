@@ -37,15 +37,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""6ab8f3b5-4b1e-41d5-9672-949fe8eec4c4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Close"",
                     ""type"": ""Button"",
                     ""id"": ""01d07c7f-5bf9-4701-917c-dc8e5b591254"",
@@ -55,7 +46,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Painel_Interact"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""092e58c3-d22b-4ed7-a886-69ae4ddf9258"",
                     ""expectedControlType"": """",
@@ -131,17 +122,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f754d599-5507-4d8a-881b-1d1fda23c9d9"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3f310c3e-562f-4a19-ad17-238ed5532153"",
                     ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
@@ -158,7 +138,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Painel_Interact"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -870,9 +850,8 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Close = m_Player.FindAction("Close", throwIfNotFound: true);
-        m_Player_Painel_Interact = m_Player.FindAction("Painel_Interact", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Painel_Reset = m_Player.FindAction("Painel_Reset", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -960,18 +939,16 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Close;
-    private readonly InputAction m_Player_Painel_Interact;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Painel_Reset;
     public struct PlayerActions
     {
         private @ControlsPlayer m_Wrapper;
         public PlayerActions(@ControlsPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Close => m_Wrapper.m_Player_Close;
-        public InputAction @Painel_Interact => m_Wrapper.m_Player_Painel_Interact;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Painel_Reset => m_Wrapper.m_Player_Painel_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -985,15 +962,12 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @Close.started += instance.OnClose;
             @Close.performed += instance.OnClose;
             @Close.canceled += instance.OnClose;
-            @Painel_Interact.started += instance.OnPainel_Interact;
-            @Painel_Interact.performed += instance.OnPainel_Interact;
-            @Painel_Interact.canceled += instance.OnPainel_Interact;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Painel_Reset.started += instance.OnPainel_Reset;
             @Painel_Reset.performed += instance.OnPainel_Reset;
             @Painel_Reset.canceled += instance.OnPainel_Reset;
@@ -1004,15 +978,12 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @Close.started -= instance.OnClose;
             @Close.performed -= instance.OnClose;
             @Close.canceled -= instance.OnClose;
-            @Painel_Interact.started -= instance.OnPainel_Interact;
-            @Painel_Interact.performed -= instance.OnPainel_Interact;
-            @Painel_Interact.canceled -= instance.OnPainel_Interact;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Painel_Reset.started -= instance.OnPainel_Reset;
             @Painel_Reset.performed -= instance.OnPainel_Reset;
             @Painel_Reset.canceled -= instance.OnPainel_Reset;
@@ -1261,9 +1232,8 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnClose(InputAction.CallbackContext context);
-        void OnPainel_Interact(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnPainel_Reset(InputAction.CallbackContext context);
     }
     public interface IUIActions

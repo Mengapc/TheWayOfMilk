@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 5948675331374401099}
   - component: {fileID: 5208675933068381108}
   - component: {fileID: 2999293946092206997}
-  - component: {fileID: 8534508456542287912}
   - component: {fileID: 5750246083952964316}
   - component: {fileID: 3046256553113066117}
   - component: {fileID: 6283824435645916975}
@@ -124,28 +123,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8534508456542287912
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978554163870213012}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 62c8ec8e33e75544aa67b996a1f6a944, type: 3}
 --- !u!114 &5750246083952964316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,22 +305,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16c8fc6cb13c944bb5a893969cf24c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pontoDaMao: {fileID: 1745351380618985991}
-  raioParaPegar: 5
-  camadaDosObjetosPegaveis:
+  player: {fileID: 0}
+  handPoint: {fileID: 0}
+  distanceGrab: 1.5
+  grabbingLayer:
     serializedVersion: 2
-    m_Bits: 8
-  forcaHorizontalMinima: 7
-  forcaHorizontalMaxima: 25
-  forcaVerticalMinima: 3
-  forcaVerticalMaxima: 8
+    m_Bits: 0
+  grabbingObject: 0
+  horizontalForceMin: 7
+  horizontalForceMax: 25
+  verticallForceMin: 3
+  verticallForceMax: 8
   tempoMaximoDeCarga: 2
   movementScript: {fileID: 0}
-  carga: 0
-  forcaH: 0
-  forcaA: 0
-  ters4: 0
-  estaCarregandoArremesso: 0
+  cam: {fileID: 0}
 --- !u!143 &7824542967970608634
 CharacterController:
   m_ObjectHideFlags: 0

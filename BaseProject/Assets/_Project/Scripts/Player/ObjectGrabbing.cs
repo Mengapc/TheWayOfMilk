@@ -1,144 +1,93 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using Unity.VisualScripting;
 
 
 public class ObjectGrabbing : MonoBehaviour
 {
     [Header("Configurações de Pegar Objeto")]
+    [Tooltip("Tranforme do personagem.")]
+    [SerializeField] private Transform player;
     [Tooltip("O ponto na 'mão' do personagem onde o objeto ficará preso.")]
-    [SerializeField] private Transform pontoDaMao;
+    [SerializeField] private Transform handPoint;
     [Tooltip("O raio da esfera para detectar objetos que podem ser pegos.")]
-    [SerializeField] private float raioParaPegar = 1.5f;
+    [SerializeField] private float distanceGrab = 1.5f;
     [Tooltip("A camada (Layer) dos objetos que podem ser pegos.")]
-    [SerializeField] private LayerMask camadaDosObjetosPegaveis;
+    [SerializeField] private LayerMask grabbingLayer;
+    [Tooltip("Segurando o objeto.")]
+    [SerializeField] private bool grabbingObject;
 
     [Header("Configurações de Arremesso")]
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]
-    [SerializeField] private float forcaHorizontalMinima = 7f;
+    [SerializeField] private float horizontalForceMin = 7f;
     [Tooltip("A força horizontal MÁXIMA do arremesso (distância).")]
-    [SerializeField] private float forcaHorizontalMaxima = 25f;
+    [SerializeField] private float horizontalForceMax = 25f;
     [Tooltip("A força vertical MÍNIMA do arremesso (altura).")]
-    [SerializeField] private float forcaVerticalMinima = 3f;
+    [SerializeField] private float verticallForceMin = 3f;
     [Tooltip("A força vertical MÁXIMA do arremesso (altura).")]
-    [SerializeField] private float forcaVerticalMaxima = 8f;
+    [SerializeField] private float verticallForceMax = 8f;
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
     [Header("Referências Externas")]
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
     [SerializeField] private Movement movementScript;
+    [Tooltip("Camera do jogo")]
+    [SerializeField] private Camera cam;
 
-    [SerializeField] private float carga;
-    [SerializeField] private float forcaH;
-    [SerializeField] private float forcaA;
-    [SerializeField] private float ters4;
-
-    private GameObject objetoSegurado = null;
-    private Rigidbody objetoSeguradoRb = null;
+    private GameObject grabObject = null;
+    private Rigidbody grabObjectRb = null;
 
 
-    // Variáveis para controlar o carregamento do arremesso
-    public bool estaCarregandoArremesso = false;
-    private float tempoInicioCarga;
-
-    private void Awake()
+    public void InteractionGrabbing(InputAction.CallbackContext context)
     {
-
-
-        // Se o script de movimento não for arrastado no Inspector, tenta pegá-lo no mesmo GameObject
-        if (movementScript == null)
+        if (context.started && grabObject == null)
         {
-            movementScript = GetComponent<Movement>();
-            if (movementScript == null)
+            Debug.Log("Rio lançcado");
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, grabbingLayer))
             {
-                Debug.LogError("O script 'Movement' não foi encontrado ou atribuído! Ele é necessário para a lógica de arremesso.");
+                Debug.Log("Objeto atingido: " + hit.collider.gameObject.name);
+                float distance = Vector3.Distance(hit.transform.position, player.position);
+                Debug.Log("distancia atingido: " + distance);
+
+                if (Vector3.Distance(hit.transform.position, player.position) <= distanceGrab)
+                {
+                    GrabObject_DisgrabObject(hit.collider.gameObject);
+                }
             }
+        }
+        else if (context.started && grabObject != null)
+        {
+            GrabObject_DisgrabObject(grabObject);
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+
+    //pegar o objeto 
+    private void GrabObject_DisgrabObject(GameObject objectGrab)
     {
-        if (movementScript == null) return;
-
-        if (objetoSegurado == null)
+        if (grabObject == null)
         {
-            if (context.started)
+            if (objectGrab.CompareTag("Ball"))
             {
-                TentarPegarObjeto();
-            }
-            return;
-        }
-
-        if (context.started)
-        {
-            estaCarregandoArremesso = true;
-            tempoInicioCarga = Time.time;
-
-
-            if (movementScript.player.transform.rotation.y > 0)
-            {
-                movementScript.player.rotation = Quaternion.Euler(0, 90, 0);
-                Debug.Log("Carregando arremesso para a ESQUERDA (baseado na rotação)");
-            }
-            else
-            {
-                movementScript.player.rotation = Quaternion.Euler(0, -90, 0);
-                Debug.Log("Carregando arremesso para a DIREITA (baseado na rotação)");
+                //seta como parente da mão
+                grabObject = objectGrab;
+                grabObject.transform.SetParent(handPoint);
+                grabObject.transform.position = handPoint.transform.position;
+                grabObjectRb = grabObject.GetComponent<Rigidbody>();
+                grabObjectRb.isKinematic = true;
             }
         }
-        else if (context.canceled && estaCarregandoArremesso)
+        else if(grabObject != null)
         {
-            ArremessarObjeto();
-            estaCarregandoArremesso = false;
-
+            grabObject.transform.SetParent(null);
+            grabObjectRb.isKinematic = false;
+            grabObjectRb = null;
+            grabObject = null;
         }
     }
-
-    private void TentarPegarObjeto()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward, raioParaPegar, camadaDosObjetosPegaveis);
-        if (colliders.Length > 0)
-        {
-            Transform objetoMaisProximo = colliders.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).First().transform;
-            objetoSegurado = objetoMaisProximo.gameObject;
-            objetoSeguradoRb = objetoSegurado.GetComponent<Rigidbody>();
-
-            if (objetoSeguradoRb != null)
-            {
-                objetoSeguradoRb.isKinematic = true;
-                objetoSegurado.transform.SetParent(pontoDaMao);
-                objetoSegurado.transform.localPosition = Vector3.zero;
-                objetoSegurado.transform.localRotation = Quaternion.identity;
-            }
-        }
-    }
-
-    private void ArremessarObjeto()
-    {
-        if (objetoSeguradoRb == null) return;
-
-        float duracaoCarga = Time.time - tempoInicioCarga;
-        float porcentagemCarga = Mathf.Clamp01(duracaoCarga / tempoMaximoDeCarga);
-
-        float forcaHorizontalAtual = Mathf.Lerp(forcaHorizontalMinima, forcaHorizontalMaxima, porcentagemCarga);
-        float forcaVerticalAtual = Mathf.Lerp(forcaVerticalMinima, forcaVerticalMaxima, porcentagemCarga);
-
-        objetoSegurado.transform.SetParent(null);
-        objetoSeguradoRb.isKinematic = false;
-
-        // --- LINHA CORRIGIDA ---
-        // Usamos .forward para obter a direção "para frente" do jogador
-        Vector3 vetorFinalArremesso = (movementScript.player.forward * forcaHorizontalAtual) + (Vector3.up * forcaVerticalAtual);
-        objetoSeguradoRb.AddForce(vetorFinalArremesso, ForceMode.VelocityChange);
-
-        objetoSegurado = null;
-        objetoSeguradoRb = null;
-
-        carga = porcentagemCarga;
-        forcaH = forcaHorizontalAtual;
-        forcaA = forcaVerticalAtual;
-    }
-
 }
 

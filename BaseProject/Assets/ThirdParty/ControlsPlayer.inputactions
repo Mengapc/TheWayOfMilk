@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "6ab8f3b5-4b1e-41d5-9672-949fe8eec4c4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Close",
                     "type": "Button",
                     "id": "01d07c7f-5bf9-4701-917c-dc8e5b591254",
@@ -33,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Painel_Interact",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "092e58c3-d22b-4ed7-a886-69ae4ddf9258",
                     "expectedControlType": "",
@@ -109,17 +100,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f754d599-5507-4d8a-881b-1d1fda23c9d9",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3f310c3e-562f-4a19-ad17-238ed5532153",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -136,7 +116,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Painel_Interact",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

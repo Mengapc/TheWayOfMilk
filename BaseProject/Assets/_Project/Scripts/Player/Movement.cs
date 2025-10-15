@@ -51,11 +51,6 @@ public class Movement : MonoBehaviour
 
     private void Rotate()
     {
-        if (objectGrabbing != null && objectGrabbing.estaCarregandoArremesso)
-        {
-            return;
-        }
-
         if (player != null && inputDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
