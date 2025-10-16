@@ -62,6 +62,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pull"",
+                    ""type"": ""Button"",
+                    ""id"": ""974a1d4c-602c-4155-a474-0b84f83df4ab"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,39 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Painel_Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""153275cb-2bd7-4303-86db-cdbd03f14d7c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2517a99e-0be7-429f-9097-daaa91e90202"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38b4c22f-5299-439a-8aef-02344d99befc"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -853,6 +895,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Player_Close = m_Player.FindAction("Close", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Painel_Reset = m_Player.FindAction("Painel_Reset", throwIfNotFound: true);
+        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -942,6 +985,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Close;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Painel_Reset;
+    private readonly InputAction m_Player_Pull;
     public struct PlayerActions
     {
         private @ControlsPlayer m_Wrapper;
@@ -950,6 +994,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Close => m_Wrapper.m_Player_Close;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Painel_Reset => m_Wrapper.m_Player_Painel_Reset;
+        public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -971,6 +1016,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Painel_Reset.started += instance.OnPainel_Reset;
             @Painel_Reset.performed += instance.OnPainel_Reset;
             @Painel_Reset.canceled += instance.OnPainel_Reset;
+            @Pull.started += instance.OnPull;
+            @Pull.performed += instance.OnPull;
+            @Pull.canceled += instance.OnPull;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -987,6 +1035,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Painel_Reset.started -= instance.OnPainel_Reset;
             @Painel_Reset.performed -= instance.OnPainel_Reset;
             @Painel_Reset.canceled -= instance.OnPainel_Reset;
+            @Pull.started -= instance.OnPull;
+            @Pull.performed -= instance.OnPull;
+            @Pull.canceled -= instance.OnPull;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1235,6 +1286,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         void OnClose(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPainel_Reset(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

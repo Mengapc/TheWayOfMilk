@@ -19,6 +19,8 @@ public class ObjectGrabbing : MonoBehaviour
     [SerializeField] private bool grabbingObject;
 
     [Header("Configurações de Arremesso")]
+    [Tooltip("Se o jogador está carregando o arremesso.")]
+    [SerializeField] private bool isCharging = false;
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]
     [SerializeField] private float horizontalForceMin = 7f;
     [Tooltip("A força horizontal MÁXIMA do arremesso (distância).")]
@@ -39,7 +41,13 @@ public class ObjectGrabbing : MonoBehaviour
     private GameObject grabObject = null;
     private Rigidbody grabObjectRb = null;
 
+    private void Update()
+    {
+        //desenhar o raio de pegar objeto
+        Debug.DrawRay(player.position, player.forward * distanceGrab, Color.red);
+    }
 
+    //interação com o objeto
     public void InteractionGrabbing(InputAction.CallbackContext context)
     {
         if (context.started && grabObject == null)
@@ -65,7 +73,6 @@ public class ObjectGrabbing : MonoBehaviour
         }
     }
 
-
     //pegar o objeto 
     private void GrabObject_DisgrabObject(GameObject objectGrab)
     {
@@ -77,6 +84,7 @@ public class ObjectGrabbing : MonoBehaviour
                 grabObject = objectGrab;
                 grabObject.transform.SetParent(handPoint);
                 grabObject.transform.position = handPoint.transform.position;
+                grabObject.transform.rotation = Quaternion.identity;
                 grabObjectRb = grabObject.GetComponent<Rigidbody>();
                 grabObjectRb.isKinematic = true;
             }
@@ -88,6 +96,48 @@ public class ObjectGrabbing : MonoBehaviour
             grabObjectRb = null;
             grabObject = null;
         }
+    }
+
+    //jogar o objeto
+    public void PullGrabobject(InputAction.CallbackContext context)
+    {
+        if (context.started && grabObject != null)
+        {
+            isCharging = true;
+            Debug.Log("Começou a carregar o arremesso");
+
+        }
+        if (context.canceled && grabObject != null)
+        {
+            isCharging = false;
+            Debug.Log("Soltou o botão de arremesso");
+            // Calcular o tempo que o botão foi pressionado
+            float chargeTime = Mathf.Clamp((float)context.time, 0, tempoMaximoDeCarga);
+            float chargePercent = chargeTime / tempoMaximoDeCarga;
+            // Calcular as forças com base no tempo de carga
+            float horizontalForce = Mathf.Lerp(horizontalForceMin, horizontalForceMax, chargePercent);
+            float verticalForce = Mathf.Lerp(verticallForceMin, verticallForceMax, chargePercent);
+            // Direção do arremesso baseada na direção do movimento do jogador
+            Vector3 throwDirection = player.transform.rotation.eulerAngles;
+            Vector3 throwForce = throwDirection * horizontalForce + Vector3.up * verticalForce;
+            // Aplicar a força ao objeto
+            grabObject.transform.SetParent(null);
+            grabObjectRb.isKinematic = false;
+            grabObjectRb.AddForce(throwForce, ForceMode.Impulse);
+            // Resetar variáveis
+            grabObjectRb = null;
+            grabObject = null;
+
+        }
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(player.position + player.forward * distanceGrab, 0.3f);
+
     }
 }
 
