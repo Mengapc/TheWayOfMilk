@@ -18,6 +18,7 @@ public class Elevator : MonoBehaviour
     [Header("Câmeras")]
     [SerializeField] private CinemachineCamera mainCamera;
     [SerializeField] private CinemachineClearShot elevatorCamera;
+    [SerializeField] private float waitSwithCamera;
     [Space]
     [Header("Váriaveis")]
     [Tooltip("Curva de movimento do elevador")]
@@ -56,7 +57,8 @@ public class Elevator : MonoBehaviour
 
     private IEnumerator MoverCabine(Vector3 startPos, Vector3 finalPos)
     {
-        SwitchToElevatorCamera();
+        StartCoroutine(SwitchToElevatorCamera());
+        yield return new WaitForSeconds(waitSwithCamera);
         movendo = true;
         float tempoDecorrido = 0f;
         player.SetParent(cabine);
@@ -72,12 +74,12 @@ public class Elevator : MonoBehaviour
 
             yield return null; 
         }
-
         cabine.position = finalPos;
         player.SetParent(null);
         ChangeFloor(); 
         movendo = false;
-        SwitchToMainCamera();
+        StartCoroutine(SwitchToMainCamera());
+        yield return new WaitForSeconds(waitSwithCamera);
     }
 
 
@@ -89,31 +91,31 @@ public class Elevator : MonoBehaviour
 
     //Camera do elevador
 
-    private void SwitchToElevatorCamera()
+    private IEnumerator SwitchToElevatorCamera()
     {
         if (mainCamera != null && elevatorCamera != null)
         {
-            Debug.Log("Trocando para a câmera do elevador.");
-            mainCamera.gameObject.SetActive(false);
+            Debug.Log("Trocando para a câmera do elevador.");         
             elevatorCamera.gameObject.SetActive(true);
         }
         else
         {
             Debug.LogWarning("Referências de câmera não configuradas no Inspector.");
         }
+        yield return null;
     }
 
-    private void SwitchToMainCamera()
+    private IEnumerator SwitchToMainCamera()
     {
         if (mainCamera != null && elevatorCamera != null)
         {
             Debug.Log("Voltando para a câmera principal.");
             elevatorCamera.gameObject.SetActive(false);
-            mainCamera.gameObject.SetActive(true);
         }
         else
         {
             Debug.LogWarning("Referências de câmera não configuradas no Inspector.");
         }
+        yield return null;
     }
 }
