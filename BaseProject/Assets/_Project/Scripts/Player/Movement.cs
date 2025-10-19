@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] public Transform player;
     [SerializeField] private Elevator elevator;
+    [SerializeField] private Direction direction;
 
     [Space]
     [Header("Configurações de Física.")]
@@ -51,9 +52,9 @@ public class Movement : MonoBehaviour
 
     private void Rotate()
     {
-        if (player != null && inputDirection != Vector3.zero)
+        if (player != null)
         {
-            Quaternion toRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(direction.directionVector, Vector3.up);
             player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, 720 * Time.deltaTime);
         }
     }

@@ -14,6 +14,8 @@ public class Elevator : MonoBehaviour
     [SerializeField] private Transform pontoSegundoAndar;
     [Tooltip("Transform do jogador.")]
     [SerializeField] private Transform player;
+    [Tooltip("Porta do segundo andar.")]
+    [SerializeField] private OpenCloseDoor openCloseDoor;
     [Space]
     [Header("Câmeras")]
     [SerializeField] private CinemachineCamera mainCamera;
@@ -58,6 +60,7 @@ public class Elevator : MonoBehaviour
     private IEnumerator MoverCabine(Vector3 startPos, Vector3 finalPos)
     {
         StartCoroutine(SwitchToElevatorCamera());
+        openCloseDoor.ToggleDoor();
         yield return new WaitForSeconds(waitSwithCamera);
         movendo = true;
         float tempoDecorrido = 0f;
@@ -79,7 +82,7 @@ public class Elevator : MonoBehaviour
         ChangeFloor(); 
         movendo = false;
         StartCoroutine(SwitchToMainCamera());
-        yield return new WaitForSeconds(waitSwithCamera);
+        openCloseDoor.ToggleDoor();
     }
 
 

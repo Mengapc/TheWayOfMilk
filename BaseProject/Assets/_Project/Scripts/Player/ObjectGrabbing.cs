@@ -136,7 +136,7 @@ public class ObjectGrabbing : MonoBehaviour
     {
         
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(player.position + player.forward * distanceGrab, 0.3f);
+        Gizmos.DrawWireSphere(player.position, distanceGrab);
 
     }
 }

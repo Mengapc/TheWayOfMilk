@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2295332265405729388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 4.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,11 +45,12 @@ GameObject:
   - component: {fileID: 5750246083952964316}
   - component: {fileID: 3046256553113066117}
   - component: {fileID: 6283824435645916975}
+  - component: {fileID: 6564576115362327945}
   - component: {fileID: 7824542967970608634}
   - component: {fileID: 8495337635608289373}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +65,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -42.532513, y: 4.9720173, z: -73.573044}
-  m_LocalScale: {x: 2.200001, y: 4.3560004, z: 2.200001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1745351380618985991}
@@ -165,46 +166,6 @@ MonoBehaviour:
     m_ActionId: a0c3c45d-e5f2-4d85-9b66-a1f4976ffa40
     m_ActionName: 'Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6283824435645916975}
-        m_TargetAssemblyTypeName: ObjectGrabbing, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ObjectGrabbing, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TubesPuzzleManager, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6ab8f3b5-4b1e-41d5-9672-949fe8eec4c4
-    m_ActionName: 'Player/Atack[/Mouse/leftButton]'
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
@@ -261,17 +222,89 @@ MonoBehaviour:
     m_ActionId: 01d07c7f-5bf9-4701-917c-dc8e5b591254
     m_ActionName: 'Player/Close[/Keyboard/x]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6283824435645916975}
+        m_TargetAssemblyTypeName: ObjectGrabbing, Assembly-CSharp
+        m_MethodName: InteractionGrabbing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 092e58c3-d22b-4ed7-a886-69ae4ddf9258
     m_ActionName: 'Player/Painel_Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MovementScale, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 698144ef-09fd-4757-b565-37b57bc0039e
     m_ActionName: 'Scale/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MovementScale, Assembly-CSharp
+        m_MethodName: SwithControl
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3723b1dd-e9dc-4f86-9615-cdb80370bf0a
     m_ActionName: 'Scale/Exit[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33b63d2f-cd13-40f3-86b7-55283f6c6c33
+    m_ActionName: 'Player/Painel_Reset[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ScaleManager, Assembly-CSharp
+        m_MethodName: ResetPuzzle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bfaa725b-fd9c-40cd-927d-48f1840aad19
+    m_ActionName: 'Scale/Reset[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6283824435645916975}
+        m_TargetAssemblyTypeName: ObjectGrabbing, Assembly-CSharp
+        m_MethodName: PullGrabobject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 974a1d4c-602c-4155-a474-0b84f83df4ab
+    m_ActionName: 'Player/Pull[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -289,10 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24db51d4a48ce6f4a94e415c3d2f6a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 16
   player: {fileID: 5948675331374401099}
   elevator: {fileID: 0}
-  gravityValue: -9.81
+  direction: {fileID: 6564576115362327945}
+  gravityValue: -15
 --- !u!114 &6283824435645916975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,20 +339,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16c8fc6cb13c944bb5a893969cf24c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  handPoint: {fileID: 0}
-  distanceGrab: 1.5
+  player: {fileID: 5948675331374401099}
+  handPoint: {fileID: 1745351380618985991}
+  distanceGrab: 5
   grabbingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   grabbingObject: 0
+  isCharging: 0
   horizontalForceMin: 7
   horizontalForceMax: 25
   verticallForceMin: 3
   verticallForceMax: 8
   tempoMaximoDeCarga: 2
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 3046256553113066117}
   cam: {fileID: 0}
+--- !u!114 &6564576115362327945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978554163870213012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896a00bbeeabc2c4683ee2aa3b103f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5948675331374401099}
+  directionVector: {x: 0, y: 0, z: 0}
+  distance: 0
+  mainCamera: {fileID: 0}
 --- !u!143 &7824542967970608634
 CharacterController:
   m_ObjectHideFlags: 0
@@ -363,7 +414,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 2.13
+  m_Height: 8.335407
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.0377035, z: 0}
