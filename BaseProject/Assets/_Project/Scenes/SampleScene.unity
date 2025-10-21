@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f88b8a3dfff29ec488b171b182f7f26b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2072,7 +2072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructCollider: {fileID: 3509376098309025652}
-  spanwBalls: {fileID: 0}
   ballController: {fileID: 0}
 --- !u!4 &37470685218333822
 Transform:
@@ -6765,7 +6764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructCollider: {fileID: 5203192320318354077}
-  spanwBalls: {fileID: 0}
   ballController: {fileID: 0}
 --- !u!23 &8850251922551178260
 MeshRenderer:
@@ -6844,7 +6842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructCollider: {fileID: 3254765765465502721}
-  spanwBalls: {fileID: 0}
   ballController: {fileID: 0}
 --- !u!4 &9052189407837218639
 Transform:
