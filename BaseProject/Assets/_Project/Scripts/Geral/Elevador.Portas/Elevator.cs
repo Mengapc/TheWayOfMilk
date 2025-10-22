@@ -19,8 +19,17 @@ public class Elevator : MonoBehaviour
     [Space]
     [Header("Câmeras")]
     [SerializeField] private CinemachineCamera mainCamera;
+    [SerializeField] private CinemachineCamera shakeCamera;
     [SerializeField] private CinemachineClearShot elevatorCamera;
     [SerializeField] private float waitSwithCamera;
+    [Space]
+    [Header("Camera Shake")]
+    [Tooltip("Amplitude do shake da câmera (intensidade).")]
+    [SerializeField] private float shakeAmplitude = 0.5f;
+    [Tooltip("Frequência do shake da câmera (velocidade).")]
+    [SerializeField] private float shakeFrequency = 2.0f;
+    [Tooltip("Curva de intensidade do shake durante o movimento (0=sem shake, 1=shake máximo).")]
+    [SerializeField] private AnimationCurve shakeIntensityCurve;
     [Space]
     [Header("Váriaveis")]
     [Tooltip("Curva de movimento do elevador")]
@@ -66,6 +75,15 @@ public class Elevator : MonoBehaviour
         float tempoDecorrido = 0f;
         player.SetParent(cabine);
 
+        CinemachineBasicMultiChannelPerlin noise =
+            shakeCamera.GetCinemachineComponent(CinemachineCore.Stage.Noise)
+            as CinemachineBasicMultiChannelPerlin;
+
+        if (noise != null)
+        {
+            noise.FrequencyGain = shakeFrequency;
+        }
+
         while (tempoDecorrido < durationAnimation)
         {
             tempoDecorrido += Time.deltaTime;
@@ -75,8 +93,22 @@ public class Elevator : MonoBehaviour
 
             cabine.position = Vector3.Lerp(startPos, finalPos, porcentagemDistancia);
 
+            if (noise != null)
+            {
+                float shakeIntensity = shakeIntensityCurve.Evaluate(porcentagemTempo);
+                noise.AmplitudeGain = shakeAmplitude * shakeIntensity;
+            }
+
             yield return null; 
         }
+
+        if (noise != null)
+        {
+            // 4. Resetar os valores de shake para parar o efeito.
+            noise.AmplitudeGain = 0f;
+            noise.FrequencyGain = 0f;
+        }
+
         cabine.position = finalPos;
         player.SetParent(null);
         ChangeFloor(); 
