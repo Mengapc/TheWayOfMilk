@@ -30,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4261425444240379700}
   serializedVersion: 2
-  m_LocalRotation: {x: -3.3138728e-17, y: 0.92387956, z: 3.313872e-17, w: -0.3826834}
+  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
   m_LocalPosition: {x: -22.839964, y: 19.61, z: 47.932518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
 --- !u!33 &3655059344132678551
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -133,17 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08651b301dbb6b84a9ee9ee7ee640243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPosition: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  rb: {fileID: 0}
-  roomIdentifier: 0
-  ballPrefab: {fileID: 4261425444240379700}
-  spawnPoint: {fileID: 0}
-  weight: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  baseMaterial: {fileID: 0}
-  possibleWeights: 
-  possibleColors: []
 --- !u!65 &5860849117493013019
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,7 +173,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.99701893
-  m_Height: 4.1311693
+  m_Radius: 0.76
+  m_Height: 4.384866
   m_Direction: 1
-  m_Center: {x: 0.000015286834, y: 2.0654001, z: -5.1377127e-12}
+  m_Center: {x: 4.2203057e-24, y: 2.1331522, z: -3.557647e-23}

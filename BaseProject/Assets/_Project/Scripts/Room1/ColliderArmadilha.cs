@@ -10,7 +10,7 @@ public class ColliderArmadilha : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            Destroy(ballPrefeb);
+            Destroy(other);
             Instantiate(ballPrefeb,spaanwPoint.position, spaanwPoint.rotation);
         }
     }

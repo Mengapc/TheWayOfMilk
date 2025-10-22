@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 
 public class ObjectGrabbing : MonoBehaviour
 {
+    #region Variaveis
     [Header("Configurações de Pegar Objeto")]
     [Tooltip("Tranforme do personagem.")]
     [SerializeField] private Transform player;
@@ -19,8 +20,6 @@ public class ObjectGrabbing : MonoBehaviour
     [SerializeField] private bool grabbingObject;
 
     [Header("Configurações de Arremesso")]
-    [Tooltip("Se o jogador está carregando o arremesso.")]
-    [SerializeField] private bool isCharging = false;
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]
     [SerializeField] private float horizontalForceMin = 7f;
     [Tooltip("A força horizontal MÁXIMA do arremesso (distância).")]
@@ -35,11 +34,13 @@ public class ObjectGrabbing : MonoBehaviour
     [Header("Referências Externas")]
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
     [SerializeField] private Movement movementScript;
+    [SerializeField] private Direction direction;
     [Tooltip("Camera do jogo")]
     [SerializeField] private Camera cam;
 
     private GameObject grabObject = null;
     private Rigidbody grabObjectRb = null;
+    #endregion
 
     private void Update()
     {
@@ -47,7 +48,7 @@ public class ObjectGrabbing : MonoBehaviour
         Debug.DrawRay(player.position, player.forward * distanceGrab, Color.red);
     }
 
-    //interação com o objeto
+    //interação com o objetod
     public void InteractionGrabbing(InputAction.CallbackContext context)
     {
         if (context.started && grabObject == null)
@@ -103,13 +104,11 @@ public class ObjectGrabbing : MonoBehaviour
     {
         if (context.started && grabObject != null)
         {
-            isCharging = true;
             Debug.Log("Começou a carregar o arremesso");
 
         }
         if (context.canceled && grabObject != null)
         {
-            isCharging = false;
             Debug.Log("Soltou o botão de arremesso");
             // Calcular o tempo que o botão foi pressionado
             float chargeTime = Mathf.Clamp((float)context.time, 0, tempoMaximoDeCarga);
@@ -118,7 +117,7 @@ public class ObjectGrabbing : MonoBehaviour
             float horizontalForce = Mathf.Lerp(horizontalForceMin, horizontalForceMax, chargePercent);
             float verticalForce = Mathf.Lerp(verticallForceMin, verticallForceMax, chargePercent);
             // Direção do arremesso baseada na direção do movimento do jogador
-            Vector3 throwDirection = player.transform.rotation.eulerAngles;
+            Vector3 throwDirection = direction.directionVector;
             Vector3 throwForce = throwDirection * horizontalForce + Vector3.up * verticalForce;
             // Aplicar a força ao objeto
             grabObject.transform.SetParent(null);
