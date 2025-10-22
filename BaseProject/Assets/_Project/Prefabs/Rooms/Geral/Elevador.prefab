@@ -778,9 +778,10 @@ MonoBehaviour:
   pontoPrimeiroAndar: {fileID: 9095078568974728493}
   pontoSegundoAndar: {fileID: 8147043801546436342}
   player: {fileID: 0}
+  openCloseDoor: {fileID: 7646374207832893488}
   mainCamera: {fileID: 5443039332305978788}
   elevatorCamera: {fileID: 6246142792347011828}
-  waitSwithCamera: 1
+  waitSwithCamera: 1.5
   movementAanimation:
     serializedVersion: 2
     m_Curve:
