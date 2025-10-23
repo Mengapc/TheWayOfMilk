@@ -290,13 +290,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   grabbingObject: 0
-  isCharging: 0
   horizontalForceMin: 7
   horizontalForceMax: 25
   verticallForceMin: 3
   verticallForceMax: 8
   tempoMaximoDeCarga: 2
   movementScript: {fileID: 3046256553113066117}
+  direction: {fileID: 0}
   cam: {fileID: 0}
 --- !u!114 &6564576115362327945
 MonoBehaviour:
@@ -314,6 +314,7 @@ MonoBehaviour:
   directionVector: {x: 0, y: 0, z: 0}
   distance: 0
   mainCamera: {fileID: 0}
+  ofSet: {x: 0, y: 0, z: 0}
 --- !u!143 &7824542967970608634
 CharacterController:
   m_ObjectHideFlags: 0
