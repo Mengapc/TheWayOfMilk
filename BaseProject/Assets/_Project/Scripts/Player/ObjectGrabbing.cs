@@ -18,6 +18,7 @@ public class ObjectGrabbing : MonoBehaviour
     [SerializeField] private LayerMask grabbingLayer;
     [Tooltip("Segurando o objeto.")]
     [SerializeField] private bool grabbingObject;
+    public bool GrabbingObject { get { return grabbingObject; } }
 
     [Header("Configurações de Arremesso")]
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]

@@ -71,9 +71,9 @@ public class Elevator : MonoBehaviour
         StartCoroutine(SwitchToElevatorCamera());
         openCloseDoor.ToggleDoor();
         yield return new WaitForSeconds(waitSwithCamera);
+        player.SetParent(cabine);
         movendo = true;
         float tempoDecorrido = 0f;
-        player.SetParent(cabine);
 
         CinemachineBasicMultiChannelPerlin noise =
             shakeCamera.GetCinemachineComponent(CinemachineCore.Stage.Noise)
@@ -111,7 +111,7 @@ public class Elevator : MonoBehaviour
 
         cabine.position = finalPos;
         player.SetParent(null);
-        ChangeFloor(); 
+        ChangeFloor();
         movendo = false;
         StartCoroutine(SwitchToMainCamera());
         openCloseDoor.ToggleDoor();

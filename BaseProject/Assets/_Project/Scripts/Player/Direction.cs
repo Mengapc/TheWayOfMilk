@@ -49,7 +49,7 @@ public class Direction : MonoBehaviour
         Vector3 planeSize = new Vector3(20, 0, 20);
 
         // Desenha um "cubo" de arame no local e tamanho definidos
-        Gizmos.DrawWireCube(planeCenter, planeSize);
+        Gizmos.DrawWireCube(planeCenter + ofSet, planeSize);
     }
 
 }

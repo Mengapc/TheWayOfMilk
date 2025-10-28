@@ -3,15 +3,22 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+
+
     [Header("Configurações de Movimento.")]
+    [Tooltip("Velocidade de movimento do jogador.")]
     [SerializeField] private float speed = 5f;
+    [Tooltip("Transform do jogador para rotação.")]
     [SerializeField] public Transform player;
-    [SerializeField] private Elevator elevator;
+    [Tooltip("Direção do movimento do jogador.")]
     [SerializeField] private Direction direction;
+    [Tooltip("Velocidade da rotação em graus por segundo.")]
+    [SerializeField] private float rotationSpeed = 720f; // Adicionado para ser mais flexível
 
     [Space]
     [Header("Configurações de Física.")]
-    [SerializeField] private float gravityValue = -9.81f;
+    [Tooltip("Valor da gravidade aplicada ao jogador.")]
+    [SerializeField] public float gravityValue = -9.81f;
 
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
@@ -52,10 +59,17 @@ public class Movement : MonoBehaviour
 
     private void Rotate()
     {
-        if (player != null)
+        // CORREÇÃO 1 e 2:
+        // Checamos se há input (sqrMagnitude > 0.01f) para evitar o erro de LookRotation
+        // e para o personagem só girar quando estiver se movendo.
+        if (inputDirection.sqrMagnitude > 0.01f)
         {
-            Quaternion toRotation = Quaternion.LookRotation(direction.directionVector, Vector3.up);
-            player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, 720 * Time.deltaTime);
+            // Calcula a rotação alvo (para onde queremos olhar)
+            Quaternion toRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+
+            // Gira suavemente do 'player.rotation' atual para o 'toRotation' alvo
+            // Usei a variável 'rotationSpeed' que criei no topo
+            player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
