@@ -271,7 +271,7 @@ MonoBehaviour:
   player: {fileID: 5948675331374401099}
   direction: {fileID: 6564576115362327945}
   rotationSpeed: 720
-  gravityValue: -15
+  gravityValue: -9.41
 --- !u!114 &6283824435645916975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5948675331374401099}
   handPoint: {fileID: 1745351380618985991}
-  distanceGrab: 10
+  distanceGrab: 12
+  offsetGrab: {x: 0, y: -5, z: 0}
   grabbingLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -315,7 +316,7 @@ MonoBehaviour:
   directionVector: {x: 0, y: 0, z: 0}
   distance: 0
   mainCamera: {fileID: 0}
-  ofSet: {x: 0, y: -3, z: 0}
+  ofSet: {x: 0, y: -2.5, z: 0}
 --- !u!143 &7824542967970608634
 CharacterController:
   m_ObjectHideFlags: 0

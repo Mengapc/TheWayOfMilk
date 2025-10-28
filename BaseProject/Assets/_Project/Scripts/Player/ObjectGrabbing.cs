@@ -13,7 +13,10 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("O ponto na 'mão' do personagem onde o objeto ficará preso.")]
     [SerializeField] private Transform handPoint;
     [Tooltip("O raio da esfera para detectar objetos que podem ser pegos.")]
+    [Range(0.1f, 20f)]
     [SerializeField] private float distanceGrab = 1.5f;
+    [Tooltip("O offset para a posição de pegar o objeto.")]
+    [SerializeField] private Vector3 offsetGrab;
     [Tooltip("A camada (Layer) dos objetos que podem ser pegos.")]
     [SerializeField] private LayerMask grabbingLayer;
     [Tooltip("Segurando o objeto.")]
@@ -60,7 +63,7 @@ public class ObjectGrabbing : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, grabbingLayer))
             {
                 Debug.Log("Objeto atingido: " + hit.collider.gameObject.name);
-                float distance = Vector3.Distance(hit.transform.position, player.position);
+                float distance = Vector3.Distance(hit.transform.position, player.position + offsetGrab);
                 Debug.Log("distancia atingido: " + distance);
 
                 if (Vector3.Distance(hit.transform.position, player.position) <= distanceGrab)
@@ -136,7 +139,7 @@ public class ObjectGrabbing : MonoBehaviour
     {
         
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(player.position, distanceGrab);
+        Gizmos.DrawWireSphere(player.position + offsetGrab, distanceGrab);
 
     }
 }
