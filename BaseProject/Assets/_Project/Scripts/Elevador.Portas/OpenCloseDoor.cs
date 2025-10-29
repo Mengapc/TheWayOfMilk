@@ -9,6 +9,8 @@ public class OpenCloseDoor : MonoBehaviour
     [SerializeField] private Collider doorColliderOpened;
     [SerializeField] private Collider doorColliderClosed;
     [SerializeField] private float animationDuration = 2f;
+    [Tooltip("Som de abertura.")]
+    [SerializeField] private AudioClip somPorta; 
     private bool isOpen = false;
     #endregion
 
@@ -37,7 +39,9 @@ public class OpenCloseDoor : MonoBehaviour
     }
     private IEnumerator AnimateDoor(float startValue, float endValue)
     {
+        
         float elapsedTime = 0f;
+        SoundFXManager.instance.PlaySoundFXClip(somPorta, transform, 1f);
         while (elapsedTime < animationDuration)
         {
             float t = elapsedTime / animationDuration;
