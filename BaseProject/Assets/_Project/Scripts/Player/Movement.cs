@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 
 
     [Header("Configurações de Movimento.")]
+    [SerializeField] public bool canMove = true;
     [Tooltip("Velocidade de movimento do jogador.")]
     [SerializeField] private float speed = 5f;
     [Tooltip("Transform do jogador para rotação.")]
@@ -75,6 +76,10 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
+        if (canMove == false)
+        {
+            inputDirection = Vector3.zero;
+        }
         Vector3 move = inputDirection * speed;
         characterController.Move(move * Time.deltaTime);
     }
