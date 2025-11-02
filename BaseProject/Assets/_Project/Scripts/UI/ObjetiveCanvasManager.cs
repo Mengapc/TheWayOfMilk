@@ -14,6 +14,7 @@ public class ObjetiveCanvasManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> areaInfo;
 
     [Header("Lista de Objetivos por Cena")]
+
     [Tooltip("Lista de objetivos para a Cena 1 (corresponde ao sceneNames[0]).")]
     [TextArea(3, 10)]
     [SerializeField] private List<string> objetivosScene1;

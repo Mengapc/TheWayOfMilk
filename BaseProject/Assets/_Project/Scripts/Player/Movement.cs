@@ -21,6 +21,13 @@ public class Movement : MonoBehaviour
     [Tooltip("Valor da gravidade aplicada ao jogador.")]
     [SerializeField] public float gravityValue = -9.81f;
 
+    // --- ADIÇÃO PARA ANIMAÇÃO ---
+    [Space]
+    [Header("Referências de Animação")]
+    [Tooltip("Referência ao script que controla o Animator.")]
+    [SerializeField] private PlayerAnimationController animController;
+    // --- FIM DA ADIÇÃO ---
+
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
     private CharacterController characterController;
@@ -31,6 +38,12 @@ public class Movement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         objectGrabbing = GetComponent<ObjectGrabbing>();
+
+        // Pega o controlador de animação automaticamente se não for atribuído
+        if (animController == null)
+        {
+            animController = GetComponent<PlayerAnimationController>();
+        }
     }
 
     void Update()
@@ -43,6 +56,13 @@ public class Movement : MonoBehaviour
 
         Move();
         Rotate();
+
+        // --- ADIÇÃO PARA ANIMAÇÃO ---
+        // Calcula a velocidade (magnitude) do input e envia para o Animator
+        // Usamos sqrMagnitude por ser mais otimizado que Magnitude
+        float currentSpeed = inputDirection.sqrMagnitude;
+        animController?.SetMoveSpeed(currentSpeed);
+        // --- FIM DA ADIÇÃO ---
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
@@ -84,3 +104,4 @@ public class Movement : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
     }
 }
+

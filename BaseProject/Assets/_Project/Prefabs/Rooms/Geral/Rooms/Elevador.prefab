@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 45982210564185720}
   m_Layer: 0
   m_Name: Interruptor.001
-  m_TagString: Untagged
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

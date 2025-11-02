@@ -9,6 +9,7 @@ TagManager:
   - Botao
   - Image
   - Logo
+  - Elevator
   layers:
   - Default
   - TransparentFX
