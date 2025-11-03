@@ -37,15 +37,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""6ab8f3b5-4b1e-41d5-9672-949fe8eec4c4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Close"",
                     ""type"": ""Button"",
                     ""id"": ""01d07c7f-5bf9-4701-917c-dc8e5b591254"",
@@ -55,7 +46,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Painel_Interact"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""092e58c3-d22b-4ed7-a886-69ae4ddf9258"",
                     ""expectedControlType"": """",
@@ -64,9 +55,18 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Painel_Reset"",
+                    ""name"": ""Elevator"",
                     ""type"": ""Button"",
                     ""id"": ""33b63d2f-cd13-40f3-86b7-55283f6c6c33"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pull"",
+                    ""type"": ""Button"",
+                    ""id"": ""974a1d4c-602c-4155-a474-0b84f83df4ab"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -131,17 +131,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f754d599-5507-4d8a-881b-1d1fda23c9d9"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3f310c3e-562f-4a19-ad17-238ed5532153"",
                     ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
@@ -158,7 +147,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Painel_Interact"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -169,7 +158,40 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Painel_Reset"",
+                    ""action"": ""Elevator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""153275cb-2bd7-4303-86db-cdbd03f14d7c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2517a99e-0be7-429f-9097-daaa91e90202"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38b4c22f-5299-439a-8aef-02344d99befc"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -712,6 +734,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""bfaa725b-fd9c-40cd-927d-48f1840aad19"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -778,6 +809,17 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f945d18a-8211-4c6f-8822-be396615ccdd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -850,10 +892,10 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Close = m_Player.FindAction("Close", throwIfNotFound: true);
-        m_Player_Painel_Interact = m_Player.FindAction("Painel_Interact", throwIfNotFound: true);
-        m_Player_Painel_Reset = m_Player.FindAction("Painel_Reset", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Elevator = m_Player.FindAction("Elevator", throwIfNotFound: true);
+        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -870,6 +912,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Scale = asset.FindActionMap("Scale", throwIfNotFound: true);
         m_Scale_Movement = m_Scale.FindAction("Movement", throwIfNotFound: true);
         m_Scale_Exit = m_Scale.FindAction("Exit", throwIfNotFound: true);
+        m_Scale_Reset = m_Scale.FindAction("Reset", throwIfNotFound: true);
     }
 
     ~@ControlsPlayer()
@@ -939,19 +982,19 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Close;
-    private readonly InputAction m_Player_Painel_Interact;
-    private readonly InputAction m_Player_Painel_Reset;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Elevator;
+    private readonly InputAction m_Player_Pull;
     public struct PlayerActions
     {
         private @ControlsPlayer m_Wrapper;
         public PlayerActions(@ControlsPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Close => m_Wrapper.m_Player_Close;
-        public InputAction @Painel_Interact => m_Wrapper.m_Player_Painel_Interact;
-        public InputAction @Painel_Reset => m_Wrapper.m_Player_Painel_Reset;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Elevator => m_Wrapper.m_Player_Elevator;
+        public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -964,18 +1007,18 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @Close.started += instance.OnClose;
             @Close.performed += instance.OnClose;
             @Close.canceled += instance.OnClose;
-            @Painel_Interact.started += instance.OnPainel_Interact;
-            @Painel_Interact.performed += instance.OnPainel_Interact;
-            @Painel_Interact.canceled += instance.OnPainel_Interact;
-            @Painel_Reset.started += instance.OnPainel_Reset;
-            @Painel_Reset.performed += instance.OnPainel_Reset;
-            @Painel_Reset.canceled += instance.OnPainel_Reset;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Elevator.started += instance.OnElevator;
+            @Elevator.performed += instance.OnElevator;
+            @Elevator.canceled += instance.OnElevator;
+            @Pull.started += instance.OnPull;
+            @Pull.performed += instance.OnPull;
+            @Pull.canceled += instance.OnPull;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -983,18 +1026,18 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @Close.started -= instance.OnClose;
             @Close.performed -= instance.OnClose;
             @Close.canceled -= instance.OnClose;
-            @Painel_Interact.started -= instance.OnPainel_Interact;
-            @Painel_Interact.performed -= instance.OnPainel_Interact;
-            @Painel_Interact.canceled -= instance.OnPainel_Interact;
-            @Painel_Reset.started -= instance.OnPainel_Reset;
-            @Painel_Reset.performed -= instance.OnPainel_Reset;
-            @Painel_Reset.canceled -= instance.OnPainel_Reset;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Elevator.started -= instance.OnElevator;
+            @Elevator.performed -= instance.OnElevator;
+            @Elevator.canceled -= instance.OnElevator;
+            @Pull.started -= instance.OnPull;
+            @Pull.performed -= instance.OnPull;
+            @Pull.canceled -= instance.OnPull;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1136,12 +1179,14 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private List<IScaleActions> m_ScaleActionsCallbackInterfaces = new List<IScaleActions>();
     private readonly InputAction m_Scale_Movement;
     private readonly InputAction m_Scale_Exit;
+    private readonly InputAction m_Scale_Reset;
     public struct ScaleActions
     {
         private @ControlsPlayer m_Wrapper;
         public ScaleActions(@ControlsPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Scale_Movement;
         public InputAction @Exit => m_Wrapper.m_Scale_Exit;
+        public InputAction @Reset => m_Wrapper.m_Scale_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Scale; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1157,6 +1202,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Exit.started += instance.OnExit;
             @Exit.performed += instance.OnExit;
             @Exit.canceled += instance.OnExit;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IScaleActions instance)
@@ -1167,6 +1215,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Exit.started -= instance.OnExit;
             @Exit.performed -= instance.OnExit;
             @Exit.canceled -= instance.OnExit;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IScaleActions instance)
@@ -1232,10 +1283,10 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnClose(InputAction.CallbackContext context);
-        void OnPainel_Interact(InputAction.CallbackContext context);
-        void OnPainel_Reset(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnElevator(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1254,5 +1305,6 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

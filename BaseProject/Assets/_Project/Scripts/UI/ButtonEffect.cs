@@ -3,43 +3,64 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI; // Precisamos disso para controlar a cor da Imagem
 
 #if UNITY_EDITOR
-using UnityEditor; // para SceneAsset
+using UnityEditor;
 #endif
 
 public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [Header("Configuração do botão")]
+    [Header("Configuração Geral")]
     [SerializeField] float effectTime = 0.2f;
-    [SerializeField] float focusedSize = 1.2f;
-    [SerializeField] float normalSize = 1f;
-    [SerializeField] float jumpHeight = 1f;
-    [SerializeField] float jumpForce = 1f;
 
+    [Header("Efeito Hover")]
+    [SerializeField] float focusedSize = 1.1f;
+    [SerializeField] Color hoverColor = Color.white; // Cor do botão no hover (se branco, não muda)
+
+    [Header("Efeito Click")]
+    [SerializeField] Vector3 punchScale = new Vector3(0.1f, 0.1f, 0.1f); // Força do "soco"
+    [SerializeField] int punchVibrato = 10;
+    [SerializeField] float punchElasticity = 1f;
+
+    [Header("Sons")]
     [SerializeField] private AudioClip[] onClickSounds;
     [SerializeField] private AudioClip onHoverSound;
 
-
     public Action OnClickAction;
 
-    // ----- Scene selection (arrastar a cena aqui no Inspector) -----
+    // ----- Scene selection -----
 #if UNITY_EDITOR
-    public SceneAsset sceneAsset; // arraste a cena .unity aqui (editor only)
+    public SceneAsset sceneAsset;
 #endif
-    [SerializeField, HideInInspector] string sceneName; // name salvo para runtime
+    [SerializeField, HideInInspector] string sceneName;
+    // ---------------------------
 
-    // ---------------------------------------------------------------
+    // --- Componentes e Valores Originais ---
+    private Image buttonImage;
+    private Color originalColor;
+    private float normalSize;
+    private Sequence currentSequence; // Para controlar animações ativas
+
+    private void Awake()
+    {
+        // Tenta pegar a imagem e guardar a cor original
+        buttonImage = GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            originalColor = buttonImage.color;
+        }
+
+        // Guarda o tamanho original
+        normalSize = transform.localScale.x;
+    }
 
     private void Start()
     {
-        // registra no MenuManager para hover/focus
         if (MenuManager.Instance != null)
             MenuManager.Instance.RegisterButton(this);
     }
 
-    // Executa no Editor quando você altera o SceneAsset no Inspector:
     private void OnValidate()
     {
 #if UNITY_EDITOR
@@ -65,8 +86,33 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // Mata a sequência anterior se houver (para evitar cliques duplos)
+        if (currentSequence != null && currentSequence.IsActive())
+        {
+            currentSequence.Kill();
+        }
+
+        // Toca o som primeiro
         SoundFXManager.instance.PlayRandomSoundFXClip(onClickSounds, transform, 1f);
-        JumpEffect();
+
+        // Cria uma nova sequência de animação
+        currentSequence = DOTween.Sequence();
+
+        // 1. Adiciona o efeito de "punch"
+        currentSequence.Append(transform.DOPunchScale(
+            punchScale,
+            effectTime,
+            punchVibrato,
+            punchElasticity
+        ));
+
+        // 2. QUANDO TERMINAR (OnComplete), carrega a cena ou ação
+        currentSequence.OnComplete(LoadSceneOrAction);
+    }
+
+    // Ação de carregar cena/evento (agora separada)
+    private void LoadSceneOrAction()
+    {
         // Prioriza cena configurada (se houver)
         if (!string.IsNullOrEmpty(sceneName))
         {
@@ -82,22 +128,38 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         OnClickAction?.Invoke();
     }
 
+
     public void Focus()
     {
-        transform.DOScale(focusedSize, effectTime);
+        // Mata tweens anteriores para evitar bugs
+        transform.DOKill();
+        if (buttonImage != null) buttonImage.DOKill();
+
+        // Animação de escala E cor
+        transform.DOScale(focusedSize, effectTime).SetEase(Ease.OutBack);
+        if (buttonImage != null && hoverColor != Color.white)
+        {
+            buttonImage.DOColor(hoverColor, effectTime);
+        }
     }
 
     public void ResetSize()
     {
+        // Mata tweens anteriores
+        transform.DOKill();
+        if (buttonImage != null) buttonImage.DOKill();
+
+        // Reseta escala E cor
         transform.DOScale(normalSize, effectTime);
+        if (buttonImage != null && hoverColor != Color.white)
+        {
+            buttonImage.DOColor(originalColor, effectTime);
+        }
     }
 
-    // opcional: efeito de pulo (caso queira usar em clique)
+    // Mantive este método caso o MenuManager chame ele por nome
     public void JumpEffect()
     {
-        transform.DOJump(
-            new Vector3(transform.position.x, transform.position.y + jumpHeight, transform.position.z),
-            jumpForce, 1, effectTime, false
-        );
+        transform.DOPunchScale(punchScale, effectTime, punchVibrato, punchElasticity);
     }
 }
