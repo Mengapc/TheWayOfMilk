@@ -743,6 +743,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: floatAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: pulseAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: floatDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: pulseDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: rotationAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131464250154714807, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: rotationDuration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
