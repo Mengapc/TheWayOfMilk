@@ -3,7 +3,57 @@ guid: 275477bcc9b4e484ab8a31d33d289176
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoBronze
+    second: {fileID: 2100000, guid: e3b7f3081b49dce409e7f59d9335b5c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoVidro
+    second: {fileID: 2100000, guid: 5a0c2681770063e46be5cfc4dd5a34c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CobreEngrenagem
+    second: {fileID: 2100000, guid: 9cdc68665db3c174ca5bbc4525fffabb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaMetal
+    second: {fileID: 2100000, guid: cb2e451790e8a8348b24b3a40df1baee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaPreto
+    second: {fileID: 2100000, guid: 25ead26339008594ab885366bd33e05e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leite
+    second: {fileID: 2100000, guid: 531fd06525f731341a1af4ff5d744edf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatAtomoNeon
+    second: {fileID: 2100000, guid: d0b9fda4b4d53b0429f006df4121371d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papel
+    second: {fileID: 2100000, guid: 6144bdc374679bd4fbf3a93e39aae9cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tampa
+    second: {fileID: 2100000, guid: c26cc7216a8f94947b859023f8b93d99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VidroLeite
+    second: {fileID: 2100000, guid: a628b17f34d41ba48b2f9f67697236ca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

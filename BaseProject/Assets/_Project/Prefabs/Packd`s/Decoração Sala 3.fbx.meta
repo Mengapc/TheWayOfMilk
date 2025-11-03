@@ -3,7 +3,102 @@ guid: 428cc1698b75e6548bb1b8f1fbffcfbd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseTrof.001
+    second: {fileID: 2100000, guid: da526a8229f7bfd40a54021a65fb0b79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Caixa1
+    second: {fileID: 2100000, guid: 481c0c1750cb99f46b88e5eaebb4ef12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Caixa2
+    second: {fileID: 2100000, guid: 77999c5ac77726d49ae01da523baea37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoBronze
+    second: {fileID: 2100000, guid: 9b4fefa39ec14864c9805b36a5ac990f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoVidro
+    second: {fileID: 2100000, guid: fa4602d6ac341a34aaa0039039a30ace, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaMetal
+    second: {fileID: 2100000, guid: cc18c109bd2cbca439dfcf81542ad526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaPreto
+    second: {fileID: 2100000, guid: b00a2b4f8fe7eed49a2ad03663e41c0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.025
+    second: {fileID: 2100000, guid: 14f5a929e0e46f5458903865299077cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.055
+    second: {fileID: 2100000, guid: 02d34fba3c7949f468e4a7133f42e9e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.056
+    second: {fileID: 2100000, guid: 53a9f01bc15bcea42b555b14b41987ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.057
+    second: {fileID: 2100000, guid: a028229db2a25f84984f5ab7c3b48f9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.061
+    second: {fileID: 2100000, guid: 9d30dca03a62bcc4283449dee0100bc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.062
+    second: {fileID: 2100000, guid: 980346df02231c042ad05cc2fdaa77d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.064
+    second: {fileID: 2100000, guid: 5646ddf33ca49b94880113bb24ac57ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.101
+    second: {fileID: 2100000, guid: a8ae41834a2c6ef4f93195580a0a403d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papel
+    second: {fileID: 2100000, guid: 3d8353e2fa05f4741bc294c23846e7b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrofCobre.001
+    second: {fileID: 2100000, guid: 1f0dda80f49b5d7488a9b66ad1e356ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrofOuro.001
+    second: {fileID: 2100000, guid: 8f2595ff3e1b9fa4d85ef00119d6e03e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrofPrata.001
+    second: {fileID: 2100000, guid: 81a14492d55893a4e8c87b4f3203b236, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

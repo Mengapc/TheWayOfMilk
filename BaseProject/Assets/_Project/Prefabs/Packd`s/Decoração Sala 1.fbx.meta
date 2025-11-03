@@ -3,7 +3,47 @@ guid: 19376863e3ba2bd4c87e9846dc130e62
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoBronze
+    second: {fileID: 2100000, guid: b0f120be40ec6f142b9b5290356f6e14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CanoVidro
+    second: {fileID: 2100000, guid: 06ed5cd34fee9444aabecf3cd843fdd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaMetal
+    second: {fileID: 2100000, guid: 7bfc080a54fc90b4eb9dee66d4e4ee7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JuntaPreto
+    second: {fileID: 2100000, guid: 92e6a85f970963b4f9a0d346be4a04bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.057
+    second: {fileID: 2100000, guid: e8ddf9aac88ed844d85f9edc7bb4c14c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.063
+    second: {fileID: 2100000, guid: b5925284746fb1e4692db54fb8a309fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon
+    second: {fileID: 2100000, guid: 37aac5891231cf743b8957c1940a568a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papel
+    second: {fileID: 2100000, guid: d5fc7720d525b4748aad37fd218ba0e4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
