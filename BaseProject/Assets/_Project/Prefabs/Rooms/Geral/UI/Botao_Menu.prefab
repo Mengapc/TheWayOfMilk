@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7238678503698579055}
   - component: {fileID: 3652662284405358735}
   - component: {fileID: 8743797457127422711}
+  - component: {fileID: 188847648733122807}
   m_Layer: 5
   m_Name: Botao_Menu
   m_TagString: Botao
@@ -28,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 2419661999261436930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5510710432430599690}
@@ -60,15 +61,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.013357639, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a489c8d5a556fc343b9d1aa00aefea6d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -99,7 +100,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e10f0a1a1e6adfe45ab3f077c96a924f, type: 3}
   onHoverSound: {fileID: 8300000, guid: 60c00f638999a6c4481cba8654ee41d6, type: 3}
   sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-  sceneName: SampleScene
+  sceneName: Puzzle 3
+--- !u!225 &188847648733122807
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419661999261436930}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6370443536456911262
 GameObject:
   m_ObjectHideFlags: 0
