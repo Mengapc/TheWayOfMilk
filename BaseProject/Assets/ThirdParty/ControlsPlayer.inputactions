@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Painel_Reset",
+                    "name": "Elevator",
                     "type": "Button",
                     "id": "33b63d2f-cd13-40f3-86b7-55283f6c6c33",
                     "expectedControlType": "",
@@ -136,7 +136,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Painel_Reset",
+                    "action": "Elevator",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

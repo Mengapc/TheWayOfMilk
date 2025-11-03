@@ -14,14 +14,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float moveOffsetY = 50f;
     [SerializeField] float staggerDelay = 0.1f;
 
-    [Header("Configurações de Movimento Contínuo")]
-    [SerializeField] float floatAmount = 5f;
-    [SerializeField] float floatDuration = 1.5f;
-    [SerializeField] float rotationAmount = 5f;
-    [SerializeField] float rotationDuration = 3f;
-    [SerializeField] float pulseAmount = 1.05f;
-    [SerializeField] float pulseDuration = 1f;
-
     bool isLoadingScene = false; // evita double-load
 
     private void Awake()
@@ -32,55 +24,47 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        CanvasGroup group = GetComponent<CanvasGroup>();
-        if (group != null)
+        // Garante que o CanvasGroup principal esteja visível
+        CanvasGroup mainGroup = GetComponent<CanvasGroup>();
+        if (mainGroup != null)
         {
-            group.alpha = 0;
-            group.DOFade(1, fadeDuration);
+            mainGroup.alpha = 1;
+            mainGroup.interactable = true;
+            mainGroup.blocksRaycasts = true;
         }
 
-        int i = 0;
         foreach (Transform child in transform)
         {
-            Vector3 startPos = child.localPosition;
-            child.localPosition = startPos + new Vector3(0, -moveOffsetY, 0);
+            // Procuramos o CanvasGroup no filho (ou nos filhos dele)
+            CanvasGroup childCanvas = child.GetComponentInChildren<CanvasGroup>();
+
+            if (childCanvas == null)
+            {
+                // Pula este item se não tiver CanvasGroup
+                continue;
+            }
 
             Sequence seq = DOTween.Sequence();
 
-            // Entrada com fade + movimento
-            seq.Append(child.DOLocalMove(startPos, fadeDuration)
-                        .SetEase(Ease.OutBack)
-                        .SetDelay(i * staggerDelay));
+            // 1. Preparar o Fade (para TODOS os filhos com CanvasGroup)
+            childCanvas.alpha = 0; // Define o alpha inicial
+            var fadeTween = childCanvas.DOFade(1, fadeDuration);
 
-            CanvasGroup childCanvas = child.GetComponent<CanvasGroup>();
-            if (childCanvas != null)
-            {
-                childCanvas.alpha = 0;
-                seq.Join(childCanvas.DOFade(1, fadeDuration).SetDelay(i * staggerDelay));
-            }
+            seq.Append(fadeTween);
 
-            // Se for logo ou imagem de destaque: adiciona rotação + float contínuo
-            if (child.CompareTag("Logo") || child.CompareTag("Image"))
-            {
-                // atenção: floatAmount pode ser pequeno (ex: 1-2) para não sair da tela
-                child.DOLocalMoveY(startPos.y + floatAmount, floatDuration)
-                     .SetLoops(-1, LoopType.Yoyo)
-                     .SetEase(Ease.InOutSine);
-
-                child.DORotate(new Vector3(0, 0, rotationAmount), rotationDuration, RotateMode.FastBeyond360)
-                     .SetLoops(-1, LoopType.Yoyo)
-                     .SetEase(Ease.InOutSine);
-            }
-
-            // Se for botão: adiciona pulso sutil
+            // 2. Preparar o Movimento (APENAS para tag "Botao")
             if (child.CompareTag("Botao"))
             {
-                child.DOScale(pulseAmount, pulseDuration)
-                     .SetLoops(-1, LoopType.Yoyo)
-                     .SetEase(Ease.InOutSine);
-            }
+                Vector3 startPos = child.localPosition;
+                // Define a posição inicial "para baixo"
+                child.localPosition = startPos + new Vector3(0, -moveOffsetY, 0);
 
-            i++;
+                var moveTween = child.DOLocalMove(startPos, fadeDuration)
+                                    .SetEase(Ease.OutBack);
+
+                // Junta o movimento ao fade
+                seq.Join(moveTween);
+            }
         }
     }
 

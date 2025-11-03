@@ -63,10 +63,10 @@ public class Elevator : MonoBehaviour
     #region Funções de Evento Unity
 
     // Chamado a cada frame, verifica o input do jogador para ativar o elevador.
-    private void Update()
-    {
-        // Se a tecla 'Espaço' foi pressionada, o elevador não está se movendo, e o jogador está na área de colisão
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && !movendo && colliderPlayer)
+
+    public void InputElevator (InputAction.CallbackContext context)
+    {         
+        if (context.performed && !movendo && colliderPlayer)
         {
             ElevatorActivation();
         }

@@ -55,7 +55,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Painel_Reset"",
+                    ""name"": ""Elevator"",
                     ""type"": ""Button"",
                     ""id"": ""33b63d2f-cd13-40f3-86b7-55283f6c6c33"",
                     ""expectedControlType"": """",
@@ -158,7 +158,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Painel_Reset"",
+                    ""action"": ""Elevator"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -894,7 +894,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Close = m_Player.FindAction("Close", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Painel_Reset = m_Player.FindAction("Painel_Reset", throwIfNotFound: true);
+        m_Player_Elevator = m_Player.FindAction("Elevator", throwIfNotFound: true);
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -984,7 +984,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Close;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Painel_Reset;
+    private readonly InputAction m_Player_Elevator;
     private readonly InputAction m_Player_Pull;
     public struct PlayerActions
     {
@@ -993,7 +993,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Close => m_Wrapper.m_Player_Close;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Painel_Reset => m_Wrapper.m_Player_Painel_Reset;
+        public InputAction @Elevator => m_Wrapper.m_Player_Elevator;
         public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1013,9 +1013,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Painel_Reset.started += instance.OnPainel_Reset;
-            @Painel_Reset.performed += instance.OnPainel_Reset;
-            @Painel_Reset.canceled += instance.OnPainel_Reset;
+            @Elevator.started += instance.OnElevator;
+            @Elevator.performed += instance.OnElevator;
+            @Elevator.canceled += instance.OnElevator;
             @Pull.started += instance.OnPull;
             @Pull.performed += instance.OnPull;
             @Pull.canceled += instance.OnPull;
@@ -1032,9 +1032,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Painel_Reset.started -= instance.OnPainel_Reset;
-            @Painel_Reset.performed -= instance.OnPainel_Reset;
-            @Painel_Reset.canceled -= instance.OnPainel_Reset;
+            @Elevator.started -= instance.OnElevator;
+            @Elevator.performed -= instance.OnElevator;
+            @Elevator.canceled -= instance.OnElevator;
             @Pull.started -= instance.OnPull;
             @Pull.performed -= instance.OnPull;
             @Pull.canceled -= instance.OnPull;
@@ -1285,7 +1285,7 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnClose(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnPainel_Reset(InputAction.CallbackContext context);
+        void OnElevator(InputAction.CallbackContext context);
         void OnPull(InputAction.CallbackContext context);
     }
     public interface IUIActions
