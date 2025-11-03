@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
 
-public class UpdateInfoPlayer : MonoBehaviour
+// Este é o script que deve estar no mesmo GameObject do Player,
+// junto com o ObjectGrabbing.cs e o SphereCollider.
+public class UpdateInfoPlayer_UI : MonoBehaviour
 {
     #region Variaveis
     [Header("Configurações de UI")]
@@ -12,15 +14,32 @@ public class UpdateInfoPlayer : MonoBehaviour
     [Tooltip("Informação ao chegar perto do leite.")]
     [TextArea(3, 10)]
     [SerializeField] private string infoPegar;
-    [Tooltip("Referência ao script de pegar objetos.")]
+    [Tooltip("Informação ao estar com o leite na mão.")]
+    [TextArea(3, 10)]
+    [SerializeField] private string infoJogar;
+
+    [Tooltip("Referência ao script de pegar objetos (no mesmo GameObject).")]
     [SerializeField] private ObjectGrabbing objectGrabbing;
+
     [Tooltip("Informação ao chegar perto do elevador.")]
     [TextArea(3, 10)]
     [SerializeField] private string infoElevador;
-    [SerializeField] private bool inElevator;
+
+    // Variável para controlar se está na zona do elevador
+    private bool inElevator = false;
     #endregion
 
     #region Metodos da Unity
+
+    // Pega a referência automaticamente
+    private void Awake()
+    {
+        if (objectGrabbing == null)
+        {
+            objectGrabbing = GetComponent<ObjectGrabbing>();
+        }
+    }
+
     // Chamado quando o script é carregado pela primeira vez
     private void Start()
     {
@@ -30,22 +49,34 @@ public class UpdateInfoPlayer : MonoBehaviour
     // Chamado a cada frame
     private void Update()
     {
-        // Verifica se o jogador está perto do leite e não está segurando um objeto
-        // Esta lógica assume que 'objectGrabbing' é atribuído no Inspector
-        if (objectGrabbing != null && !objectGrabbing.GrabbingObject)
+        // Se o objectGrabbing não estiver atribuído, não faz nada
+        if (objectGrabbing == null)
         {
-            // NOTA: Esta lógica para 'infoPegar' vai sobrepor a do elevador
-            // se ambas as condições forem verdadeiras.
-            uiCanvas.enabled = true;
-            textInfo.text = infoPegar;
+            uiCanvas.enabled = false;
+            return;
         }
-        // Verifica se o jogador está perto do elevador (variável 'elevator' não é nula)
+
+        // 1. Se estiver carregando um arremesso, esconde a UI
+        if (objectGrabbing.IsCharging)
+        {
+            uiCanvas.enabled = false;
+            textInfo.text = "";
+        }
+        // 2. Se estiver na zona do elevador
         else if (inElevator)
         {
             uiCanvas.enabled = true;
             textInfo.text = infoElevador;
         }
-        // Se nenhuma condição for atendida, esconde o canvas
+        // 3. Se NÃO estiver segurando E ESTIVER PERTO de um item
+        //    (Agora pergunta ao ObjectGrabbing.IsNearGrabbable)
+        else if (!objectGrabbing.GrabbingObject && objectGrabbing.IsNearGrabbable)
+        {
+            // Mostra a informação de como pegar um objeto
+            uiCanvas.enabled = true;
+            textInfo.text = infoPegar;
+        }
+        // 4. Se estiver segurando um objeto ou longe de tudo
         else
         {
             uiCanvas.enabled = false;
@@ -56,7 +87,6 @@ public class UpdateInfoPlayer : MonoBehaviour
 
     #region Detecção de Triggers (Gatilhos)
 
-    // CORREÇÃO: Usamos OnTriggerEnter porque o Player usa um CharacterController.
     // Esta função é chamada quando o CharacterController entra em um Collider marcado como "Is Trigger".
     private void OnTriggerEnter(Collider other)
     {
@@ -64,11 +94,12 @@ public class UpdateInfoPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Elevator"))
         {
             inElevator = true;
-            // Armazena a referência do script Elevator
         }
+
+        // Não precisamos mais checar a "Ball" aqui, 
+        // o ObjectGrabbing.cs já faz isso no Update().
     }
 
-    // CORREÇÃO: Usamos OnTriggerExit.
     // Chamado quando o CharacterController sai de um Trigger.
     private void OnTriggerExit(Collider other)
     {
@@ -76,10 +107,7 @@ public class UpdateInfoPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Elevator"))
         {
             inElevator = false;
-            // Limpa a referência, pois não estamos mais no elevador
-       
         }
     }
     #endregion
 }
-

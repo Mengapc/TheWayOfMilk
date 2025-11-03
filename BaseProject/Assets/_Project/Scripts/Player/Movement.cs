@@ -14,19 +14,17 @@ public class Movement : MonoBehaviour
     [Tooltip("Direção do movimento do jogador.")]
     [SerializeField] private Direction direction;
     [Tooltip("Velocidade da rotação em graus por segundo.")]
-    [SerializeField] private float rotationSpeed = 720f; // Adicionado para ser mais flexível
+    [SerializeField] private float rotationSpeed = 720f; 
 
     [Space]
     [Header("Configurações de Física.")]
     [Tooltip("Valor da gravidade aplicada ao jogador.")]
     [SerializeField] public float gravityValue = -9.81f;
 
-    // --- ADIÇÃO PARA ANIMAÇÃO ---
     [Space]
     [Header("Referências de Animação")]
     [Tooltip("Referência ao script que controla o Animator.")]
     [SerializeField] private PlayerAnimationController animController;
-    // --- FIM DA ADIÇÃO ---
 
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
@@ -39,7 +37,6 @@ public class Movement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         objectGrabbing = GetComponent<ObjectGrabbing>();
 
-        // Pega o controlador de animação automaticamente se não for atribuído
         if (animController == null)
         {
             animController = GetComponent<PlayerAnimationController>();
@@ -57,12 +54,10 @@ public class Movement : MonoBehaviour
         Move();
         Rotate();
 
-        // --- ADIÇÃO PARA ANIMAÇÃO ---
-        // Calcula a velocidade (magnitude) do input e envia para o Animator
-        // Usamos sqrMagnitude por ser mais otimizado que Magnitude
+
         float currentSpeed = inputDirection.sqrMagnitude;
         animController?.SetMoveSpeed(currentSpeed);
-        // --- FIM DA ADIÇÃO ---
+
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
@@ -80,16 +75,10 @@ public class Movement : MonoBehaviour
 
     private void Rotate()
     {
-        // CORREÇÃO 1 e 2:
-        // Checamos se há input (sqrMagnitude > 0.01f) para evitar o erro de LookRotation
-        // e para o personagem só girar quando estiver se movendo.
         if (inputDirection.sqrMagnitude > 0.01f)
         {
-            // Calcula a rotação alvo (para onde queremos olhar)
             Quaternion toRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
 
-            // Gira suavemente do 'player.rotation' atual para o 'toRotation' alvo
-            // Usei a variável 'rotationSpeed' que criei no topo
             player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
