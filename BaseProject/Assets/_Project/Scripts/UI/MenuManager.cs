@@ -12,7 +12,6 @@ public class MenuManager : MonoBehaviour
     [Header("Configurações de Entrada")]
     [SerializeField] float fadeDuration = 0.5f;
     [SerializeField] float moveOffsetY = 50f;
-    [SerializeField] float staggerDelay = 0.1f;
 
     bool isLoadingScene = false; // evita double-load
 
