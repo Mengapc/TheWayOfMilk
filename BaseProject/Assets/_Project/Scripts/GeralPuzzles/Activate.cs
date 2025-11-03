@@ -23,14 +23,6 @@ public class Activate : MonoBehaviour
 
     private Transform objectTarget;
 
-    
-
-
-
-    [SerializeField]
-
-    private bool isBoxOnPlate = false;
-
 
 
     private void OnTriggerEnter(Collider other)
@@ -114,6 +106,7 @@ public class Activate : MonoBehaviour
         other.position = finalPos;
         other.rotation = finalRotation;
         _evento.Invoke();
+
         yield return StartCoroutine(ConstanteRotation(other));
     }
     

@@ -660,21 +660,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1716884255}
-    - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: InputElevator
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Elevator, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5948675331374401099, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.95
@@ -731,17 +719,10 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 2048783277}
-    - target: {fileID: 7824542967970608634, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-      propertyPath: m_Height
-      value: 11.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3978554163870213012, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1753137501}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
 --- !u!1001 &1556382479
 PrefabInstance:
@@ -944,38 +925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46554c983f934f4eabe726e3b4107d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1753137494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3978554163870213012, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
-  m_PrefabInstance: {fileID: 1007123488}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1753137501
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753137494}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1930546623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 960948207856481158, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
