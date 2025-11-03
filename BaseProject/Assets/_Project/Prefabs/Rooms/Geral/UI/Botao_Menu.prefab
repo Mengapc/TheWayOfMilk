@@ -92,9 +92,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectTime: 0.3
   focusedSize: 1.4
-  normalSize: 1
-  jumpHeight: 15
-  jumpForce: 3
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  punchScale: {x: 0.1, y: 0.1, z: 0.1}
+  punchVibrato: 10
+  punchElasticity: 1
   onClickSounds:
   - {fileID: 8300000, guid: 28551d9853649644388d4a4f29415af5, type: 3}
   - {fileID: 8300000, guid: e10f0a1a1e6adfe45ab3f077c96a924f, type: 3}
@@ -138,13 +139,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6370443536456911262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5627391759266740455}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -180,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continuar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f80c6df906d11284696e6fa8c0cd2667, type: 2}
+  m_sharedMaterial: {fileID: -3580062424020109627, guid: f80c6df906d11284696e6fa8c0cd2667, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
