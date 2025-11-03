@@ -382,64 +382,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2113943467972710410, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5541408400591070528, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 423807203}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
---- !u!1 &423807202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5541408400591070528, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
-  m_PrefabInstance: {fileID: 423807201}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &423807203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423807202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33de80f39fb6dfe459b3d0c83c5c919d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectiveText: {fileID: 651036067}
-  sceneNames:
-  - Puzzle 1
-  - Puzzle 2
-  - Puzzle 3
-  detalhesScene1:
-  - Pegue o leite no andar de cima.
-  - "Leve-o at\xE9 o energizador no final da sala."
-  - "V\xE1 para a pr\xF3xima sala"
-  detalhesScene2:
-  - Desative a barreira de algum forma.
-  - "Jogue o leite no energizador.\n\nPode usar o bot\xE3o direito do mouse para
-    arremesar o leite"
-  - "V\xE1 para a pr\xF3xima sala."
-  detalhesScene3:
-  - "Jogue o leite no energizador do outro lado da sala, mas tome cuidado as armadilhas
-    podem destruir o gal\xE3o de leite."
-  - "V\xE1 para a pr\xF3xima sala."
 --- !u!224 &423807204 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
   m_PrefabInstance: {fileID: 423807201}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &651036067 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915195581780038063, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
-  m_PrefabInstance: {fileID: 423807201}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &753666605
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +642,7 @@ PrefabInstance:
     - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 423807203}
+      objectReference: {fileID: 0}
     - target: {fileID: 5750246083952964316, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
