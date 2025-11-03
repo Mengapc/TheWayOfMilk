@@ -805,6 +805,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: sair_txt
       objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneName
+      value: SalaFinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743797457127422711, guid: d588966e9bc41124dbcdafe5de5e4564, type: 3}
+      propertyPath: sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 1abc200e4948be44988a7ed12362b40a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
