@@ -217,9 +217,9 @@ MonoBehaviour:
     m_ActionName: 'Scale/Exit[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Elevator, Assembly-CSharp
-        m_MethodName: InputElevator
+      - m_Target: {fileID: 3046256553113066117}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: OnElevatorInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -330,7 +330,8 @@ MonoBehaviour:
   uiCanvas: {fileID: 0}
   textInfo: {fileID: 0}
   infoPegar: Aponte para o objeto e aperte E para pegar.
-  infoJogar: 
+  infoJogar: "Clique com o bot\xE3o direiro para jogas o leite.\nQuanto mais segurar
+    mais loge joga."
   objectGrabbing: {fileID: 6283824435645916975}
   infoElevador: "Aperte Q para mover o elevador.\r"
 --- !u!114 &6564576115362327945

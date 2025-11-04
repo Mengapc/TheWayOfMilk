@@ -30,6 +30,8 @@ public class Movement : MonoBehaviour
     private Vector3 playerVelocity;
     private CharacterController characterController;
     private ObjectGrabbing objectGrabbing;
+    private Elevator currentElevator = null;
+
 
 
     private void Awake()
@@ -91,6 +93,37 @@ public class Movement : MonoBehaviour
         }
         Vector3 move = inputDirection * speed;
         characterController.Move(move * Time.deltaTime);
+    }
+
+    // Variável privada para guardar o elevador que estamos a usar
+
+    /// <summary>
+    /// Esta função é chamada pelo componente Player Input quando o botão é pressionado.
+    /// </summary>
+    public void OnElevatorInput(InputAction.CallbackContext context)
+    {
+        // Se o botão foi pressionado (performed) e estamos dentro de um elevador
+        if (context.performed && currentElevator != null)
+        {
+            // Ativa o elevador específico em que estamos
+            currentElevator.ElevatorActivation();
+        }
+    }
+
+    /// <summary>
+    /// Esta função é chamada pelo ElavatorCollider quando entramos no trigger.
+    /// </summary>
+    public void SetCurrentElevator(Elevator elevator)
+    {
+        this.currentElevator = elevator;
+    }
+
+    /// <summary>
+    /// Esta função é chamada pelo ElavatorCollider quando saímos do trigger.
+    /// </summary>
+    public void ClearCurrentElevator()
+    {
+        this.currentElevator = null;
     }
 }
 

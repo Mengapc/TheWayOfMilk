@@ -4,23 +4,38 @@ using UnityEngine;
 public class ElavatorCollider : MonoBehaviour
 {
     [Header("Componentes.")]
-    [Tooltip("Prefab do player.")]
-    [SerializeField] private GameObject player;
-    [Tooltip("Prefab do elevador.")]
-    [SerializeField] private Elevator elevador;
+    // REMOVIDO: [SerializeField] private GameObject player; (Vamos pegar pelo trigger)
+
+    [Tooltip("Referência ao script principal do elevador (este trigger pertence a ele).")]
+    [SerializeField] private Elevator elevador; // Continua necessário
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        // Verifica se quem entrou é o Player
+        if (other.CompareTag("Player"))
         {
-            elevador.colliderPlayer = true;
+            // Tenta pegar o script de interação no Player
+            Movement playerInteraction = other.GetComponent<Movement>();
+            if (playerInteraction != null)
+            {
+                // Informa ao Player qual elevador ele pode usar
+                playerInteraction.SetCurrentElevator(elevador);
+            }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        // Verifica se quem saiu é o Player
+        if (other.CompareTag("Player"))
         {
-            elevador.colliderPlayer = false;
+            // Tenta pegar o script de interação no Player
+            Movement playerInteraction = other.GetComponent<Movement>();
+            if (playerInteraction != null)
+            {
+                // Limpa a referência do elevador, pois o Player saiu
+                playerInteraction.ClearCurrentElevator();
+            }
         }
     }
 }
