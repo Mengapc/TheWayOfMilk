@@ -8,42 +8,42 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CanoBronze
-    second: {fileID: 2100000, guid: b0f120be40ec6f142b9b5290356f6e14, type: 2}
+    second: {fileID: 2100000, guid: 4498ca7442142a84c88abf7f9df793d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CanoVidro
-    second: {fileID: 2100000, guid: 06ed5cd34fee9444aabecf3cd843fdd2, type: 2}
+    second: {fileID: 2100000, guid: 57862b7ab41801b48aa9d7082b0fea94, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: JuntaMetal
-    second: {fileID: 2100000, guid: 7bfc080a54fc90b4eb9dee66d4e4ee7a, type: 2}
+    second: {fileID: 2100000, guid: 0035980a844860844817f53d79054b00, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: JuntaPreto
-    second: {fileID: 2100000, guid: 92e6a85f970963b4f9a0d346be4a04bb, type: 2}
+    second: {fileID: 2100000, guid: e8783962049602848bd1c05c5ea82079, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.057
-    second: {fileID: 2100000, guid: e8ddf9aac88ed844d85f9edc7bb4c14c, type: 2}
+    second: {fileID: 2100000, guid: b87963e171905714bbde425864f990e4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.063
-    second: {fileID: 2100000, guid: b5925284746fb1e4692db54fb8a309fb, type: 2}
+    second: {fileID: 2100000, guid: b07eee71b0bae2b44965e7f70f67a6de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Neon
-    second: {fileID: 2100000, guid: 37aac5891231cf743b8957c1940a568a, type: 2}
+    second: {fileID: 2100000, guid: b4370fbe46062f445ae216b3f9eb4bd8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Papel
-    second: {fileID: 2100000, guid: d5fc7720d525b4748aad37fd218ba0e4, type: 2}
+    second: {fileID: 2100000, guid: dfba099d3066a924284f0e7397864afa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -20,6 +20,8 @@ public class Activate : MonoBehaviour
     [SerializeField] private float durationAnimation2 = 2f;
     [Tooltip("Velocidade de rotação constante do objeto.")]
     [SerializeField] private float rotationSpeed = 30f;
+    [Tooltip("Boleana para controle da ativação.")]
+    public bool Ativado; 
 
     private Transform objectTarget;
 
@@ -106,7 +108,7 @@ public class Activate : MonoBehaviour
         other.position = finalPos;
         other.rotation = finalRotation;
         _evento.Invoke();
-
+        Ativado = true;
         yield return StartCoroutine(ConstanteRotation(other));
     }
     
