@@ -60,24 +60,11 @@ public class Elevator : MonoBehaviour
     private bool movendo = false;
     public bool colliderPlayer = false;
 
-    #region Funções de Evento Unity
-
-    // Chamado a cada frame, verifica o input do jogador para ativar o elevador.
-
-    public void InputElevator (InputAction.CallbackContext context)
-    {         
-        if (context.performed && !movendo && colliderPlayer)
-        {
-            ElevatorActivation();
-        }
-    }
-
-    #endregion
 
     #region Lógica Principal do Elevador
 
     // Inicia o movimento do elevador, decidindo para qual andar ir.
-    private void ElevatorActivation()
+    public void ElevatorActivation()
     {
         if (primeiroAndar)
         {
