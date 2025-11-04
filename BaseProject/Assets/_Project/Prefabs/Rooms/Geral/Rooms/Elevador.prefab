@@ -668,7 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15162708e921d434fb3f79153b62e728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1056676188086769789, guid: 4072b139eb328404b9791fb2834511e4, type: 3}
   elevador: {fileID: 1070874086654586226}
 --- !u!65 &45982210564185720
 BoxCollider:
@@ -1188,11 +1187,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cabine: {fileID: 7276313856044291382}
-  cabineDoor: {fileID: 0}
+  cabineDoor: {fileID: 7646374207832893488}
   pontoPrimeiroAndar: {fileID: 9095078568974728493}
-  portaPrimeiroAndar: {fileID: 0}
+  portaPrimeiroAndar: {fileID: 4190152207678282434}
   pontoSegundoAndar: {fileID: 8147043801546436342}
-  portaSegundoAndar: {fileID: 0}
+  portaSegundoAndar: {fileID: 1781002024565014631}
   player: {fileID: 0}
   movementAanimation:
     serializedVersion: 2

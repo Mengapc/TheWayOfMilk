@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Direção do movimento do jogador.")]
     [SerializeField] private Direction direction;
     [Tooltip("Velocidade da rotação em graus por segundo.")]
-    [SerializeField] private float rotationSpeed = 720f; 
+    [SerializeField] private float rotationSpeed = 720f;
 
     [Space]
     [Header("Configurações de Física.")]
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
     private CharacterController characterController;
-    private ObjectGrabbing objectGrabbing;
+    private ObjectGrabbing objectGrabbing; // Referência para o script de pegar
     private Elevator currentElevator = null;
 
 
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        objectGrabbing = GetComponent<ObjectGrabbing>();
+        objectGrabbing = GetComponent<ObjectGrabbing>(); // Pega a referência
 
         if (animController == null)
         {
@@ -57,8 +57,23 @@ public class Movement : MonoBehaviour
         Rotate();
 
 
+        // --- LÓGICA DE ANIMAÇÃO ---
+
+        // 1. Pega a velocidade atual (você já faz isso)
         float currentSpeed = inputDirection.sqrMagnitude;
         animController?.SetMoveSpeed(currentSpeed);
+
+        // 2. LÓGICA ADICIONADA: Verifica se estamos no estado "MoveMilk"
+        // "MoveMilk" = Estamos nos movendo E NÃO estamos segurando um objeto.
+        bool isMoving = currentSpeed > 0.01f;
+        bool isHolding = objectGrabbing.GrabbingObject; // Pergunta ao script se estamos segurando
+
+        bool isMovingMilk = isMoving && !isHolding; // A lógica final
+
+        // 3. Envia a informação para o Animator
+        animController?.SetMoveMilk(isMovingMilk);
+
+        // --- FIM DA LÓGICA DE ANIMAÇÃO ---
 
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -126,4 +141,3 @@ public class Movement : MonoBehaviour
         this.currentElevator = null;
     }
 }
-

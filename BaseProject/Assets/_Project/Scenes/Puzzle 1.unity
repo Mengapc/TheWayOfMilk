@@ -5442,6 +5442,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
   m_PrefabInstance: {fileID: 423807201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &442050679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7660969215928079378, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+  m_PrefabInstance: {fileID: 1978454122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &442050682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442050679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad49e91f6321e0e45902652ba573c124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488859594
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,6 +5639,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5632,6 +5653,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
       propertyPath: m_Name
       value: PedrasArny (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6263,6 +6288,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6273,6 +6302,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
       propertyPath: m_Name
       value: PedrasArny
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3a40dc4fe9c500f47852ad7b709c47d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6529,6 +6562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3046256553113066117, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: animController
+      value: 
+      objectReference: {fileID: 442050682}
     - target: {fileID: 3978554163870213012, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6577,6 +6614,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 205073322}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: animController
+      value: 
+      objectReference: {fileID: 442050682}
     - target: {fileID: 6564576115362327945, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: mainCamera
       value: 
@@ -6592,7 +6633,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7660969215928079378, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 442050682}
   m_SourcePrefab: {fileID: 100100000, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
 --- !u!4 &2058624946 stripped
 Transform:
