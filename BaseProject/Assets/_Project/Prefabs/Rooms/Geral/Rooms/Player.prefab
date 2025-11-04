@@ -63,8 +63,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -42.532513, y: 4.9720173, z: -73.573044}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.27, y: 1.27, z: 1.27}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6997162553485348520}
   m_Father: {fileID: 0}
@@ -285,6 +285,7 @@ MonoBehaviour:
   direction: {fileID: 6564576115362327945}
   rotationSpeed: 720
   gravityValue: -9.41
+  animController: {fileID: 0}
 --- !u!114 &6283824435645916975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +331,7 @@ MonoBehaviour:
   infoPegar: Aponte para o objeto e aperte E para pegar.
   objectGrabbing: {fileID: 6283824435645916975}
   infoElevador: "Aperte Q para mover o elevador.\r"
+  inElevator: 0
 --- !u!114 &6564576115362327945
 MonoBehaviour:
   m_ObjectHideFlags: 0
