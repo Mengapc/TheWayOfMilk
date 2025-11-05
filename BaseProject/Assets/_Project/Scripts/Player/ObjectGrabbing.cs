@@ -207,6 +207,7 @@ public class ObjectGrabbing : MonoBehaviour
             // 6. Avisar o Animator
             animController?.SetCharging(false); // Para de carregar
             animController?.TriggerThrow();     // Dispara a animação de arremesso
+            animController?.SetHolding(false);
         }
     }
     #endregion
