@@ -9,12 +9,12 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
 
     // Hashes dos parâmetros (para otimização, mais rápido que usar strings)
-    private readonly int hashMoveSpeed = Animator.StringToHash("moveSpeed");
-    private readonly int hashIsHolding = Animator.StringToHash("isHolding");
-    private readonly int hashIsCharging = Animator.StringToHash("isCharging");
-    private readonly int hashOnCollect = Animator.StringToHash("onCollect");
-    private readonly int hashOnDrop = Animator.StringToHash("onDrop");
-    private readonly int hashOnThrow = Animator.StringToHash("onThrow");
+    [SerializeField] private readonly int hashMoveSpeed = Animator.StringToHash("moveSpeed");
+    [SerializeField] private readonly int hashIsHolding = Animator.StringToHash("isHolding");
+    [SerializeField] private readonly int hashIsCharging = Animator.StringToHash("isCharging");
+    [SerializeField] private readonly int hashOnCollect = Animator.StringToHash("onCollect");
+    [SerializeField] private readonly int hashOnDrop = Animator.StringToHash("onDrop");
+    [SerializeField] private readonly int hashOnThrow = Animator.StringToHash("onThrow");
     // REMOVIDO: O hash 'hasIshMoveMilk' foi removido.
 
 

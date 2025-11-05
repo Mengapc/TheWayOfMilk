@@ -21480,6 +21480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860728109}
   - component: {fileID: 860728110}
+  - component: {fileID: 860728111}
   m_Layer: 0
   m_Name: LaserBeam
   m_TagString: Untagged
@@ -21539,6 +21540,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 31.334131, z: 28.888176}
   m_Center: {x: 0, y: -6.430993, z: 0.35969543}
+--- !u!114 &860728111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860728108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79cd90010760ea4f9507c98d4ee1eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899326436
 GameObject:
   m_ObjectHideFlags: 0
@@ -102884,6 +102897,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3720198928260032896, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: somPorta
+      value: 
+      objectReference: {fileID: 8300000, guid: b747d353f173f2f4996806560125d4f8, type: 3}
     - target: {fileID: 3911609865052818494, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: player
       value: 
@@ -102892,6 +102909,18 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1644952827}
+    - target: {fileID: 4345082247935189927, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: _evento.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 860728111}
+    - target: {fileID: 4345082247935189927, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: _evento.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SelfeDestroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345082247935189927, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: _evento.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LaizerDestroy, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7453700536815869818, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: m_Name
       value: Sala_2
