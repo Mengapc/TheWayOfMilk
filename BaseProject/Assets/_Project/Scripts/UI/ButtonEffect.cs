@@ -13,13 +13,16 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     [Header("Configuração Geral")]
     [SerializeField] float effectTime = 0.2f;
+    // <<< NOVO >>>
+    // Marque esta opção no Inspetor APENAS para o botão "Jogar"
+    [SerializeField] bool destruirMenuAudioAoCarregar = false;
 
     [Header("Efeito Hover")]
     [SerializeField] float focusedSize = 1.1f;
-    [SerializeField] Color hoverColor = Color.white; // Cor do botão no hover (se branco, não muda)
+    [SerializeField] Color hoverColor = Color.white;
 
     [Header("Efeito Click")]
-    [SerializeField] Vector3 punchScale = new Vector3(0.1f, 0.1f, 0.1f); // Força do "soco"
+    [SerializeField] Vector3 punchScale = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] int punchVibrato = 10;
     [SerializeField] float punchElasticity = 1f;
 
@@ -36,22 +39,18 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField, HideInInspector] string sceneName;
     // ---------------------------
 
-    // --- Componentes e Valores Originais ---
     private Image buttonImage;
     private Color originalColor;
     private float normalSize;
-    private Sequence currentSequence; // Para controlar animações ativas
+    private Sequence currentSequence;
 
     private void Awake()
     {
-        // Tenta pegar a imagem e guardar a cor original
         buttonImage = GetComponent<Image>();
         if (buttonImage != null)
         {
             originalColor = buttonImage.color;
         }
-
-        // Guarda o tamanho original
         normalSize = transform.localScale.x;
     }
 
@@ -86,19 +85,14 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Mata a sequência anterior se houver (para evitar cliques duplos)
         if (currentSequence != null && currentSequence.IsActive())
         {
             currentSequence.Kill();
         }
 
-        // Toca o som primeiro
         SoundFXManager.instance.PlayRandomSoundFXClip(onClickSounds, transform, 1f);
 
-        // Cria uma nova sequência de animação
         currentSequence = DOTween.Sequence();
-
-        // 1. Adiciona o efeito de "punch"
         currentSequence.Append(transform.DOPunchScale(
             punchScale,
             effectTime,
@@ -106,16 +100,35 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             punchElasticity
         ));
 
-        // 2. QUANDO TERMINAR (OnComplete), carrega a cena ou ação
+        // <<< ALTERADO >>>
+        // Agora chamamos o método que contém a nossa nova lógica
         currentSequence.OnComplete(LoadSceneOrAction);
     }
 
-    // Ação de carregar cena/evento (agora separada)
+    // <<< MÉTODO ALTERADO >>>
     private void LoadSceneOrAction()
     {
         // Prioriza cena configurada (se houver)
         if (!string.IsNullOrEmpty(sceneName))
         {
+            // --- INÍCIO DA LÓGICA NOVA ---
+            // Se este botão está marcado para destruir o áudio, fazemos isso agora.
+            if (destruirMenuAudioAoCarregar)
+            {
+                // Você precisa marcar seu AudioManager do Menu com esta tag!
+                GameObject menuAudio = GameObject.FindGameObjectWithTag("MenuAudioManager");
+                if (menuAudio != null)
+                {
+                    Destroy(menuAudio);
+                    Debug.Log("MenuAudioManager destruído pelo botão.");
+                }
+                else
+                {
+                    Debug.LogWarning("Botão 'Jogar' tentou destruir o MenuAudioManager, mas não o encontrou pela tag 'MenuAudioManager'.");
+                }
+            }
+            // --- FIM DA LÓGICA NOVA ---
+
             Debug.Log($"ButtonEffect: '{gameObject.name}' -> carregando cena '{sceneName}'");
             if (MenuManager.Instance != null)
                 MenuManager.Instance.LoadSceneWithFade(sceneName);
@@ -131,11 +144,9 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Focus()
     {
-        // Mata tweens anteriores para evitar bugs
         transform.DOKill();
         if (buttonImage != null) buttonImage.DOKill();
 
-        // Animação de escala E cor
         transform.DOScale(focusedSize, effectTime).SetEase(Ease.OutBack);
         if (buttonImage != null && hoverColor != Color.white)
         {
@@ -145,11 +156,9 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void ResetSize()
     {
-        // Mata tweens anteriores
         transform.DOKill();
         if (buttonImage != null) buttonImage.DOKill();
 
-        // Reseta escala E cor
         transform.DOScale(normalSize, effectTime);
         if (buttonImage != null && hoverColor != Color.white)
         {
@@ -157,7 +166,6 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    // Mantive este método caso o MenuManager chame ele por nome
     public void JumpEffect()
     {
         transform.DOPunchScale(punchScale, effectTime, punchVibrato, punchElasticity);
