@@ -180,6 +180,7 @@ public class Elevator : MonoBehaviour
             Debug.Log("Trocando para a câmera do elevador.");
             // Ativa o GameObject da câmera do elevador (que pode ser um ClearShot ou virtual camera)
             elevatorCamera.gameObject.SetActive(true);
+            mainCamera.gameObject.SetActive(false);
             // A mainCamera será desativada automaticamente se tiver prioridade menor
         }
         else
@@ -196,6 +197,7 @@ public class Elevator : MonoBehaviour
         {
             Debug.Log("Voltando para a câmera principal.");
             // Desativa a câmera do elevador, fazendo o Cinemachine voltar para a mainCamera
+            mainCamera.gameObject.SetActive(true);
             elevatorCamera.gameObject.SetActive(false);
         }
         else

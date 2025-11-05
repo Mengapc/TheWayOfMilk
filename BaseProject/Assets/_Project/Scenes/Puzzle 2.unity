@@ -5776,7 +5776,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5810,7 +5810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowDebugText: 0
-  ShowCameraFrustum: 1
+  ShowCameraFrustum: 0
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
@@ -67076,9 +67076,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 14914095}
     m_Modifications:
+    - target: {fileID: 1508071536947575670, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
+      propertyPath: m_Depth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819052584629394933, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2285564921678627156, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
       propertyPath: FollowOffset.y
       value: 23.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418318231263253392, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
+      propertyPath: Priority.Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418318231263253392, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
       propertyPath: Target.TrackingTarget
@@ -67128,6 +67140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CinemachineCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8106186303129649813, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67138,6 +67154,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6697813512340456254, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
   m_PrefabInstance: {fileID: 1644952821}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644952827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2418318231263253392, guid: 8244d5ceb0f1d71439b680129aab2447, type: 3}
+  m_PrefabInstance: {fileID: 1644952821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1652862757
 GameObject:
   m_ObjectHideFlags: 0
@@ -102815,7 +102842,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1911597976885331781, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2828371988444221406, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102861,13 +102888,49 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1685827447}
+    - target: {fileID: 3911609865052818494, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1644952827}
     - target: {fileID: 7453700536815869818, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: m_Name
       value: Sala_2
       objectReference: {fileID: 0}
     - target: {fileID: 7851847445903845783, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942827996952488888, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: Priority.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942827996952488888, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: Priority.m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942827996952488888, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: DefaultBlend.Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942827996952488888, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: DefaultTarget.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295025040949732584, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: OutputChannel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295025040949732584, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295025040949732584, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: Priority.m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295025040949732584, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
