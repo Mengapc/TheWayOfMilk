@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
     private CharacterController characterController;
-    private ObjectGrabbing objectGrabbing; // Referência para o script de pegar
+    // REMOVIDO: A referência ao ObjectGrabbing não é mais necessária aqui.
     private Elevator currentElevator = null;
 
 
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        objectGrabbing = GetComponent<ObjectGrabbing>(); // Pega a referência
+        // REMOVIDO: A referência ao ObjectGrabbing não é mais necessária aqui.
 
         if (animController == null)
         {
@@ -57,21 +57,16 @@ public class Movement : MonoBehaviour
         Rotate();
 
 
-        // --- LÓGICA DE ANIMAÇÃO ---
+        // --- LÓGICA DE ANIMAÇÃO SIMPLIFICADA ---
 
-        // 1. Pega a velocidade atual (você já faz isso)
+        // 1. Pega a velocidade atual (usando sqrMagnitude por performance)
         float currentSpeed = inputDirection.sqrMagnitude;
+
+        // 2. Envia APENAS a velocidade para o Animator.
+        // O Animator vai decidir o que fazer com base no 'moveSpeed' e no 'isHolding'.
         animController?.SetMoveSpeed(currentSpeed);
 
-        // 2. LÓGICA ADICIONADA: Verifica se estamos no estado "MoveMilk"
-        // "MoveMilk" = Estamos nos movendo E NÃO estamos segurando um objeto.
-        bool isMoving = currentSpeed > 0.01f;
-        bool isHolding = objectGrabbing.GrabbingObject; // Pergunta ao script se estamos segurando
-
-        bool isMovingMilk = isMoving && !isHolding; // A lógica final
-
-        // 3. Envia a informação para o Animator
-        animController?.SetMoveMilk(isMovingMilk);
+        // REMOVIDO: Toda a lógica 'isMoveMilk' foi removida.
 
         // --- FIM DA LÓGICA DE ANIMAÇÃO ---
 

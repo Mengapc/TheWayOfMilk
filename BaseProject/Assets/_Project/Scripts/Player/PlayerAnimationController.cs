@@ -15,7 +15,8 @@ public class PlayerAnimationController : MonoBehaviour
     private readonly int hashOnCollect = Animator.StringToHash("onCollect");
     private readonly int hashOnDrop = Animator.StringToHash("onDrop");
     private readonly int hashOnThrow = Animator.StringToHash("onThrow");
-    private readonly int hasIshMoveMilk = Animator.StringToHash("isMoveMilk");
+    // REMOVIDO: O hash 'hasIshMoveMilk' foi removido.
+
 
     private void Awake()
     {
@@ -37,12 +38,10 @@ public class PlayerAnimationController : MonoBehaviour
         // Atualiza o bool 'isHolding' (controla Walk_Arny vs Walk_Leite)
         animator.SetBool(hashIsHolding, holding);
     }
-    // Chamado por Movement.cs no Update() quando está movendo o leite
-    public void SetMoveMilk(bool moving)
-    {
-        // Atualiza o bool 'isMoveMilk' no Animator
-        animator.SetBool(hasIshMoveMilk, moving);
-    }
+
+    // REMOVIDO: O método SetMoveMilk(bool moving) foi removido
+    // pois essa lógica agora será feita diretamente no Animator
+    // usando 'moveSpeed' e 'isHolding'.
 
     // Chamado por ObjectGrabbing.cs quando começa/para de carregar
     public void SetCharging(bool charging)
