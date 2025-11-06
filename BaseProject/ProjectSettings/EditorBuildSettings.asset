@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Puzzle 3.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/_Project/Scenes/SalaFinal.unity
+    path: Assets/_Project/Scenes/Botao_Sair.unity
     guid: 1abc200e4948be44988a7ed12362b40a
   - enabled: 1
     path: Assets/_Project/Scenes/Configuracoes.unity
