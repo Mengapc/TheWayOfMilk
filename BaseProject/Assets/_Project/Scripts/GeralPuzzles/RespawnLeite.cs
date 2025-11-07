@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RespanwLeite : MonoBehaviour
+public class RespawnLeite : MonoBehaviour
 {
     [Header("Componetes do Respanw")]
     [SerializeField] private Transform pontoRespanw;

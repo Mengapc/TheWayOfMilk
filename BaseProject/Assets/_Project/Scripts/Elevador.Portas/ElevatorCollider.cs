@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ElavatorCollider : MonoBehaviour
+public class ElevatorCollider : MonoBehaviour
 {
     [Header("Componentes.")]
     // REMOVIDO: [SerializeField] private GameObject player; (Vamos pegar pelo trigger)

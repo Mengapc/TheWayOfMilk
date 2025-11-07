@@ -93,13 +93,13 @@ public class MenuManager : MonoBehaviour
 
             group.DOFade(0f, fadeDuration).OnComplete(() =>
             {
-                SceneManager.LoadScene(sceneName);
+                SceneLoader.LoadScene(sceneName);
             });
         }
         else
         {
             // se não tiver CanvasGroup, carrega direto
-            SceneManager.LoadScene(sceneName);
+            SceneLoader.LoadScene(sceneName);
         }
     }
 

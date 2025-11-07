@@ -133,7 +133,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (MenuManager.Instance != null)
                 MenuManager.Instance.LoadSceneWithFade(sceneName);
             else
-                SceneManager.LoadScene(sceneName);
+                SceneLoader.LoadScene(sceneName);
             return;
         }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class LaizerDestroy : MonoBehaviour
+public class LaserDestroy : MonoBehaviour
 {
     [Header("Objetos a desligar na ordem")]
     public List<GameObject> objectsToDisable;

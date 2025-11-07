@@ -11,7 +11,7 @@ public class SwithScene : MonoBehaviour
             if (sceneAsset != null)
             {
                 string sceneName = sceneAsset.name;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+                SceneLoader.LoadScene(sceneName);
             }
             else
             {

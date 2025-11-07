@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpinerMoedor : MonoBehaviour
+public class SpinnerMoedor : MonoBehaviour
 {
     [Header("Configurações de Rotação")]
     [Tooltip("Velocidade de rotação em graus por segundo.")]

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 // O nome do arquivo DEVE ser MoveLaizer.cs para corresponder ao nome da classe
-public class MoveLaizer : MonoBehaviour
+public class MoveLaser : MonoBehaviour
 {
     [Header("Componentes")]
     [Tooltip("O obstáculo que se move.")]
