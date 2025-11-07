@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 91208682328887424}
   - component: {fileID: 4877006822877930005}
   m_Layer: 3
-  m_Name: LitroLeiteF 1
+  m_Name: LitroLeiteF_Disolvido
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

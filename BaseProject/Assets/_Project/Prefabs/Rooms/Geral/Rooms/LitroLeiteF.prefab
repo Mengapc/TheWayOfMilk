@@ -222,3 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08651b301dbb6b84a9ee9ee7ee640243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeiteQuebrado: {fileID: 3308330991861253963, guid: 3f94f793277ef8a4f9b873f55b920ccd, type: 3}
+  Rigidbody: {fileID: 5058143278334763307}
+  gravidade: -100

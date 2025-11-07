@@ -6706,6 +6706,22 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 205073322}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: verticallForceMax
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: verticallForceMin
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: horizontalForceMax
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: horizontalForceMin
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6564576115362327945, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: mainCamera
       value: 

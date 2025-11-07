@@ -7,6 +7,7 @@ public class DestructionBalls : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+            other.GetComponent<BallController>().InstantiateEfect();
             Destroy(other.gameObject);
         }
     }
