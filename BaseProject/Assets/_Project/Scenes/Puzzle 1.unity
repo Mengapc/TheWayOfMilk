@@ -5319,6 +5319,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &318166154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5423594634476256821, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 423807201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &329800879 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 7239326525174738730, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
@@ -5332,6 +5337,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 753666606}
     m_Modifications:
+    - target: {fileID: 1817946580056410757, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817946580056410757, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817946580056410757, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273819121935383491, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273819121935383491, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3807914815053633915, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5701,6 +5726,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2d714196d6a7494d93bcc0edc0cb9e4, type: 3}
       propertyPath: m_Name
       value: ParedePedras
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2d714196d6a7494d93bcc0edc0cb9e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6127,6 +6156,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1173229718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3705531604247801591, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 423807201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173229720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8476988752166900686, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 423807201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173229718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1175244976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6524,6 +6569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParedePedras (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2d714196d6a7494d93bcc0edc0cb9e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6718,6 +6767,18 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 329800879}
+    - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: chargeSlider
+      value: 
+      objectReference: {fileID: 1173229720}
+    - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: infoTextPanel
+      value: 
+      objectReference: {fileID: 318166154}
+    - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: chargeSliderPanel
+      value: 
+      objectReference: {fileID: 1173229718}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -29,15 +29,17 @@ public class Movement : MonoBehaviour
     private Vector3 inputDirection;
     private Vector3 playerVelocity;
     private CharacterController characterController;
-    // REMOVIDO: A referência ao ObjectGrabbing não é mais necessária aqui.
     private Elevator currentElevator = null;
 
+    // --- ADIÇÃO ---
+    // Permite que outros scripts (como o ObjectGrabbing) anulem a rotação de movimento
+    public bool overrideRotation = false;
+    // --- FIM DA ADIÇÃO ---
 
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        // REMOVIDO: A referência ao ObjectGrabbing não é mais necessária aqui.
 
         if (animController == null)
         {
@@ -54,20 +56,13 @@ public class Movement : MonoBehaviour
         }
 
         Move();
-        Rotate();
+        Rotate(); // A rotação normal só será executada se 'overrideRotation' for falso
 
 
         // --- LÓGICA DE ANIMAÇÃO SIMPLIFICADA ---
-
-        // 1. Pega a velocidade atual (usando sqrMagnitude por performance)
+        // Usamos sqrMagnitude por ser mais otimizado que Magnitude
         float currentSpeed = inputDirection.sqrMagnitude;
-
-        // 2. Envia APENAS a velocidade para o Animator.
-        // O Animator vai decidir o que fazer com base no 'moveSpeed' e no 'isHolding'.
         animController?.SetMoveSpeed(currentSpeed);
-
-        // REMOVIDO: Toda a lógica 'isMoveMilk' foi removida.
-
         // --- FIM DA LÓGICA DE ANIMAÇÃO ---
 
 
@@ -87,13 +82,31 @@ public class Movement : MonoBehaviour
 
     private void Rotate()
     {
+        // --- ADIÇÃO ---
+        // Se a rotação estiver a ser controlada por outro script (ex: mira), não faz nada.
+        if (overrideRotation) return;
+        // --- FIM DA ADIÇÃO ---
+
         if (inputDirection.sqrMagnitude > 0.01f)
         {
+            // Calcula a rotação alvo (para onde queremos olhar)
             Quaternion toRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
 
             player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    // --- NOVA FUNÇÃO PÚBLICA ---
+    // Gira o jogador para uma direção específica (usado pela mira)
+    public void RotateTowards(Vector3 targetDirection)
+    {
+        if (targetDirection.sqrMagnitude > 0.01f)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+            player.rotation = Quaternion.RotateTowards(player.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+    // --- FIM DA NOVA FUNÇÃO ---
 
     private void Move()
     {
@@ -105,14 +118,9 @@ public class Movement : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
     }
 
-    // Variável privada para guardar o elevador que estamos a usar
-
-    /// <summary>
-    /// Esta função é chamada pelo componente Player Input quando o botão é pressionado.
-    /// </summary>
+    // --- Lógica do Elevador (existente) ---
     public void OnElevatorInput(InputAction.CallbackContext context)
-    {
-        // Se o botão foi pressionado (performed) e estamos dentro de um elevador
+    {        // Se o botão foi pressionado (performed) e estamos dentro de um elevador
         if (context.performed && currentElevator != null)
         {
             // Ativa o elevador específico em que estamos
@@ -120,17 +128,13 @@ public class Movement : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Esta função é chamada pelo ElavatorCollider quando entramos no trigger.
-    /// </summary>
+    // Esta função é chamada pelo ElavatorCollider quando entramos no trigger
     public void SetCurrentElevator(Elevator elevator)
     {
         this.currentElevator = elevator;
     }
 
-    /// <summary>
-    /// Esta função é chamada pelo ElavatorCollider quando saímos do trigger.
-    /// </summary>
+    // Esta função é chamada pelo ElavatorCollider quando saímos do trigger
     public void ClearCurrentElevator()
     {
         this.currentElevator = null;
