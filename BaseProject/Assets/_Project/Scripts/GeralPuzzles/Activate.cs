@@ -34,7 +34,8 @@ public class Activate : MonoBehaviour
 
             if (other.GetComponent<Rigidbody>().isKinematic == false)
             {
-                  StartCoroutine(AjustLeite(other.transform, other.transform.position, pont1.position));
+                other.tag = "Untagged";
+                StartCoroutine(AjustLeite(other.transform, other.transform.position, pont1.position));
             }
         }
     }
