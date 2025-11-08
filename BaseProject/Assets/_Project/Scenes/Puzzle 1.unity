@@ -5369,6 +5369,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.data[0].objectives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.data[1].objectives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.data[2].objectives.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
