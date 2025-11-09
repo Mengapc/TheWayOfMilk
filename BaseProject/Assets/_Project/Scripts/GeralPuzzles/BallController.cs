@@ -18,6 +18,6 @@ public class BallController : MonoBehaviour
         if (Rigidbody.isKinematic != true)
         {
             Rigidbody.AddForce(new Vector3(0, gravidade, 0), ForceMode.Acceleration);
-        }
+        }   
     }
 }
