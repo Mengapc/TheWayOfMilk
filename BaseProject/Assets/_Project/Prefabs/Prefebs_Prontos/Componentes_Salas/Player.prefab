@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 6283824435645916975}
   - component: {fileID: 6691356080582948936}
   - component: {fileID: 6564576115362327945}
-  - component: {fileID: 7824542967970608634}
   - component: {fileID: 1215488943271461401}
+  - component: {fileID: 528634416832271243}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -287,6 +287,7 @@ MonoBehaviour:
   rotationSpeed: 720
   gravityValue: -9.41
   animController: {fileID: 2931656307011706667}
+  overrideRotation: 0
 --- !u!114 &6283824435645916975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,22 +300,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16c8fc6cb13c944bb5a893969cf24c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5948675331374401099}
   handPoint: {fileID: 1745351380618985991}
   grabbingLayer:
     serializedVersion: 2
     m_Bits: 8
   grabbingObject: 1
-  horizontalForceMin: 1
-  horizontalForceMax: 24
-  verticallForceMin: 1
-  verticallForceMax: 16
+  grabCollider: {fileID: 1215488943271461401}
+  grabRange: 2
+  horizontalForceMin: 12
+  horizontalForceMax: 36
+  verticallForceMin: 6
+  verticallForceMax: 24
   tempoMaximoDeCarga: 3
   movementScript: {fileID: 3046256553113066117}
   direction: {fileID: 6564576115362327945}
   cam: {fileID: 0}
   animController: {fileID: 2931656307011706667}
-  grabCollider: {fileID: 1215488943271461401}
 --- !u!114 &6691356080582948936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,13 +328,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcd35a3bcb9b5f4890c08c3ab7f4058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCanvas: {fileID: 0}
+  infoTextPanel: {fileID: 0}
   textInfo: {fileID: 0}
+  chargeSliderPanel: {fileID: 0}
+  chargeSlider: {fileID: 0}
   infoPegar: Aponte para o objeto e aperte E para pegar.
-  infoJogar: "Clique com o bot\xE3o direiro para jogas o leite.\nQuanto mais segurar
-    mais loge joga."
-  objectGrabbing: {fileID: 6283824435645916975}
+  infoChegarPerto: Chegue mais perto do Leite para pegar
+  infoJogar: Clique e segure para jogar e ponte com o mouse para mirar.
   infoElevador: "Aperte Q para mover o elevador.\r"
+  objectGrabbing: {fileID: 6283824435645916975}
 --- !u!114 &6564576115362327945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,31 +354,6 @@ MonoBehaviour:
   distance: 0
   mainCamera: {fileID: 0}
   ofSet: {x: 0, y: 4, z: 0}
---- !u!143 &7824542967970608634
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978554163870213012}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 11.15
-  m_Radius: 1.34
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.4
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 6, z: 0}
 --- !u!135 &1215488943271461401
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -397,6 +375,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 11.258595
   m_Center: {x: 0, y: 2.35, z: -0}
+--- !u!143 &528634416832271243
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978554163870213012}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7390498490286451011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad49e91f6321e0e45902652ba573c124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movement: {fileID: 3046256553113066117}
 --- !u!4 &7877834687082369789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 847771640059018174, guid: c43e0491c8bbc214c8a6fdb0d4d76aec, type: 3}

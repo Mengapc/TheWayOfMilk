@@ -15,6 +15,6 @@ public class PartsDestroy : MonoBehaviour
             float delay = Random.Range(minDelayBeforeDestroy, maxDelayBeforeDestroy);
             Destroy(part, delay);
         }
-
+        Destroy(gameObject, maxDelayBeforeDestroy + 1f);
     }
 }

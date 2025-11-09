@@ -11,12 +11,22 @@ public class ObjectGrabbing : MonoBehaviour
     [Header("Configurações de Pegar Objeto")]
     [Tooltip("O ponto na 'mão' do personagem onde o objeto ficará preso.")]
     [SerializeField] private Transform handPoint;
-
     [Tooltip("A camada (Layer) dos objetos que podem ser pegos.")]
     [SerializeField] private LayerMask grabbingLayer;
     [Tooltip("Segurando o objeto.")]
     [SerializeField] private bool grabbingObject = false;
+    [Tooltip("Referência ao SphereCollider que define a área de 'pegar'.")]
+    [SerializeField] private SphereCollider grabCollider;
+    [Tooltip("A distância máxima para pegar um objeto.")]
+    [SerializeField] private float grabRange = 2f;
+
+    private GameObject currentGrabbableObject = null;
+    private GameObject grabObject = null;
+    private Rigidbody grabObjectRb = null;
+    private bool isNearGrabbableDistance = false;
+    public bool IsNearGrabbableDistance { get { return isNearGrabbableDistance; } }
     public bool GrabbingObject { get { return grabbingObject; } }
+    public bool IsNearGrabbable { get; private set; }
 
     [Header("Configurações de Arremesso")]
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]
@@ -30,6 +40,10 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
+    public bool IsCharging { get { return isCharging; } }
+    private float currentChargeTime = 0f;
+    private bool isCharging = false;
+
     [Header("Referências Externas")]
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
     [SerializeField] private Movement movementScript;
@@ -40,26 +54,6 @@ public class ObjectGrabbing : MonoBehaviour
     [Header("Controle de Animação")]
     [Tooltip("Referência ao controlador de animação do player.")]
     [SerializeField] private PlayerAnimationController animController;
-
-    private GameObject grabObject = null;
-    private Rigidbody grabObjectRb = null;
-
-    [Header("Controle de Alcance (Auto-Configurado)")]
-    [Tooltip("Referência ao SphereCollider que define a área de 'pegar'.")]
-    [SerializeField] private SphereCollider grabCollider;
-
-    public bool IsNearGrabbable { get; private set; }
-
-    // Array para a checagem de física (melhor performance)
-    private Collider[] nearbyObjects = new Collider[5];
-
-    // Variáveis para controlar o tempo de carregamento
-    private bool isCharging = false;
-    public bool IsCharging { get { return isCharging; } }
-
-    private float currentChargeTime = 0f;
-
-    // Expõe o tempo atual e o máximo para o script da UI
     public float CurrentChargeTime { get { return currentChargeTime; } }
     public float MaxChargeTime { get { return tempoMaximoDeCarga; } }
     #endregion
@@ -90,27 +84,19 @@ public class ObjectGrabbing : MonoBehaviour
     // Chamado a cada frame
     private void Update()
     {
-        // --- CHECAGEM CONSTANTE DE OBJETOS PRÓXIMOS ---
-        if (grabCollider != null)
+        // --- LÓGICA DE DISTÂNCIA PARA PEGAR OBJETO (CORRIGIDA) ---
+        // Só checa a distância SE houver um objeto no trigger
+        if (currentGrabbableObject != null)
         {
-            System.Array.Clear(nearbyObjects, 0, nearbyObjects.Length);
-
-            int numFound = Physics.OverlapSphereNonAlloc(
-                transform.position + grabCollider.center,
-                grabCollider.radius,
-                nearbyObjects,
-                grabbingLayer);
-
-            IsNearGrabbable = (numFound > 0);
+            isNearGrabbableDistance = IsWithinGrabRange(currentGrabbableObject.transform.position);
         }
         else
         {
-            IsNearGrabbable = false;
+            // Se não há objeto no trigger, com certeza não estamos perto
+            isNearGrabbableDistance = false;
         }
-        // --- FIM DA CHECAGEM ---
 
-
-        // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO ---
+        // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO (Sem alteração) ---
         if (isCharging)
         {
             // Incrementa o tempo de carregamento
@@ -124,6 +110,27 @@ public class ObjectGrabbing : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // CONDIÇÃO CORRIGIDA: de '&& grabObject' para '&& !grabObject'
+        if (currentGrabbableObject == null && !grabObject && other.CompareTag("Ball"))
+        {
+            // Define este como o objeto alvo
+            currentGrabbableObject = other.gameObject;
+            IsNearGrabbable = true; // Ativa a UI
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Se o objeto que saiu é o nosso alvo atual
+        if (other.gameObject == currentGrabbableObject)
+        {
+            // Limpa o alvo
+            currentGrabbableObject = null;
+            IsNearGrabbable = false; // Desativa a UI
+        }
+    }
     #endregion
 
     #region Callbacks de Input (Input System)
@@ -134,20 +141,10 @@ public class ObjectGrabbing : MonoBehaviour
         // Se apertou e NÃO está segurando nada -> Tenta Pegar
         if (context.started && grabObject == null)
         {
-            if (grabCollider == null) return;
-
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, grabbingLayer))
-            {
-                // Checa a distância usando o collider
-                float distance = Vector3.Distance(hit.transform.position, transform.position + grabCollider.center);
-
-                if (distance <= grabCollider.radius)
+                if (currentGrabbableObject)
                 {
-                    GrabObject_DisgrabObject(hit.collider.gameObject);
+                    GrabObject_DisgrabObject(currentGrabbableObject);
                 }
-            }
         }
         // Se apertou e JÁ está segurando -> Solta
         else if (context.started && grabObject != null)
@@ -227,7 +224,8 @@ public class ObjectGrabbing : MonoBehaviour
     }
 
     private IEnumerator Pegar(GameObject gameObject)
-    {         
+    {
+        currentGrabbableObject = null;
         grabObject = gameObject;
         grabObject.transform.SetParent(handPoint);
         grabObject.transform.position = handPoint.transform.position;
@@ -250,6 +248,21 @@ public class ObjectGrabbing : MonoBehaviour
         animController?.SetHolding(false);
         animController?.TriggerDrop();
         yield return null;
+    }
+
+    private bool IsWithinGrabRange(Vector3 objectPosition)
+    {
+        if (currentGrabbableObject == null) return false;
+        float distance = Vector3.Distance(objectPosition, transform.position + grabCollider.center);
+        
+        if (distance <= grabRange)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     #endregion
