@@ -21,7 +21,7 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
     [Tooltip("Informação ao chegar perto do leite.")]
     [TextArea(3, 10)]
     [SerializeField] private string infoPegar;
-<<<<<<< Updated upstream
+
     [Tooltip("Informação ao chegar perto do leite.")]
     [TextArea(3, 10)]
     [SerializeField] private string infoChegarPerto;
@@ -32,12 +32,6 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
     [TextArea(3, 10)]
     [SerializeField] private string infoElevador;
 
-
-=======
-    [Tooltip("Informação para jogar o leite.")]
-    [TextArea(3, 10)]
-    [SerializeField] private string infoJogar;
->>>>>>> Stashed changes
 
     [Tooltip("Referência ao script de pegar objetos (no mesmo GameObject).")]
     [SerializeField] private ObjectGrabbing objectGrabbing;
@@ -139,7 +133,7 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
                 infoTextPanel.SetActive(true);
                 textInfo.text = infoJogar; // <--- USA O 'infoJogar'
             }
-<<<<<<< Updated upstream
+
             // 2c. Texto de Pegar (se estiver perto O BASTANTE para pegar)
             // Usa a variável que calcula a distância real
             else if (objectGrabbing.IsNearGrabbableDistance)
@@ -155,13 +149,12 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
                 textInfo.text = infoChegarPerto; // <--- USA O 'infoChegarPerto'
             }
             // 3. Se nenhuma condição for atendida, esconde tudo.
-=======
+
             else if (objectGrabbing.GrabbingObject)
             {
                 infoTextPanel.SetActive(true);
                 textInfo.text = infoJogar;
             }
->>>>>>> Stashed changes
             else
             {
                 infoTextPanel.SetActive(false);

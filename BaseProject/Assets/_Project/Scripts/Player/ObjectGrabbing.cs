@@ -40,9 +40,12 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
+
     public bool IsCharging { get { return isCharging; } }
     private float currentChargeTime = 0f;
-    private bool isCharging = false;
+    public float CurrentChargeTime { get { return currentChargeTime; } }
+    public float MaxChargeTime { get { return tempoMaximoDeCarga; } }
+
 
     [Header("Referências Externas")]
     [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
@@ -54,36 +57,7 @@ public class ObjectGrabbing : MonoBehaviour
     [Header("Controle de Animação")]
     [Tooltip("Referência ao controlador de animação do player.")]
     [SerializeField] private PlayerAnimationController animController;
-<<<<<<< Updated upstream
-=======
-
-    private GameObject grabObject = null;
-    private Rigidbody grabObjectRb = null;
-
-    [Header("Controle de Alcance (Auto-Configurado)")]
-    [Tooltip("Referência ao SphereCollider que define a área de 'pegar'.")]
-    [SerializeField] private SphereCollider grabCollider;
-
-
-
-
-
-
-    public bool IsNearGrabbable { get; private set; }
-
-    // Array para a checagem de física (melhor performance)
-    private Collider[] nearbyObjects = new Collider[5];
-
-    // Variáveis para controlar o tempo de carregamento
     private bool isCharging = false;
-    public bool IsCharging { get { return isCharging; } }
-
-    private float currentChargeTime = 0f;
-
-    // Expõe o tempo atual e o máximo para o script da UI
->>>>>>> Stashed changes
-    public float CurrentChargeTime { get { return currentChargeTime; } }
-    public float MaxChargeTime { get { return tempoMaximoDeCarga; } }
     #endregion
 
     #region Métodos da Unity
@@ -112,27 +86,22 @@ public class ObjectGrabbing : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-<<<<<<< Updated upstream
         // --- LÓGICA DE DISTÂNCIA PARA PEGAR OBJETO (CORRIGIDA) ---
         // Só checa a distância SE houver um objeto no trigger
         if (currentGrabbableObject != null)
         {
             isNearGrabbableDistance = IsWithinGrabRange(currentGrabbableObject.transform.position);
-=======
-        if (collision.gameObject.CompareTag("Ball") && !grabbingObject)
-        {
-            IsNearGrabbable = true;
->>>>>>> Stashed changes
-        }
-        else
-        {
-            // Se não há objeto no trigger, com certeza não estamos perto
-            isNearGrabbableDistance = false;
-        }
-<<<<<<< Updated upstream
 
-        // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO (Sem alteração) ---
-=======
+            if (collision.gameObject.CompareTag("Ball") && !grabbingObject)
+            {
+                IsNearGrabbable = true;
+            }
+            else
+            {
+                // Se não há objeto no trigger, com certeza não estamos perto
+                isNearGrabbableDistance = false;
+            }
+        }
     }
     private void OnTriggerExit(Collider collision)
     {
@@ -147,7 +116,6 @@ public class ObjectGrabbing : MonoBehaviour
     {
 
         // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO ---
->>>>>>> Stashed changes
         if (isCharging)
         {
             // Incrementa o tempo de carregamento
@@ -161,27 +129,8 @@ public class ObjectGrabbing : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        // CONDIÇÃO CORRIGIDA: de '&& grabObject' para '&& !grabObject'
-        if (currentGrabbableObject == null && !grabObject && other.CompareTag("Ball"))
-        {
-            // Define este como o objeto alvo
-            currentGrabbableObject = other.gameObject;
-            IsNearGrabbable = true; // Ativa a UI
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        // Se o objeto que saiu é o nosso alvo atual
-        if (other.gameObject == currentGrabbableObject)
-        {
-            // Limpa o alvo
-            currentGrabbableObject = null;
-            IsNearGrabbable = false; // Desativa a UI
-        }
-    }
+
     #endregion
 
     #region Callbacks de Input (Input System)
