@@ -54,6 +54,34 @@ public class ObjectGrabbing : MonoBehaviour
     [Header("Controle de Animação")]
     [Tooltip("Referência ao controlador de animação do player.")]
     [SerializeField] private PlayerAnimationController animController;
+<<<<<<< Updated upstream
+=======
+
+    private GameObject grabObject = null;
+    private Rigidbody grabObjectRb = null;
+
+    [Header("Controle de Alcance (Auto-Configurado)")]
+    [Tooltip("Referência ao SphereCollider que define a área de 'pegar'.")]
+    [SerializeField] private SphereCollider grabCollider;
+
+
+
+
+
+
+    public bool IsNearGrabbable { get; private set; }
+
+    // Array para a checagem de física (melhor performance)
+    private Collider[] nearbyObjects = new Collider[5];
+
+    // Variáveis para controlar o tempo de carregamento
+    private bool isCharging = false;
+    public bool IsCharging { get { return isCharging; } }
+
+    private float currentChargeTime = 0f;
+
+    // Expõe o tempo atual e o máximo para o script da UI
+>>>>>>> Stashed changes
     public float CurrentChargeTime { get { return currentChargeTime; } }
     public float MaxChargeTime { get { return tempoMaximoDeCarga; } }
     #endregion
@@ -66,6 +94,7 @@ public class ObjectGrabbing : MonoBehaviour
         if (grabCollider == null)
         {
             grabCollider = GetComponent<SphereCollider>();
+
         }
 
         if (grabCollider == null)
@@ -81,22 +110,44 @@ public class ObjectGrabbing : MonoBehaviour
         grabbingObject = false;
     }
 
-    // Chamado a cada frame
-    private void Update()
+    private void OnTriggerEnter(Collider collision)
     {
+<<<<<<< Updated upstream
         // --- LÓGICA DE DISTÂNCIA PARA PEGAR OBJETO (CORRIGIDA) ---
         // Só checa a distância SE houver um objeto no trigger
         if (currentGrabbableObject != null)
         {
             isNearGrabbableDistance = IsWithinGrabRange(currentGrabbableObject.transform.position);
+=======
+        if (collision.gameObject.CompareTag("Ball") && !grabbingObject)
+        {
+            IsNearGrabbable = true;
+>>>>>>> Stashed changes
         }
         else
         {
             // Se não há objeto no trigger, com certeza não estamos perto
             isNearGrabbableDistance = false;
         }
+<<<<<<< Updated upstream
 
         // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO (Sem alteração) ---
+=======
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            IsNearGrabbable = false;
+        }
+    }
+
+    // Chamado a cada frame
+    private void Update()
+    {
+
+        // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO ---
+>>>>>>> Stashed changes
         if (isCharging)
         {
             // Incrementa o tempo de carregamento
@@ -267,20 +318,4 @@ public class ObjectGrabbing : MonoBehaviour
 
     #endregion
 
-    #region Gizmos
-
-    // Desenha o Gizmo de alcance no editor
-    private void OnDrawGizmosSelected()
-    {
-        if (grabCollider == null)
-        {
-            grabCollider = GetComponent<SphereCollider>();
-        }
-        if (grabCollider == null) return;
-
-        // Desenha a esfera usando as propriedades do SphereCollider
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + grabCollider.center, grabCollider.radius);
-    }
-    #endregion
 }

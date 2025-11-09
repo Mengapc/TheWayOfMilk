@@ -16425,6 +16425,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &609789470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3807914815053633915, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 1556382479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &684162516
 GameObject:
   m_ObjectHideFlags: 0
@@ -16546,6 +16551,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &793462210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3705531604247801591, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 1556382479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &793462212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8476988752166900686, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+  m_PrefabInstance: {fileID: 1556382479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793462210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &797403927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7622261841299074427, guid: d05334419b34cb241806c5959e78a19d, type: 3}
@@ -21878,6 +21899,7 @@ PrefabInstance:
     - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: chargeSlider
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1901630401}
     - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: infoTextPanel
@@ -21887,6 +21909,17 @@ PrefabInstance:
       propertyPath: chargeSliderPanel
       value: 
       objectReference: {fileID: 1901630399}
+=======
+      objectReference: {fileID: 793462212}
+    - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: infoTextPanel
+      value: 
+      objectReference: {fileID: 609789470}
+    - target: {fileID: 6691356080582948936, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: chargeSliderPanel
+      value: 
+      objectReference: {fileID: 793462210}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47078,6 +47111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1817946580056410757, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< Updated upstream
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3273819121935383491, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
@@ -47086,6 +47120,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3705531604247801591, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_IsActive
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273819121935383491, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_AnchorMax.y
+>>>>>>> Stashed changes
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3807914815053633915, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
@@ -47100,6 +47140,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 4350509345109678776, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -47112,6 +47153,12 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 7239326525174738730, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Pivot.x
       value: 0

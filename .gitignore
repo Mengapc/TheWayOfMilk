@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+BaseProject/Assets/_Project/Scripts/Player/UpdateInfoPlayer.cs
+BaseProject/Assets/_Project/Scenes/Puzzle 2.unity
+BaseProject/Assets/_Project/Scenes/Puzzle 2.unity
