@@ -63,7 +63,6 @@ public class Movement : MonoBehaviour
         // Usamos sqrMagnitude por ser mais otimizado que Magnitude
         float currentSpeed = inputDirection.sqrMagnitude;
         animController?.SetMoveSpeed(currentSpeed);
-        // --- FIM DA LÓGICA DE ANIMAÇÃO ---
 
 
         playerVelocity.y += gravityValue * Time.deltaTime;

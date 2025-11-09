@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Unity.Cinemachine; // Corrigido de "Unity.Cinemachine" para o namespace correto (se for o caso, ou manter)
+using Unity.Cinemachine;
 using UnityEngine.InputSystem;
 
 public class Elevator : MonoBehaviour
@@ -54,6 +54,17 @@ public class Elevator : MonoBehaviour
     [SerializeField] private float shakeFrequency = 2.0f;
     [Tooltip("Curva de intensidade do shake durante o movimento (0=sem shake, 1=shake máximo).")]
     [SerializeField] private AnimationCurve shakeIntensityCurve;
+
+    [Header("Áudio")] // <-- NOVO
+    [Tooltip("Som que toca quando o elevador começa a se mover.")] // <-- NOVO
+    [SerializeField] private AudioClip startMovingSound; // <-- NOVO
+    [Tooltip("Som que toca quando o elevador chega ao destino.")] // <-- NOVO
+    [SerializeField] private AudioClip arriveSound; // <-- NOVO
+    [Tooltip("Volume dos efeitos sonoros do elevador.")] // <-- NOVO
+    [Range(0f, 1f)] // <-- NOVO
+    [SerializeField] private float soundVolume = 1f; // <-- NOVO
+    [Space] // <-- NOVO
+
     #endregion
 
 
@@ -66,6 +77,8 @@ public class Elevator : MonoBehaviour
     // Inicia o movimento do elevador, decidindo para qual andar ir.
     public void ElevatorActivation()
     {
+        if (movendo) return; // <-- ADIÇÃO SUGERIDA: Impede reativação se já estiver em movimento
+
         if (primeiroAndar)
         {
             // Se está no primeiro andar, move para o segundo
@@ -81,6 +94,8 @@ public class Elevator : MonoBehaviour
     // Corrotina principal: move o elevador, toca o "shake" da câmera e gerencia o jogador.
     private IEnumerator MoverCabine(Vector3 startPos, Vector3 finalPos)
     {
+        movendo = true; // <-- MOVIDO PARA CIMA: Garante que o estado 'movendo' seja definido imediatamente
+
         // 1. Inicia a troca para a câmera do elevador
         StartCoroutine(SwitchToElevatorCamera());
 
@@ -98,7 +113,6 @@ public class Elevator : MonoBehaviour
 
         // 3. Prende o jogador ao elevador para que ele se mova junto
         player.SetParent(cabine);
-        movendo = true;
         player.transform.GetComponent<Movement>().canMove = false; // Desabilita o movimento do jogador durante o trajeto
         float tempoDecorrido = 0f;
 
@@ -112,7 +126,14 @@ public class Elevator : MonoBehaviour
             noise.FrequencyGain = shakeFrequency;
         }
 
-        // 5. Loop de movimento (enquanto o tempo decorrido for menor que a duração)
+        // 5. Toca o som de INÍCIO de movimento
+        if (startMovingSound != null && SoundFXManager.instance != null) // <-- NOVO
+        {
+            // Usamos 'cabine.transform' para que o som saia da cabine
+            SoundFXManager.instance.PlaySoundFXClip(startMovingSound, cabine.transform, soundVolume); // <-- NOVO
+        }
+
+        // 6. Loop de movimento (enquanto o tempo decorrido for menor que a duração)
         while (tempoDecorrido < durationAnimation)
         {
             tempoDecorrido += Time.deltaTime;
@@ -134,7 +155,7 @@ public class Elevator : MonoBehaviour
             yield return null; // Espera até o próximo frame
         }
 
-        // 6. Finalização do movimento
+        // 7. Finalização do movimento
         if (noise != null)
         {
             // Reseta os valores de shake para parar o efeito.
@@ -143,12 +164,18 @@ public class Elevator : MonoBehaviour
         }
 
         cabine.position = finalPos; // Garante que a cabine chegue exatamente à posição final
+
+        // 8. Toca o som de CHEGADA
+        if (arriveSound != null && SoundFXManager.instance != null) // <-- NOVO
+        {
+            SoundFXManager.instance.PlaySoundFXClip(arriveSound, cabine.transform, soundVolume); // <-- NOVO
+        }
+
         player.SetParent(null); // Libera o jogador do elevador
         ChangeFloor(); // Atualiza o estado do andar
-        movendo = false; // Permite que o elevador seja ativado novamente
         player.transform.GetComponent<Movement>().canMove = true; // Habilita o movimento do jogador novamente
 
-        // 7. Troca de volta para a câmera principal e abre a porta
+        // 9. Troca de volta para a câmera principal e abre a porta
         StartCoroutine(SwitchToMainCamera());
         cabineDoor.ToggleDoor();
         if (primeiroAndar)
@@ -159,7 +186,10 @@ public class Elevator : MonoBehaviour
         {
             portaSegundoAndar.ToggleDoor();
         }
-        // (Opcional: abrir a porta do novo andar, ex: portaSegundoAndar.ToggleDoor())
+
+        // Espera um pouco antes de permitir o próximo movimento (opcional, mas bom para o áudio terminar)
+        yield return new WaitForSeconds(0.5f); // <-- ADIÇÃO SUGERIDA
+        movendo = false; // Permite que o elevador seja ativado novamente
     }
 
     // Atualiza o estado do andar (inverte de primeiro para segundo, ou vice-versa).
