@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimationController : MonoBehaviour
 {
+    [SerializeField] private Movement Movement;
     private Animator animator;
 
     // Hashes dos parâmetros (para otimização, mais rápido que usar strings)
@@ -17,7 +18,10 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private readonly int hashOnThrow = Animator.StringToHash("onThrow");
     // REMOVIDO: O hash 'hasIshMoveMilk' foi removido.
 
-
+    public void TravaMovimento()
+    {
+         Movement.canMove = !Movement.canMove;
+    }
     private void Awake()
     {
         animator = GetComponent<Animator>(); // Pega o Animator

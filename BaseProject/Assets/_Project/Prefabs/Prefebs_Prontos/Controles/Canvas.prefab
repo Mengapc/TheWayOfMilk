@@ -1906,10 +1906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33de80f39fb6dfe459b3d0c83c5c919d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - Puzzle 1
-  - Puzzle 2
-  - Puzzle 3
   areaInfo:
   - {fileID: 8818490787940864643}
   - {fileID: 988787274690697106}
@@ -1917,14 +1913,23 @@ MonoBehaviour:
   - {fileID: 8625194454068471456}
   - {fileID: 3313861207731726824}
   - {fileID: 8566465794482622405}
-  objetivosScene1:
-  - Pegue o leite.
-  - "Leve o leite at\xE9 pedestal ativador do outro lado da sala."
-  objetivosScene2:
-  - Pegue o leite no andar de cima.
-  - Ative o pedestal ativador para desativar o laizer.
-  - Ative o ultimo pedestal ativador.
-  objetivosScene3: []
+  allSceneObjectives:
+  - sceneName: Puzzle 1
+    objectives:
+    - "Peque o gal\xE3o de lete e leve ao outro lado da sala."
+    - "Jogue o gal\xE3o no pedestal de ativa\xE7\xE3o."
+    - "Entre na porta e v\xE1 para o pr\xF3xima sala."
+  - sceneName: Puzzle 2
+    objectives:
+    - "Pegue o gal\xE3o de lete no andar de cima e leve at\xE9 o primeiro pedestal
+      ativador."
+    - "Agora que os laizes foram desativador, jogue mais um gal\xE3o no segundo pedestal
+      ativador."
+    - "entre na porta e v\xE1 para o pr\xF3xima sala"
+  - sceneName: Puzzle 3
+    objectives:
+    - "Jogue o gal\xE3o no no pedestal ativador. "
+    - "Suba o andar e v\xE1 para a pr\xF3xima sala."
 --- !u!1 &7020093541497391514
 GameObject:
   m_ObjectHideFlags: 0
