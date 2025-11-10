@@ -3095,57 +3095,6 @@ PrefabInstance:
       addedObject: {fileID: 76031076}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5526b40f57137941acad5abe8be5966, type: 3}
-<<<<<<< HEAD
---- !u!1 &5992480315334373385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7245094598044415271, guid: d5526b40f57137941acad5abe8be5966, type: 3}
-  m_PrefabInstance: {fileID: 5992480315334373384}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5992480315334373388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992480315334373385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7bcdbcc5eaee944aac120e1d4717ced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
-  other: {fileID: 0}
-  materialIndex: 0
-  colorOff: {r: 1, g: 0, b: 0, a: 1}
-  colorOn: {r: 0, g: 1, b: 0, a: 1}
-  lerpSpeed: 1
-  emissionIntensity: 3
---- !u!1 &5992480315334373389 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7080280366373519821, guid: d5526b40f57137941acad5abe8be5966, type: 3}
-  m_PrefabInstance: {fileID: 5992480315334373384}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5992480315334373391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992480315334373389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7bcdbcc5eaee944aac120e1d4717ced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
-  other: {fileID: 0}
-  materialIndex: 0
-  colorOff: {r: 1, g: 0, b: 0, a: 1}
-  colorOn: {r: 0, g: 1, b: 0, a: 1}
-  lerpSpeed: 1
-  emissionIntensity: 3
-=======
->>>>>>> f3a1d52a87a8ba96032c2c0212e69d517ac50556
 --- !u!23 &6008987727593294401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4035,10 +3984,6 @@ SceneRoots:
   - {fileID: 173823090572749550}
   - {fileID: 840644530}
   - {fileID: 1888893033}
-<<<<<<< HEAD
-  - {fileID: 1833625199}
-=======
->>>>>>> f3a1d52a87a8ba96032c2c0212e69d517ac50556
   - {fileID: 1061575916}
   - {fileID: 924162750}
   - {fileID: 1892723224}
