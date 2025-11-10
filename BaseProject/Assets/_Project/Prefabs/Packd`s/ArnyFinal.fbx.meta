@@ -175,7 +175,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.981203
+      - time: 1
         functionName: TravaMovimento
         data: 
         objectReferenceParameter: {instanceID: 0}

@@ -20,7 +20,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void TravaMovimento()
     {
-         Movement.canMove = !Movement.canMove;
+        Debug.Log("Trava Movimento");
+       Movement.SetCanMove();
     }
     private void Awake()
     {

@@ -174,6 +174,7 @@ public class ObjectGrabbing : MonoBehaviour
         // Se o botão foi PRESSIONADO (Started) -> Começa a carregar
         if (context.started)
         {
+            movementScript.canMove = false; // Trava o movimento ao começar a carregar
             isCharging = true;
             animController?.SetCharging(true);
 
@@ -211,6 +212,7 @@ public class ObjectGrabbing : MonoBehaviour
             // Apenas inicia a corrotina.
             if (grabObject != null)
             {
+                movementScript.canMove = true; // Devolve o movimento ao arremessar
                 StartCoroutine(Arremessar(grabObject));
             }
         }
@@ -232,27 +234,22 @@ public class ObjectGrabbing : MonoBehaviour
             }
             StartCoroutine(Pegar(gameObject));
         }
-        else // Se ESTÁ segurando -> LARGAR
-        {
-            // Checagem de segurança para estado quebrado
-            if (gameObject == null)
-            {
-                Debug.LogWarning("Estado de 'Grab' quebrado detectado. Forçando reset.");
-                grabbingObject = false;
-                grabObject = null;
-                grabObjectRb = null;
-                animController?.SetHolding(false);
-                return; // Não chama a corrotina 'Disgrab' com um nulo
-            }
-
-            // Se o objeto não é nulo, larga normalmente.
-            StartCoroutine(Disgrab(gameObject));
-        }
     }
 
     // Corrotina para Pegar
     private IEnumerator Pegar(GameObject gameObject)
     {
+        // 1. Calcula a direção do objeto (sem Y)
+        Vector3 directionToTarget = gameObject.transform.position - transform.position;
+        directionToTarget.y = 0;
+
+        // 2. Gira o jogador instantaneamente para o objeto
+        if (directionToTarget.sqrMagnitude > 0.01f && movementScript != null)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            // Usa a referência 'player' do script de movimento, que é o objeto a ser girado
+            movementScript.player.rotation = targetRotation;
+        }
         // Agora que pegamos o objeto, limpa o "alvo" do trigger
         currentGrabbableObject = null;
         IsNearGrabbable = false;
@@ -289,31 +286,7 @@ public class ObjectGrabbing : MonoBehaviour
     }
 
     // Corrotina para Largar (Drop)
-    private IEnumerator Disgrab(GameObject gameObject)
-    {
-        // Pega o Rigidbody DO PARÂMETRO 'gameObject'
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-            Debug.LogError("O objeto largado não tem Rigidbody!", gameObject);
-            yield break; // Para a corrotina se houver um problema
-        }
 
-        // Usa o 'gameObject' do parâmetro
-        gameObject.transform.SetParent(null);
-        rb.isKinematic = false;
-
-        // Limpa as variáveis de estado
-        grabbingObject = false;
-        grabObject = null;
-        grabObjectRb = null; // Limpa a referência do Rigidbody
-
-        // Animação
-        animController?.SetHolding(false);
-        animController?.TriggerDrop();
-
-        yield return null;
-    }
 
     // Corrotina para Arremessar
     private IEnumerator Arremessar(GameObject gameObject)
