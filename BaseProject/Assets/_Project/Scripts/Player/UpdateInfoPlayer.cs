@@ -167,12 +167,6 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
 
     // Chamado quando sai de um trigger
 
-
-
-
-
-
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Elevator"))
