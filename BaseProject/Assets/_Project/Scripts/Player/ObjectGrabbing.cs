@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Linq;
-using Unity.VisualScripting;
 using System.Collections;
 
 // O nome da sua classe é ObjectGrabbing
@@ -13,20 +11,10 @@ public class ObjectGrabbing : MonoBehaviour
     [SerializeField] private Transform handPoint;
     [Tooltip("A camada (Layer) dos objetos que podem ser pegos.")]
     [SerializeField] private LayerMask grabbingLayer;
-    [Tooltip("Segurando o objeto.")]
-    [SerializeField] private bool grabbingObject = false;
     [Tooltip("Referência ao SphereCollider que define a área de 'pegar'.")]
     [SerializeField] private SphereCollider grabCollider;
     [Tooltip("A distância máxima para pegar um objeto.")]
     [SerializeField] private float grabRange = 2f;
-
-    private GameObject currentGrabbableObject = null;
-    private GameObject grabObject = null;
-    private Rigidbody grabObjectRb = null;
-    private bool isNearGrabbableDistance = false;
-    public bool IsNearGrabbableDistance { get { return isNearGrabbableDistance; } }
-    public bool GrabbingObject { get { return grabbingObject; } }
-    public bool IsNearGrabbable { get; private set; }
 
     [Header("Configurações de Arremesso")]
     [Tooltip("A força horizontal MÍNIMA do arremesso (distância).")]
@@ -34,86 +22,69 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("A força horizontal MÁXIMA do arremesso (distância).")]
     [SerializeField] private float horizontalForceMax = 25f;
     [Tooltip("A força vertical MÍNIMA do arremesso (altura).")]
-    [SerializeField] private float verticallForceMin = 3f;
+    [SerializeField] private float verticallForceMin = 3f; // Mantendo 'verticall' para não quebrar a referência
     [Tooltip("A força vertical MÁXIMA do arremesso (altura).")]
-    [SerializeField] private float verticallForceMax = 8f;
+    [SerializeField] private float verticallForceMax = 8f; // Mantendo 'verticall'
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
-
-    public bool IsCharging { get { return isCharging; } }
-    private float currentChargeTime = 0f;
-    public float CurrentChargeTime { get { return currentChargeTime; } }
-    public float MaxChargeTime { get { return tempoMaximoDeCarga; } }
-
-
-    [Header("Referências Externas")]
-    [Tooltip("Referência para o script de movimento do jogador. Essencial para a nova lógica de direção.")]
+    [Header("Referências (Auto-Buscadas)")]
+    [Tooltip("Referência ao script de animação do jogador.")]
+    [SerializeField] private PlayerAnimationController animController;
+    [Tooltip("Referência ao script de movimento do jogador.")]
     [SerializeField] private Movement movementScript;
+    [Tooltip("Referência ao script que calcula a direção da mira.")]
     [SerializeField] private Direction direction;
-    [Tooltip("Camera do jogo")]
+    [Tooltip("Referência à câmera principal.")]
     [SerializeField] private Camera cam;
 
-    [Header("Controle de Animação")]
-    [Tooltip("Referência ao controlador de animação do player.")]
-    [SerializeField] private PlayerAnimationController animController;
-    private bool isCharging = false;
+    // --- Variáveis de Estado (Privadas) ---
+    private GameObject currentGrabbableObject = null; // Objeto no trigger (alvo)
+    private GameObject grabObject = null;             // Objeto segurado
+    private Rigidbody grabObjectRb = null;
+    private bool grabbingObject = false;              // True se estamos segurando algo
+    private bool isCharging = false;                  // True se carregando arremesso
+    private float currentChargeTime = 0f;
+    private bool isNearGrabbableDistance = false;
+
+    // --- Propriedades Públicas (para a UI) ---
+    public bool IsNearGrabbableDistance { get { return isNearGrabbableDistance; } }
+    public bool GrabbingObject { get { return grabbingObject; } }
+    public bool IsNearGrabbable { get; private set; }
+    public bool IsCharging => isCharging;
+    public float CurrentChargeTime => currentChargeTime;
+    public float MaxChargeTime => tempoMaximoDeCarga;
     #endregion
 
-    #region Métodos da Unity
-
-    // Pega o SphereCollider automaticamente
+    #region Metodos da Unity
     private void Awake()
     {
-        if (grabCollider == null)
-        {
-            grabCollider = GetComponent<SphereCollider>();
+        // Pega referências que estão no mesmo objeto
+        if (animController == null)
+            animController = GetComponent<PlayerAnimationController>();
 
-        }
+        if (movementScript == null)
+            movementScript = GetComponent<Movement>();
 
-        if (grabCollider == null)
-        {
-            Debug.LogError("ObjectGrabbing: Nenhum SphereCollider encontrado! " +
-                           "Adicione um SphereCollider ou arraste-o manualmente.", this);
-        }
+        // Tenta encontrar a câmera principal se não foi definida
+        if (cam == null)
+            cam = Camera.main;
     }
 
-    // Garante que o estado inicial está correto
-    private void Start()
-    {
-        grabbingObject = false;
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        // --- LÓGICA DE DISTÂNCIA PARA PEGAR OBJETO (CORRIGIDA) ---
-        // Só checa a distância SE houver um objeto no trigger
-        if (currentGrabbableObject != null)
-        {
-            isNearGrabbableDistance = IsWithinGrabRange(currentGrabbableObject.transform.position);
-
-            if (collision.gameObject.CompareTag("Ball") && !grabbingObject)
-            {
-                IsNearGrabbable = true;
-            }
-            else
-            {
-                // Se não há objeto no trigger, com certeza não estamos perto
-                isNearGrabbableDistance = false;
-            }
-        }
-    }
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            IsNearGrabbable = false;
-        }
-    }
-
-    // Chamado a cada frame
+    // Update é chamado a cada frame
     private void Update()
     {
+        // Se o trigger detectou um "alvo"...
+        if (currentGrabbableObject != null)
+        {
+            // ...checa a distância dele a cada frame.
+            isNearGrabbableDistance = IsWithinGrabRange(currentGrabbableObject.transform.position);
+        }
+        else
+        {
+            // Se não há alvo, não podemos estar perto.
+            isNearGrabbableDistance = false;
+        }
 
         // --- LÓGICA DE CARREGAMENTO E ROTAÇÃO ---
         if (isCharging)
@@ -130,102 +101,133 @@ public class ObjectGrabbing : MonoBehaviour
         }
     }
 
+    // Chamado UMA VEZ quando algo ENTRA no trigger
+    private void OnTriggerEnter(Collider other)
+    {
+        // Checa se:
+        // 1. Já não temos um alvo (currentGrabbableObject == null)
+        // 2. Não estamos segurando nada (!grabbingObject)
+        // 3. O objeto tem a tag "Ball"
+        if (currentGrabbableObject == null && !grabbingObject && other.CompareTag("Ball"))
+        {
+            // Define este como o nosso novo "alvo"
+            currentGrabbableObject = other.gameObject;
+            IsNearGrabbable = true; // Ativa a UI ("Chegar Perto")
+        }
+    }
 
+    // Chamado UMA VEZ quando algo SAI do trigger
+    private void OnTriggerExit(Collider other)
+    {
+        // Se o objeto que saiu é o nosso "alvo" atual...
+        if (other.gameObject == currentGrabbableObject)
+        {
+            // ...nós o perdemos. Limpa tudo.
+            currentGrabbableObject = null;
+            IsNearGrabbable = false;
+            isNearGrabbableDistance = false; // Garante que a UI "Pegar" também apague
+        }
+    }
     #endregion
 
-    #region Callbacks de Input (Input System)
-
-    // Tenta pegar ou soltar um objeto
+    #region Funções de Input
+    // Chamado pelo Input System (Botão de Interação)
     public void InteractionGrabbing(InputAction.CallbackContext context)
     {
         // Se apertou e NÃO está segurando nada -> Tenta Pegar
-        if (context.started && grabObject == null)
+        if (context.started && !grabbingObject)
         {
-                if (currentGrabbableObject)
-                {
-                    GrabObject_DisgrabObject(currentGrabbableObject);
-                }
+            // Checa se temos um "alvo" e se estamos perto
+            if (currentGrabbableObject != null && isNearGrabbableDistance)
+            {
+                // Pega o "alvo" que o trigger detectou
+                GrabObject_DisgrabObject(currentGrabbableObject);
+            }
         }
-        // Se apertou e JÁ está segurando -> Solta
-        else if (context.started && grabObject != null)
+        // Se apertou e JÁ está segurando -> Solta (Drop)
+        else if (context.started && grabbingObject && !isCharging)
         {
             GrabObject_DisgrabObject(grabObject);
         }
     }
 
-    // Controla o carregamento e execução do arremesso
-    public void PullGrabobject(InputAction.CallbackContext context)
+    // Chamado pelo Input System (Botão de Arremesso)
+    public void ThrowObject(InputAction.CallbackContext context)
     {
-        // Botão foi pressionado (começou a carregar)
-        if (context.started && grabObject != null)
+        // Só funciona se estiver segurando um objeto
+        if (!grabbingObject) return;
+
+        // Se o botão foi PRESSIONADO (Started) -> Começa a carregar
+        if (context.started)
         {
             isCharging = true;
-            currentChargeTime = 0f;
-            animController?.SetCharging(true); // Avisa o Animator
-            movementScript.canMove = false; // Impede o movimento durante o carregamento
+            animController?.SetCharging(true);
 
-            // Trava a rotação normal de movimento
-            if (movementScript != null) movementScript.overrideRotation = true;
+            // Trava a rotação de movimento e ativa a rotação da mira
+            if (movementScript != null)
+                movementScript.overrideRotation = true;
         }
-
-        // Botão foi solto (executa o arremesso)
-        if (context.canceled && grabObject != null)
+        // Se o botão foi SOLTO (Canceled) -> Arremessa
+        else if (context.canceled && isCharging)
         {
-            // Calcula a força baseada no tempo de carregamento
-            float chargePercent = currentChargeTime / tempoMaximoDeCarga;
-            float horizontalForce = Mathf.Lerp(horizontalForceMin, horizontalForceMax, chargePercent);
-            float verticalForce = Mathf.Lerp(verticallForceMin, verticallForceMax, chargePercent);
-
-            // Pega a direção do script 'Direction'
-            Vector3 throwDirection = direction.directionVector;
-            Vector3 throwForce = throwDirection * horizontalForce + Vector3.up * verticalForce;
-
-            // Solta o objeto e aplica a força
-            grabObject.transform.SetParent(null);
-            grabObjectRb.isKinematic = false;
-            grabObjectRb.AddForce(throwForce, ForceMode.Impulse);
-            movementScript.canMove = true; // Libera o movimento novamente
-
-            // Limpa todas as variáveis de estado
-            grabObjectRb = null;
-            grabObject = null;
-            grabbingObject = false;
             isCharging = false;
-            currentChargeTime = 0f;
-
-            // Avisa o Animator
             animController?.SetCharging(false);
-            animController?.TriggerThrow();
-            animController?.SetHolding(false);
 
-            // Libera a rotação de movimento
-            if (movementScript != null) movementScript.overrideRotation = false;
+            // Devolve o controle da rotação para o movimento
+            if (movementScript != null)
+                movementScript.overrideRotation = false;
+
+            // Apenas inicia a corrotina.
+            if (grabObject != null)
+            {
+                StartCoroutine(Arremessar(grabObject));
+            }
         }
     }
     #endregion
 
-    #region Lógica Interna
+    #region Corrotinas (Pegar / Largar / Arremessar)
 
-    // Gerencia o ato de pegar ou soltar o objeto
-    private void GrabObject_DisgrabObject(GameObject objectGrab)
+    // Decide se deve pegar ou largar
+    private void GrabObject_DisgrabObject(GameObject gameObject)
     {
-        if (grabObject == null) // Lógica para PEGAR
+        if (!grabbingObject) // Se NÃO está segurando -> PEGAR
         {
-            if (objectGrab.CompareTag("Ball"))
+            // Checagem de segurança: não tenta pegar um objeto nulo
+            if (gameObject == null)
             {
-
-                StartCoroutine(Pegar(objectGrab));
+                Debug.LogWarning("Tentei pegar um objeto nulo. Ignorando.");
+                return;
             }
+            StartCoroutine(Pegar(gameObject));
         }
-        else if (grabObject != null) // Lógica para SOLTAR
+        else // Se ESTÁ segurando -> LARGAR
         {
-            StartCoroutine(Disgrab(objectGrab));
+            // Checagem de segurança para estado quebrado
+            if (gameObject == null)
+            {
+                Debug.LogWarning("Estado de 'Grab' quebrado detectado. Forçando reset.");
+                grabbingObject = false;
+                grabObject = null;
+                grabObjectRb = null;
+                animController?.SetHolding(false);
+                return; // Não chama a corrotina 'Disgrab' com um nulo
+            }
+
+            // Se o objeto não é nulo, larga normalmente.
+            StartCoroutine(Disgrab(gameObject));
         }
     }
 
+    // Corrotina para Pegar
     private IEnumerator Pegar(GameObject gameObject)
     {
+        // Agora que pegamos o objeto, limpa o "alvo" do trigger
         currentGrabbableObject = null;
+        IsNearGrabbable = false;
+        isNearGrabbableDistance = false;
+
+        // Configura o objeto
         grabObject = gameObject;
         grabObject.transform.SetParent(handPoint);
         grabObject.transform.position = handPoint.transform.position;
@@ -233,38 +235,107 @@ public class ObjectGrabbing : MonoBehaviour
         grabObjectRb = grabObject.GetComponent<Rigidbody>();
         grabObjectRb.isKinematic = true;
         grabbingObject = true;
+
+        // Animação
         animController?.SetHolding(true);
         animController?.TriggerCollect();
-        yield return null;
-    }
-    private IEnumerator Disgrab(GameObject gameObject)
-    {
-        grabObject.transform.SetParent(null);
-        grabObjectRb.isKinematic = false;
-        grabObjectRb = null;
-        grabObject = null;
-        grabbingObject = false;
-        movementScript.canMove = true; // Garante que o movimento está liberado
-        animController?.SetHolding(false);
-        animController?.TriggerDrop();
+
         yield return null;
     }
 
-    private bool IsWithinGrabRange(Vector3 objectPosition)
+    // Corrotina para Largar (Drop)
+    private IEnumerator Disgrab(GameObject gameObject)
     {
-        if (currentGrabbableObject == null) return false;
-        float distance = Vector3.Distance(objectPosition, transform.position + grabCollider.center);
-        
-        if (distance <= grabRange)
+        // Pega o Rigidbody DO PARÂMETRO 'gameObject'
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        if (rb == null)
         {
-            return true;
+            Debug.LogError("O objeto largado não tem Rigidbody!", gameObject);
+            yield break; // Para a corrotina se houver um problema
         }
-        else
+
+        // Usa o 'gameObject' do parâmetro
+        gameObject.transform.SetParent(null);
+        rb.isKinematic = false;
+
+        // Limpa as variáveis de estado
+        grabbingObject = false;
+        grabObject = null;
+        grabObjectRb = null; // Limpa a referência do Rigidbody
+
+        // Animação
+        animController?.SetHolding(false);
+        animController?.TriggerDrop();
+
+        yield return null;
+    }
+
+    // Corrotina para Arremessar
+    private IEnumerator Arremessar(GameObject gameObject)
+    {
+        // Pega o Rigidbody DO PARÂMETRO 'gameObject'
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        if (rb == null)
         {
-            return false;
+            Debug.LogError("O objeto arremessado não tem Rigidbody!", gameObject);
+            yield break; // Para a corrotina
         }
+
+        // Solta o objeto
+        gameObject.transform.SetParent(null);
+        rb.isKinematic = false;
+
+        // --- LÓGICA DE FORÇA ATUALIZADA ---
+
+        // 1. Calcula a porcentagem de carga
+        float chargePercent = currentChargeTime / tempoMaximoDeCarga;
+
+        // 2. Calcula a força horizontal (baseada na % de carga)
+        float currentHorizontalForce = Mathf.Lerp(horizontalForceMin, horizontalForceMax, chargePercent);
+
+        // 3. Calcula a força vertical (baseada na % de carga)
+        // (Usando 'verticall' para bater com sua variável)
+        float currentVerticalForce = Mathf.Lerp(verticallForceMin, verticallForceMax, chargePercent);
+
+        // 4. Combina as forças
+        Vector3 horizontalForceVec = direction.directionVector * currentHorizontalForce;
+        Vector3 verticalForceVec = Vector3.up * currentVerticalForce;
+        Vector3 finalForce = horizontalForceVec + verticalForceVec;
+
+        // 5. Aplica a força combinada
+        rb.AddForce(finalForce, ForceMode.Impulse);
+
+        // --- FIM DA ATUALIZAÇÃO ---
+
+        // Animação
+        animController?.SetHolding(false);
+        animController?.TriggerThrow();
+
+        // Reseta
+        currentChargeTime = 0;
+
+        // Limpa as variáveis de estado AQUI, no final
+        grabObject = null;
+        grabObjectRb = null;
+        grabbingObject = false;
+
+        yield return null;
     }
 
     #endregion
 
+    #region Funções Auxiliares
+    // Checa se o ponto está dentro do raio do collider (distância de "pegar")
+    private bool IsWithinGrabRange(Vector3 objectPosition)
+    {
+        if (grabCollider == null) return false;
+
+        // Calcula a distância do centro do collider (jogador) até o objeto
+        float distance = Vector3.Distance(transform.position + grabCollider.center, objectPosition);
+
+        // Retorna true se a distância for MENOR que o raio
+        // (Usando a variável grabRange agora)
+        return distance <= grabRange;
+    }
+    #endregion
 }

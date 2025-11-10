@@ -251,7 +251,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6283824435645916975}
         m_TargetAssemblyTypeName: ObjectGrabbing, Assembly-CSharp
-        m_MethodName: PullGrabobject
+        m_MethodName: ThrowObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -304,18 +304,17 @@ MonoBehaviour:
   grabbingLayer:
     serializedVersion: 2
     m_Bits: 8
-  grabbingObject: 1
   grabCollider: {fileID: 1215488943271461401}
-  grabRange: 2
+  grabRange: 12
   horizontalForceMin: 12
   horizontalForceMax: 36
   verticallForceMin: 6
   verticallForceMax: 24
   tempoMaximoDeCarga: 3
+  animController: {fileID: 2931656307011706667}
   movementScript: {fileID: 3046256553113066117}
   direction: {fileID: 6564576115362327945}
   cam: {fileID: 0}
-  animController: {fileID: 2931656307011706667}
 --- !u!114 &6691356080582948936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +372,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 11.258595
+  m_Radius: 18
   m_Center: {x: 0, y: 2.35, z: -0}
 --- !u!143 &528634416832271243
 CharacterController:
@@ -393,13 +392,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 11.81
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 6, z: 0}
 --- !u!1001 &7390498490286451011
 PrefabInstance:
   m_ObjectHideFlags: 0
