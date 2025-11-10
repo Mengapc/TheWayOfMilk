@@ -11,6 +11,7 @@ TagManager:
   - Logo
   - Elevator
   - MenuAudioManager
+  - Chao
   layers:
   - Default
   - TransparentFX

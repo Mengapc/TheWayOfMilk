@@ -55,15 +55,17 @@ public class Elevator : MonoBehaviour
     [Tooltip("Curva de intensidade do shake durante o movimento (0=sem shake, 1=shake máximo).")]
     [SerializeField] private AnimationCurve shakeIntensityCurve;
 
-    [Header("Áudio")] // <-- NOVO
-    [Tooltip("Som que toca quando o elevador começa a se mover.")] // <-- NOVO
-    [SerializeField] private AudioClip startMovingSound; // <-- NOVO
-    [Tooltip("Som que toca quando o elevador chega ao destino.")] // <-- NOVO
-    [SerializeField] private AudioClip arriveSound; // <-- NOVO
-    [Tooltip("Volume dos efeitos sonoros do elevador.")] // <-- NOVO
-    [Range(0f, 1f)] // <-- NOVO
-    [SerializeField] private float soundVolume = 1f; // <-- NOVO
-    [Space] // <-- NOVO
+    [Header("Áudio")]
+    [Tooltip("AudioSource que tocará o som de movimento. Deve estar neste GameObject e com 'Loop' marcado.")]
+    [SerializeField] private AudioSource movingSoundSource;
+    [Tooltip("Som que toca em loop ENQUANTO o elevador está se movendo.")]
+    [SerializeField] private AudioClip movingSoundClip;
+    [Tooltip("Som que toca quando o elevador chega ao destino.")]
+    [SerializeField] private AudioClip arriveSound;
+    [Tooltip("Volume dos efeitos sonoros do elevador.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float soundVolume = 1f;
+    [Space]
 
     #endregion
 
@@ -127,10 +129,16 @@ public class Elevator : MonoBehaviour
         }
 
         // 5. Toca o som de INÍCIO de movimento
-        if (startMovingSound != null && SoundFXManager.instance != null) // <-- NOVO
+        if (movingSoundSource != null && movingSoundClip != null)
         {
-            // Usamos 'cabine.transform' para que o som saia da cabine
-            SoundFXManager.instance.PlaySoundFXClip(startMovingSound, cabine.transform, soundVolume); // <-- NOVO
+            movingSoundSource.clip = movingSoundClip;
+            movingSoundSource.volume = soundVolume;
+            // movingSoundSource.loop = true; // Já garantimos isso pelo Inspector, mas podemos forçar aqui
+            movingSoundSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("MovingSoundSource ou MovingSoundClip não assignados no Elevador."); // <-- NOVO
         }
 
         // 6. Loop de movimento (enquanto o tempo decorrido for menor que a duração)
@@ -153,6 +161,10 @@ public class Elevator : MonoBehaviour
             }
 
             yield return null; // Espera até o próximo frame
+        }
+
+        {
+            movingSoundSource.Stop();
         }
 
         // 7. Finalização do movimento

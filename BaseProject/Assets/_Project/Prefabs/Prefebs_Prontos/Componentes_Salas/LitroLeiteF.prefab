@@ -225,3 +225,5 @@ MonoBehaviour:
   LeiteQuebrado: {fileID: 3308330991861253963, guid: 3f94f793277ef8a4f9b873f55b920ccd, type: 3}
   Rigidbody: {fileID: 5058143278334763307}
   gravidade: -100
+  hitSound: {fileID: 8300000, guid: 14bfa05ecfd7ffe4da65b871920c986a, type: 3}
+  soundVolume: 0.1

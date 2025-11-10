@@ -28,6 +28,20 @@ public class ObjectGrabbing : MonoBehaviour
     [Tooltip("O tempo em segundos segurando o botão para atingir a força máxima.")]
     [SerializeField] private float tempoMaximoDeCarga = 2f;
 
+    [Header("Áudio")] 
+    [Tooltip("AudioSource para o som de 'canalizar' (deve ter Loop=true e PlayOnAwake=false).")] 
+    [SerializeField] private AudioSource chargingSoundSource; 
+    [Tooltip("Som que toca ao PEGAR um objeto.")] 
+    [SerializeField] private AudioClip grabSound; 
+    [Tooltip("Array de sons de 'canalizando' (um será escolhido aleatoriamente e tocará em loop).")] 
+    [SerializeField] private AudioClip[] chargingSounds; 
+    [Tooltip("Array de sons de ARREMESSO (um será escolhido aleatoriamente).")] 
+    [SerializeField] private AudioClip[] throwSounds; 
+    [Tooltip("Volume dos efeitos sonoros.")] 
+    [Range(0f, 1f)] 
+    [SerializeField] private float soundVolume = 1f; 
+    [Space]
+
     [Header("Referências (Auto-Buscadas)")]
     [Tooltip("Referência ao script de animação do jogador.")]
     [SerializeField] private PlayerAnimationController animController;
@@ -166,6 +180,18 @@ public class ObjectGrabbing : MonoBehaviour
             // Trava a rotação de movimento e ativa a rotação da mira
             if (movementScript != null)
                 movementScript.overrideRotation = true;
+
+            if (chargingSoundSource != null && chargingSounds != null && chargingSounds.Length > 0)
+            {
+                // Escolhe um som aleatório do array
+                int randIndex = Random.Range(0, chargingSounds.Length);
+
+                // Configura e toca o AudioSource
+                chargingSoundSource.clip = chargingSounds[randIndex];
+                chargingSoundSource.volume = soundVolume;
+                chargingSoundSource.loop = true; // Garante que está em loop
+                chargingSoundSource.Play();
+            }
         }
         // Se o botão foi SOLTO (Canceled) -> Arremessa
         else if (context.canceled && isCharging)
@@ -176,6 +202,11 @@ public class ObjectGrabbing : MonoBehaviour
             // Devolve o controle da rotação para o movimento
             if (movementScript != null)
                 movementScript.overrideRotation = false;
+
+            if (chargingSoundSource != null)
+            {
+                chargingSoundSource.Stop();
+            }
 
             // Apenas inicia a corrotina.
             if (grabObject != null)
@@ -229,6 +260,14 @@ public class ObjectGrabbing : MonoBehaviour
 
         // Configura o objeto
         grabObject = gameObject;
+
+        BallController ball = grabObject.GetComponent<BallController>();
+        if (ball != null)
+        {
+            // Diz ao galão para "resetar" sua trava de som
+            ball.ResetHitSound();
+        }
+
         grabObject.transform.SetParent(handPoint);
         grabObject.transform.position = handPoint.transform.position;
         grabObject.transform.rotation = handPoint.transform.rotation;
@@ -239,6 +278,12 @@ public class ObjectGrabbing : MonoBehaviour
         // Animação
         animController?.SetHolding(true);
         animController?.TriggerCollect();
+
+        if (grabSound != null && SoundFXManager.instance != null)
+        {
+            // 'transform' fará o som sair do jogador
+            SoundFXManager.instance.PlaySoundFXClip(grabSound, transform, soundVolume);
+        }
 
         yield return null;
     }
@@ -310,6 +355,11 @@ public class ObjectGrabbing : MonoBehaviour
         // Animação
         animController?.SetHolding(false);
         animController?.TriggerThrow();
+
+        if (throwSounds != null && throwSounds.Length > 0 && SoundFXManager.instance != null)
+        {
+            SoundFXManager.instance.PlayRandomSoundFXClip(throwSounds, transform, soundVolume);
+        }
 
         // Reseta
         currentChargeTime = 0;

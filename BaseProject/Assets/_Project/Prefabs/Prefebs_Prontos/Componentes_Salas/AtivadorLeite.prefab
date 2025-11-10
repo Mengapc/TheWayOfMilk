@@ -5332,6 +5332,8 @@ MonoBehaviour:
   durationAnimation2: 2
   rotationSpeed: 30
   Ativado: 0
+  activationSound: {fileID: 8300000, guid: ff19fb63b82505b40b885cf22e99c0a3, type: 3}
+  soundVolume: 0.7
 --- !u!136 &7709328388452394768
 CapsuleCollider:
   m_ObjectHideFlags: 0

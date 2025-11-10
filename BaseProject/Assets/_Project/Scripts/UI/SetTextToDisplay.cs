@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement; // 1. Necessário para carregar cenas
+using System.Collections;
+
 
 #if UNITY_EDITOR
 using UnityEditor; // 2. Necessário para o SceneAsset
@@ -22,6 +24,29 @@ public class SetTextToDisplay : MonoBehaviour
     [SerializeField]
     private GameObject nextPrompt;
 
+    [Header("Áudio de Digitação")] 
+    [Tooltip("Array de sons de 'blip' que tocarão aleatoriamente.")] 
+    [SerializeField]
+    private AudioClip[] typingSoundClips;
+
+    [Header("Áudio de Fala")]
+    [SerializeField]
+    private RandomLoopingSpeaker speaker;
+
+    [Tooltip("O intervalo (em segundos) entre cada 'blip' de som.")] 
+    [SerializeField]
+    private float typingSoundInterval = 0.05f; 
+
+    [Tooltip("Volume do som de digitação.")] 
+    [Range(0f, 1f)] 
+    [SerializeField]
+    private float typingVolume = 0.5f; 
+
+    // Referência para a Corrotina que está tocando o som
+    private Coroutine typingSoundRoutine = null; 
+
+    private AudioSource audioSource; 
+
     // 3. SEU CÓDIGO PARA SELEÇÃO DE CENA
     [Header("Próxima Cena")]
     // ----- Scene selection -----
@@ -36,6 +61,16 @@ public class SetTextToDisplay : MonoBehaviour
 
     private void Awake()
     {
+        if (speaker == null)
+        {
+            speaker = GetComponent<RandomLoopingSpeaker>();
+        }
+
+        audioSource = GetComponent<AudioSource>(); 
+        audioSource.playOnAwake = false; 
+        audioSource.loop = true; 
+        audioSource.volume = typingVolume;
+
         if (textBox == null)
         {
             Debug.LogError("O campo 'TextBox' não foi configurado no Inspector!");
@@ -65,10 +100,18 @@ public class SetTextToDisplay : MonoBehaviour
     private void OnDisable()
     {
         TypeWritterEffect.CompleteTextRevealed -= OnTextCompleted;
+        StopTypingSound();
     }
 
     private void OnTextCompleted()
     {
+        if (speaker != null)
+        {
+            speaker.StopSpeaking();
+        }
+
+        StopTypingSound();
+
         _canAdvance = true;
 
         if (nextPrompt != null)
@@ -94,6 +137,13 @@ public class SetTextToDisplay : MonoBehaviour
 
     private void ShowText(int index)
     {
+        if (speaker != null)
+        {
+            speaker.StopSpeaking();
+        }
+
+        StopTypingSound();
+
         _canAdvance = false;
 
         if (nextPrompt != null)
@@ -105,12 +155,64 @@ public class SetTextToDisplay : MonoBehaviour
         if (index < textToDisplay.Count)
         {
             textBox.text = textToDisplay[index];
+
+            StartTypingSound();
+            
+            if (speaker != null)
+            {
+                speaker.StartSpeaking(); // <-- AQUI
+            }
         }
         // 4. MUDANÇA PRINCIPAL: Se acabaram os textos...
         else
         {
             Debug.Log("Fim do diálogo. Carregando próxima cena...");
+            
+            if (speaker != null)
+            {
+                speaker.StopSpeaking(); // Garante que pare ao carregar a cena
+            }
+            
+            StopTypingSound();
             LoadNextScene(); // ...chama a função de carregar a cena.
+        }
+    }
+
+    private void StartTypingSound()
+    {
+        // Verifica se temos sons e se o manager existe
+        if (SoundFXManager.instance != null && typingSoundClips != null && typingSoundClips.Length > 0)
+        {
+            // Inicia a corrotina e salva a referência
+            typingSoundRoutine = StartCoroutine(PlayTypingBlipsRoutine());
+        }
+    }
+
+    private void StopTypingSound()
+    {
+        // Se a corrotina estiver rodando...
+        if (typingSoundRoutine != null)
+        {
+            // ...pare ela.
+            StopCoroutine(typingSoundRoutine);
+            typingSoundRoutine = null;
+        }
+    }
+
+    private IEnumerator PlayTypingBlipsRoutine()
+    {
+        // Loop infinito (será parado pelo StopTypingSound)
+        while (true)
+        {
+            // Toca um som aleatório da lista usando seu manager
+            SoundFXManager.instance.PlayRandomSoundFXClip(
+                typingSoundClips,
+                transform, // O som sairá do objeto da UI
+                typingVolume
+            );
+
+            // Espera o intervalo definido antes de tocar o próximo "blip"
+            yield return new WaitForSeconds(typingSoundInterval);
         }
     }
 

@@ -18,6 +18,9 @@ public class DoorController : MonoBehaviour
     [SerializeField] private float duration;
     [Tooltip("Som de abertura.")]
     [SerializeField] private AudioClip somPorta;
+    [Tooltip("Volume dos efeitos sonoros.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float soundVolume = 1f;
 
 
     [Header("Comfigurações de Animação de Destrava")]
@@ -48,7 +51,7 @@ public class DoorController : MonoBehaviour
     {
         yield return StartCoroutine(AnimationDestrava(1f, 0f));
         float elapsedTime = 0f;
-        SoundFXManager.instance.PlaySoundFXClip(somPorta, transform, 1f);
+        SoundFXManager.instance.PlaySoundFXClip(somPorta, transform, soundVolume);
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;

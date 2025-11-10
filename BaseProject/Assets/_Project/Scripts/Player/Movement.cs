@@ -21,7 +21,17 @@ public class Movement : MonoBehaviour
 	[Tooltip("Valor da gravidade aplicada ao jogador.")]
 	[SerializeField] public float gravityValue = -9.81f;
 
-	[Space]
+    [Space]
+    [Header("Áudio de Passos")]
+    [Tooltip("Array de sons de passos (tocados aleatoriamente).")]
+    [SerializeField] private AudioClip[] footstepSounds; 
+    [Tooltip("O intervalo (em segundos) entre cada som de passo.")] 
+    [SerializeField] private float footstepInterval = 0.5f; 
+    [Tooltip("Volume dos passos.")] 
+    [Range(0f, 1f)] 
+    [SerializeField] private float footstepVolume = 0.8f;
+
+    [Space]
 	[Header("Referências de Animação")]
 	[Tooltip("Referência ao script que controla o Animator.")]
 	[SerializeField] private PlayerAnimationController animController;
@@ -30,10 +40,11 @@ public class Movement : MonoBehaviour
 	private Vector3 playerVelocity;
 	private CharacterController characterController;
 	private Elevator currentElevator = null;
+    private float footstepTimer;
 
-	// --- ADIÇÃO ---
-	// Permite que outros scripts (como o ObjectGrabbing) anulem a rotação de movimento
-	public bool overrideRotation = false;
+    // --- ADIÇÃO ---
+    // Permite que outros scripts (como o ObjectGrabbing) anulem a rotação de movimento
+    public bool overrideRotation = false;
 	// --- FIM DA ADIÇÃO ---
 
 
@@ -63,16 +74,39 @@ public class Movement : MonoBehaviour
 		// Usamos sqrMagnitude por ser mais otimizado que Magnitude
 		float currentSpeed = inputDirection.sqrMagnitude;
 		animController?.SetMoveSpeed(currentSpeed);
-		// --- FIM DA LÓGICA DE ANIMAÇÃO ---
+        // --- FIM DA LÓGICA DE ANIMAÇÃO ---
 
+        HandleFootsteps(currentSpeed, isGrounded);
 
-		playerVelocity.y += gravityValue * Time.deltaTime;
+        playerVelocity.y += gravityValue * Time.deltaTime;
 		characterController.Move(playerVelocity * Time.deltaTime);
 	}
 
+    private void HandleFootsteps(float currentSpeedSqr, bool isGrounded)
+    {
+        // 1. O timer só conta para baixo se for maior que zero
+        if (footstepTimer > 0)
+        {
+            footstepTimer -= Time.deltaTime;
+        }
 
+        // 2. Verifica se PODE tocar o som
+        // Condições: Movendo, no chão, e o timer zerou
+        if (currentSpeedSqr > 0.01f && isGrounded && footstepTimer <= 0)
+        {
+            // 3. Verifica se temos os recursos de áudio
+            if (SoundFXManager.instance != null && footstepSounds != null && footstepSounds.Length > 0)
+            {
+                // Toca o som (usando 'transform' para a posição do player)
+                SoundFXManager.instance.PlayRandomSoundFXClip(footstepSounds, transform, footstepVolume);
 
-	public void DirectionMovoment(InputAction.CallbackContext context)
+                // Reseta o timer
+                footstepTimer = footstepInterval;
+            }
+        }
+    }
+
+    public void DirectionMovoment(InputAction.CallbackContext context)
 	{
 
 

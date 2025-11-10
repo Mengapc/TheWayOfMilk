@@ -83,6 +83,8 @@ MonoBehaviour:
   atualRotation: 0
   endRotation: 90
   duration: 4
+  somPorta: {fileID: 0}
+  soundVolume: 0
   doorRenderer: {fileID: 5588932779319735247}
   _animationCurveDestrava:
     serializedVersion: 2

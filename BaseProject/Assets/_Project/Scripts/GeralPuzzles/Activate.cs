@@ -21,7 +21,13 @@ public class Activate : MonoBehaviour
     [Tooltip("Velocidade de rotação constante do objeto.")]
     [SerializeField] private float rotationSpeed = 30f;
     [Tooltip("Boleana para controle da ativação.")]
-    public bool Ativado; 
+    public bool Ativado;
+
+    [Header("Áudio")]
+    [Tooltip("Som que toca ao ativar o pedestal.")]
+    [SerializeField] private AudioClip activationSound;
+    [SerializeField] private float soundVolume = 1f;
+    [Space]
 
     private Transform objectTarget;
 
@@ -35,6 +41,13 @@ public class Activate : MonoBehaviour
             if (other.GetComponent<Rigidbody>().isKinematic == false)
             {
                 other.tag = "Untagged";
+
+                if (activationSound != null && SoundFXManager.instance != null)
+                {
+                    // 'transform' fará o som sair do jogador
+                    SoundFXManager.instance.PlaySoundFXClip(activationSound, transform, soundVolume);
+                }
+
                 StartCoroutine(AjustLeite(other.transform, other.transform.position, pont1.position));
             }
         }
