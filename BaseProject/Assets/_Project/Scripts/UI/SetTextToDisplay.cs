@@ -32,6 +32,7 @@ public class SetTextToDisplay : MonoBehaviour
 
     private int _currentTextIndex = 0;
     private bool _canAdvance = false;
+    public HUDAnimator hudanimator;
 
     private void Awake()
     {
@@ -73,6 +74,7 @@ public class SetTextToDisplay : MonoBehaviour
         if (nextPrompt != null)
         {
             nextPrompt.SetActive(true);
+            hudanimator.AtivarFeedbackFade();
         }
     }
 

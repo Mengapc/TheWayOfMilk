@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class LoadingScreenController : MonoBehaviour
 {
+    [Header("Tela pra carregar")]
+    [SerializeField] private string sceneToLoad;
+
     [Header("Opcional: Barra de Progresso")]
     [SerializeField]
     private Slider progressBar;
@@ -15,6 +18,7 @@ public class LoadingScreenController : MonoBehaviour
 
     [Tooltip("O tempo MÁXIMO que a tela ficará visível (para dar variação).")]
     [SerializeField] private float maxLoadTime = 3.0f;
+
 
     void Start()
     {
@@ -31,7 +35,7 @@ public class LoadingScreenController : MonoBehaviour
         yield return null; // Espera um frame
 
         // Pega o nome da cena que o SceneLoader guardou
-        string sceneToLoad = SceneLoader.nextSceneName;
+        sceneToLoad = SceneLoader.nextSceneName;
 
         if (string.IsNullOrEmpty(sceneToLoad))
         {
