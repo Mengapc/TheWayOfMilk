@@ -80,6 +80,7 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
 
     #region Funções de UI
 
+    // Atualiza a UI a cada frame
     private void UpdateUI()
     {
         // Se não houver referência, desliga tudo e para.
@@ -93,7 +94,6 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
         // --- LÓGICA DE UI HIERÁRQUICA ---
 
         // 1. PRIORIDADE MÁXIMA: Mostra o SLIDER DE ARREMESSO
-        // Se estiver carregando
         if (objectGrabbing.IsCharging)
         {
             if (infoTextPanel != null) infoTextPanel.SetActive(false); // Esconde texto
@@ -121,40 +121,34 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
             // Se não houver painel de texto, não faz mais nada
             if (infoTextPanel == null) return;
 
-            // 2a. Texto do Elevador (tem prioridade sobre os itens)
+            // 2a. Texto do Elevador (tem prioridade)
             if (inElevator)
             {
                 infoTextPanel.SetActive(true);
                 textInfo.text = infoElevador;
             }
-            // 2b. Texto de Jogar (se estiver segurando um item)
-            else if (objectGrabbing.GrabbingObject)
-            {
-                infoTextPanel.SetActive(true);
-                textInfo.text = infoJogar; // <--- USA O 'infoJogar'
-            }
-
-            // 2c. Texto de Pegar (se estiver perto O BASTANTE para pegar)
-            // Usa a variável que calcula a distância real
-            else if (objectGrabbing.IsNearGrabbableDistance)
-            {
-                infoTextPanel.SetActive(true);
-                textInfo.text = infoPegar; // <--- USA O 'infoPegar'
-            }
-            // 2d. Texto de Chegar Perto (se estiver na área, mas longe)
-            // Usa a variável do trigger
-            else if (objectGrabbing.IsNearGrabbable)
-            {
-                infoTextPanel.SetActive(true);
-                textInfo.text = infoChegarPerto; // <--- USA O 'infoChegarPerto'
-            }
-            // 3. Se nenhuma condição for atendida, esconde tudo.
-
+            // 2b. Texto de Jogar (se estiver segurando)
             else if (objectGrabbing.GrabbingObject)
             {
                 infoTextPanel.SetActive(true);
                 textInfo.text = infoJogar;
             }
+            // 2c. Texto de Pegar (se perto o bastante)
+            else if (objectGrabbing.IsNearGrabbableDistance)
+            {
+                infoTextPanel.SetActive(true);
+                textInfo.text = infoPegar;
+            }
+            // 2d. Texto de Chegar Perto (se na área)
+            else if (objectGrabbing.IsNearGrabbable)
+            {
+                infoTextPanel.SetActive(true);
+                textInfo.text = infoChegarPerto;
+            }
+
+            // --- CORREÇÃO: O 'else if' DUPLICADO FOI REMOVIDO DAQUI ---
+
+            // 3. Se nenhuma condição for atendida, esconde tudo.
             else
             {
                 infoTextPanel.SetActive(false);
@@ -162,7 +156,6 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
             }
         }
     }
-
     // Chamado quando entra num trigger
     private void OnTriggerEnter(Collider other)
     {
@@ -173,6 +166,13 @@ public class UpdateInfoPlayer_UI : MonoBehaviour
     }
 
     // Chamado quando sai de um trigger
+
+
+
+
+
+
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Elevator"))
