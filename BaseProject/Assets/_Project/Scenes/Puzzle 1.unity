@@ -216,7 +216,6 @@ GameObject:
   m_Component:
   - component: {fileID: 205073323}
   - component: {fileID: 205073322}
-  - component: {fileID: 205073321}
   - component: {fileID: 205073324}
   - component: {fileID: 205073325}
   m_Layer: 0
@@ -226,14 +225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &205073321
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205073320}
-  m_Enabled: 1
 --- !u!20 &205073322
 Camera:
   m_ObjectHideFlags: 0
@@ -387,6 +378,28 @@ PrefabInstance:
     - target: {fileID: 4102918728680732362, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[0]'
+      value: "Peque o gal\xE3o de leite e leve ao outro lado da sala."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[2]'
+      value: "Entre na porta e v\xE1 para a pr\xF3xima sala."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[0]'
+      value: "Pegue o gal\xE3o de leite no andar de cima e leve at\xE9 o primeiro
+        pedestal ativador."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[1]'
+      value: "Agora que os lasers foram desativados, jogue mais um gal\xE3o no segundo
+        pedestal ativador."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[2]'
+      value: "entre na porta e v\xE1 para a pr\xF3xima sala"
       objectReference: {fileID: 0}
     - target: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Pivot.x
@@ -1596,6 +1609,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 205073322}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: verticallForceMax
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: horizontalForceMax
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6564576115362327945, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: mainCamera
       value: 
@@ -2674,6 +2695,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1993037950637516706, guid: d5526b40f57137941acad5abe8be5966, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2275827526343403545, guid: d5526b40f57137941acad5abe8be5966, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.348671
@@ -2757,6 +2782,10 @@ PrefabInstance:
     - target: {fileID: 3943188622758002993, guid: d5526b40f57137941acad5abe8be5966, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385021779824239016, guid: d5526b40f57137941acad5abe8be5966, type: 3}
+      propertyPath: sceneName
+      value: Puzzle 2
       objectReference: {fileID: 0}
     - target: {fileID: 4642711111592022848, guid: d5526b40f57137941acad5abe8be5966, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
