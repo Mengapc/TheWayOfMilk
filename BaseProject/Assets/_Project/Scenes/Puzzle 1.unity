@@ -216,7 +216,6 @@ GameObject:
   m_Component:
   - component: {fileID: 205073323}
   - component: {fileID: 205073322}
-  - component: {fileID: 205073321}
   - component: {fileID: 205073324}
   - component: {fileID: 205073325}
   m_Layer: 0
@@ -226,14 +225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &205073321
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205073320}
-  m_Enabled: 1
 --- !u!20 &205073322
 Camera:
   m_ObjectHideFlags: 0
@@ -2757,6 +2748,10 @@ PrefabInstance:
     - target: {fileID: 3943188622758002993, guid: d5526b40f57137941acad5abe8be5966, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385021779824239016, guid: d5526b40f57137941acad5abe8be5966, type: 3}
+      propertyPath: sceneName
+      value: Puzzle 2
       objectReference: {fileID: 0}
     - target: {fileID: 4642711111592022848, guid: d5526b40f57137941acad5abe8be5966, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'

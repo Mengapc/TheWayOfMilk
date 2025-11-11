@@ -1,16 +1,18 @@
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class SwithScene : MonoBehaviour
 {
-    [SerializeField] private SceneAsset sceneAsset;
+    [SerializeField] private string sceneName;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (sceneAsset != null)
+            if (sceneName != null)
             {
-                string sceneName = sceneAsset.name;
                 SceneLoader.LoadScene(sceneName);
             }
             else
@@ -19,4 +21,5 @@ public class SwithScene : MonoBehaviour
             }
         }
     }
+    
 }

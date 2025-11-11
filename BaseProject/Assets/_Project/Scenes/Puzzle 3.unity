@@ -4450,6 +4450,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Chao
       objectReference: {fileID: 0}
+    - target: {fileID: 7098585533114198916, guid: 19b3b80092b89bf40822212deacd1259, type: 3}
+      propertyPath: sceneName
+      value: Final
+      objectReference: {fileID: 0}
     - target: {fileID: 7142943804788932469, guid: 19b3b80092b89bf40822212deacd1259, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 

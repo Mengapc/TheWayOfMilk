@@ -84294,6 +84294,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Chao
       objectReference: {fileID: 0}
+    - target: {fileID: 8317198520019950201, guid: 9b2328443d22e844f8e35987cb4dfbd6, type: 3}
+      propertyPath: sceneName
+      value: Puzzle 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
