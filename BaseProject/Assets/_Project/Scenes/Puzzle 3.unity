@@ -7252,6 +7252,58 @@ PrefabInstance:
       propertyPath: 'objetivosScene3.Array.data[1]'
       value: "Suba o elevador e v\xE1 at\xE9 a porta."
       objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.data[0].objectives.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: allSceneObjectives.Array.data[1].objectives.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[0]'
+      value: "Encontre a gal\xE3o de leite."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[1]'
+      value: Aproxime-se para pegar o leite.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[2]'
+      value: "Jogue o gal\xE3o no pedestal de ativa\xE7\xE3o que est\xE1 vermelho."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[0].objectives.Array.data[3]'
+      value: Passe pela porta que abriu.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[0]'
+      value: "Pegue o gal\xE3o de leite no andar de cima. ."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[1]'
+      value: "Leve at\xE9 o primeiro pedestal ativador"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[2]'
+      value: "Jogue mais um gal\xE3o no segundo pedestal ativador, atr\xE1z do vidro."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[3]'
+      value: "Entre na porta e v\xE1 para o pr\xF3xima sala."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[2].objectives.Array.data[0]'
+      value: "Jogue o gal\xE3o no no pedestal ativador, que est\xE1 no meio dos trituradores."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[2].objectives.Array.data[1]'
+      value: Suba o andar e desca no final da sala.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[2].objectives.Array.data[2]'
+      value: Entre na porta e encontre a vaca.
+      objectReference: {fileID: 0}
     - target: {fileID: 7640867682273748180, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
