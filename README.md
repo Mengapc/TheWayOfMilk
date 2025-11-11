@@ -1,64 +1,95 @@
-# Lactrópolis
-
-## 👥 Equipe de Desenvolvimento – Weird Milk Studios
+# 👾 Lactrópolis
 
 ![weirdmilk_branco](https://github.com/user-attachments/assets/1a855ed0-f8e7-425f-867f-ce45523614ee)
 
+**Estúdio:** Weird Milk Studios
+
+Este repositório funciona como um **GDD (Game Design Document)** vivo para o protótipo de "Lactrópolis", reunindo todas as informações, sistemas e decisões que formam o nosso jogo.
+
 ---
+
+## 👥 Equipe de Desenvolvimento – Weird Milk Studios
 
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/f889c94c-69fc-4626-8a91-0f9a315e5a5b" />
 
-### Hamud Michel 
-**Função:** Artista 2D e 3D 
+### Hamud Michel 
+**Função:** Artista 2D e UI/UX
 
-Desenvolveu os concepts do personagem e posters presentes no jogo.
+*Desenvolveu os concepts do personagem e posters presentes no jogo.*
 
 ---
 
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/8ace4551-27d4-4c31-a519-cbe3bcd78aac" />
 
-### Gabriel Dias  
-**Função:** Programador e Game Designer  
+### Gabriel Dias  
+**Função:** Programador e Game Designer
 
-Responsável pelas mecânicas principais, build do jogo e Game Design/Level Design.
+*Responsável pelas mecânicas principais, build do jogo e Game Design/Level Design.*
 
 ---
 
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/058b7ae2-d52b-4b41-a3ba-09b6021d14a4" />
 
-### Gabriel Furlan Mengarelli                                                                                                                            
-**Função:** Programador e Sonorizador  
+### Gabriel Furlan Mengarelli                                                                                                                    
+**Função:** Programador e Sonorizador
 
-Configurou e programou os efeitos da câmera, criou todas as músicas/sfx e a documentação do GitHub.
+*Configurou e programou os efeitos da câmera, criou todas as músicas/sfx e a documentação.*
 
 ---
 
 <img width="300" height="600" alt="image" src="https://github.com/user-attachments/assets/08ff0561-ac29-4d10-9b74-c562538fbe09" />
 
-### Guilherme Alves  
-**Função:** Artista 3D e VFX  
+### Guilherme Alves  
+**Função:** Artista 3D e VFX
 
-Criou todas as artes e modelos 3D utilizados no jogo.
+*Criou todas as artes, modelos 3D e efeitos visuais utilizados no jogo.*
 
 ---
 
-**Estúdio:** Weird Milk Studios
+## 🐄 Sobre o Jogo (O Jogo Completo)
 
-👾 Bem-Vindo(a) ao Repositório do projeto **"Lactrópolis"**
-Este repositório funciona como um **GDD(Game Desing Document)** vivo reunindo todas as informações, ideias, sistemas e anotações que fazem parte do desenvolvimento do nosso jogo.
+💥 **O Desastre Lácteo Começou!** 💥
 
-Aqui você vai encontrar:
+Mergulhe em Lactrópolis, uma aventura de **Puzzle/Plataforma 3D** que vai testar sua mira e seu senso de humor. Prepare-se para guiar Arny Longsing, o último defensor dos bovinos, em sua missão mais urgente: desvendar o mistério da Caseína-235 e encontrar a útlima sobrevivente, a Vaca Xuxa, antes que a LactoNuke transforme o mundo em um laticínio radioativo!
 
-- 🛠️ **Guia de instalação e execução**
-- 🗂️ **Estrutura de pastas e scripts principais**
-- 🕹️ **Descrição do projeto**
-- 🧠 **Conceitos de gameplay e narrativa**
-- 🐛 **Roadmap e problemas conhecidos**
-- 📚 **Tutoriais, links úteis e referências**
+### A História: Leite, Ciência e Destino Atômico
 
-# 📦 Instalação e Configuração
+Anos 40: a TupperWare (sim, a dos potes) tropeça em uma descoberta sinistra. Ao tentar criar um plástico super-resistente, seus cientistas transformam a caseína, a principal proteína do leite, na **Caseína-235**, um explosivo atômico instável.
 
-## Requisitos
+Dezessete anos depois, a TupperWare virou a tirana **LactoNuke**, e o leite é a nova fonte de poder mundial. As vacas estão desaparecendo. É nesse cenário distópico e absurdo que entra **Arny Longsing**, um pesquisador recluso e profundo estudioso bovino, que jurou deter a LactoNuke.
+
+Seu objetivo: encontrar a **Vaca Xuxa**, a última de sua espécie, que estaria protegida em uma fazenda-labirinto repleta de enigmas... e armadilhas.
+
+### 🕹️ A Jogabilidade: Mente, Mira e Leite Explosivo
+
+Em Lactrópolis, você navegará por salas de câmera **Side-Scroller** com uma perspectiva visual que brinca com a profundidade (2.5D). Cada sala é um enigma, e a única chave para a porta de saída é o raciocínio rápido e a precisão do seu arremesso:
+
+* **Arremesso Preciso:** Sua principal ferramenta é o **jarro de leite**. Use-o para acertar alvos, ativar ou desativar **pedestais de energia** e manipular o ambiente.
+* **Quebra-Cabeças de Fluxo:** Solucione problemas de timing, física e lógica para abrir a próxima porta. Aventure-se por um bunker, onde cada sala esconde uma peça do quebra-cabeça que pode salvar (ou explodir) o futuro das vacas.
+
+---
+
+## 🧠 Design, Arte e Narrativa
+
+Esta seção detalha as **decisões de design** tomadas durante o desenvolvimento, explicando como integramos tema, mecânicas, arte e som.
+
+### 1. Narrativa e Tema
+*A premissa de "Lactrópolis" nasceu de uma sátira ao "AtomPunk" (popularizado por **Fallout**) e à cultura de consumo. A decisão de usar a "TupperWare" como vilã inicial foi para criar um contraste cômico imediato entre o banal (potes de plástico) e o apocalíptico (energia nuclear). A narrativa é contada visualmente através dos pôsteres de propaganda da LactoNuke e pela própria progressão do jogador, que explora um mundo onde algo tão comum quanto o leite se tornou uma arma de destruição.*
+
+### 2. Arte e Estética
+*A direção de arte busca um "Retrofuturismo Cômico". Enquanto a inspiração em **Fallout** dita a paleta de cores (tons pastéis, verdes nucleares) e a estética dos anos 50, a inspiração em **Little Nightmares** ditou a nossa decisão de câmera. Escolhemos uma câmera 2.5D fixa (Side-Scroller com profundidade) para: 1) Criar uma sensação claustrofóbica de "bunker" e 2) Simplificar o design dos puzzles, focando a mira do jogador em um plano mais controlado, mas ainda permitindo a exploração de profundidade.*
+
+### 3. Mecânicas e Códigos
+*A principal decisão de design foi limitar a interação do jogador a **uma única mecânica: o arremesso**. Isso nos forçou a criar puzzles diversos usando apenas esta ferramenta. O jarro de leite não é apenas uma "chave", ele é a forma de ativar pedestais, mover plataformas e (em puzzles futuros) quebrar objetos. Tecnicamente, isso foi centralizado no script `ObjectGrabbing.cs`, que gerencia o estado do jogador (livre, segurando, mirando), e no script `Activate.cs`, que usa `UnityEvents` para permitir que o Level Designer conecte o pedestal a qualquer outro objeto (portas, elevadores, etc.) sem precisar escrever código novo.*
+
+### 4. Som e Música
+*A sonorização foi desenhada para reforçar o tom. A música ambiente mistura suspense com um toque "industrial" e burocrático, refletindo a LactoNuke. Os efeitos sonoros (SFX) são exagerados de propósito: o som de "pegar" o galão, o "blip" dos diálogos (controlado pelo `RandomLoopingSpeaker.cs`), e os sons de ativação dos pedestais são todos desenhados para dar um feedback claro e satisfatório ao jogador, informando que sua ação teve um resultado imediato.*
+
+---
+
+## 📦 Instalação e Configuração
+
+### Requisitos
 
 | Item | Versão |
 |------|--------|
@@ -72,216 +103,195 @@ Aqui você vai encontrar:
 ### Passo a passo
 
 1. Clone o repositório:
-   ```
-   git clone https://github.com/Mengapc/TheWayOfMilk.git
+   ```bash
+   git clone [https://github.com/Mengapc/TheWayOfMilk.git](https://github.com/Mengapc/TheWayOfMilk.git)
    cd TheWayOfMilk
    git lfs install
    git lfs pull
-   ```
+
 2. Abra o projeto no Unity (6000.0.35f1)
 
 3. Cena inicial:
 
        · Assets/Scenes/Menu.unity
 
-4. Recomendado: build manual via File > Build Settings
+---
 
-# Documentação - Links, tutoriais, etc.
+## 🗂️ Estrutura de Pastas (Assets)
 
- ## 💻️ Comandos do git
+O projeto está organizado na Unity com a seguinte estrutura de pastas, facilitando a localização de assets e scripts.
 
-### 🔹 Inicializar repositório
- ```
- git init
- ```
-### 🔹 Adicionar arquivos para commit
- ```
- git add .
- ```
-### 🔹 Fazer commit com mensagem
- ```
- git commit -m "Nome_commit"
- ```
-### 🔹 Enviar mudanças para o repositório remoto (main)
- ```
- git push -u origin main
- ```
-### Após a primeira vez, você pode usar apenas:
- ```
- git push
- ```
-### 🔹 Atualizar sua branch com as mudanças da main (do remoto)
- ```
- git pull origin main
- ```
-### Após a primeira vez, você pode usar apenas:
- ```
- git pull
- ```
-### 🔹 Trocar de branch
- ```
- git checkout <nome_da_branch>
- ```
- ### 🔹 Junta as mudanças da sua branch na main
- ```
- git merge <nome_da_branch>
- ```
-Exemplo: Se estiver na main e rodar git merge minha-branch, as mudanças da minha-branch serão aplicadas na main.
+Assets/
 
-🧹 Remover arquivos já versionados e ignorá-los corretamente
-Se você adicionou pastas como Logs ou UserSettings no .gitignore depois que elas já estavam sendo versionadas, siga o passo-a-passo abaixo para limpar o repositório:
+├── _Project/
 
-### 🔹 1. Remover os arquivos do versionamento, mas manter no seu computador
- ```
-git rm --cached -r BaseProject/Logs/
-git rm --cached -r BaseProject/UserSettings/
- ```
-### 🔹 2. Fazer commit da remoção
- ```
-git commit -m "Removendo arquivos de Logs e UserSettings do versionamento"
- ```
-### 🔹 3. Enviar as mudanças para o repositório remoto
- ```
-git push
- ```
-### 🔹 4. Limpar arquivos não monitorados do seu diretório local
-Use este comando para remover arquivos não rastreados que ainda estão no seu computador, evitando conflitos futuros ao mudar de branch.
- ```
-git clean -fd
- ```
+│   ├── _Audio/
 
-# 📜 Organização do Código
+│   │   ├── Ambience/               ← Áudios de ambiente
 
-## Scripts principais
+│   │   ├── Music/                  ← Trilhas musicais
 
-| Script                       | Função                                           |
-| ---------------------------- | ------------------------------------------------ |
-| MenuManager.cs | Gerencia os efeitos e fluxo das interações com o menu.         |
-| Elevator.cs  | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO |
-| MoveBox.cs             | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO  |
-| MovementScale.cs               | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO                 |
-| TubesPuzzleManager.cs           | GABRIEL, TEM QUE COLOCAR UMA DESCRIÇÃO              |
+│   │   └── SFX/                    ← Efeitos sonoros
 
-### Lógicas aplicadas
-### TEMOS QUE ATUALIZAR ESSA PORRA AQUI
+│   │       ├── Cenário/
 
-· Armas montadas via Struct com 9 arrays:
+│   │       ├── Física/
 
-      · Tipo (espada, cajado, martelo)
-      · Gema (vento, água, galáxia)
-      · Prefabs específicos de ataque (Ex: Martelo_Vento)
+│   │       ├── Interface/
 
-· Sistema de mapa procedural:
+│   │       ├── Objetos/
 
-    · Armazena os tiles instanciados num Dictionary<Vector3, GameObject>
-    · Usa Clear() ao fim da fase para resetar o mapa
+│   │       └── Personagens/
 
-· Sistema de habilidades:
+│   ├── Material/
 
-    · SkillsManager armazena um dicionário de funções por tipo de arma
-    · Ativação dinâmica conforme ataque executado
+│   │   ├── Arny/
 
-# 🎮 Build & Execução
+│   │   ├── Assets2D/
 
-## Plataformas
+│   │   ├── Decoracao/
 
-### 🖥️ Windows (.exe)
+│   │   ├── LitroLeite/
 
-### 🌐 WebGL (previsto para Itch.io)
+│   │   ├── Porta/
 
-## Passos para build
+│   │   ├── Sala1/
 
-1. File > Build Settings
+│   │   ├── Sala2/
 
-2. Selecione a plataforma desejada
+│   │   └── Sala3/
 
-3. Clique em Add Open Scenes e inclua testeprocedura.unity
+│   ├── Prefabs/
 
-4. Configure se quiser em Player Settings
+│   │   ├── Packd's/
 
-5. Clique em Build
+│   │   └── Prefebs_Prontos/
 
-_Não há configurações personalizadas no Player Settings._
+│   │       ├── Componentes_Salas/
 
-## Introdução ao mundo
+│   │       ├── Controles/
 
-No início dos anos 40, a empresa hoje conhecida como LactoNuke, mas que na época se chamava TupperWare, focava em desenvolver materiais sintéticos. Seus cientistas, em busca de um plástico mais resistente, voltaram sua atenção para a caseína, a principal proteína do leite, conhecida por sua maleabilidade e resistência natural. A equipe de pesquisa estava tentando entender sua estrutura molecular em um nível atômico. Para isso, eles usaram a Cristalografia por Difração de Elétrons, uma técnica de ponta da época. A ideia era criar cristais de caseína e bombardeá-los com um feixe de elétrons para mapear sua estrutura. No entanto, durante um dos testes, algo inesperado aconteceu. O feixe de elétrons, ao atingir o cristal, não o difratou como esperado. Em vez disso, a estrutura atômica da caseína colapsou em um instante, rearranjando-se em uma nova e instável configuração. Um brilho esverdeado, como o de uma lâmpada fluorescente quebrando, preencheu a câmara de vácuo, seguido por uma onda de calor que derreteu parte do equipamento. O pesquisador, chocado e fascinado, conseguiu isolar essa nova forma de caseína, apelidando-a de 'Caseína-235' - uma alusão sombria ao Urânio-235. Ele descobriu que essa nova substância, ao ser ativada por uma carga elétrica mínima, liberava uma explosão de energia atômica, abrindo um caminho destrutivo e inimaginável. A partir desse momento, a TupperWare deixou de fazer potes e passou a construir um novo e terrível arsenal, selando o destino do mundo e das vacas para sempre.
+│   │       ├── SalasCompletas/
 
-## Arny Longsing
+│   │       └── UI/
 
-Dezessete anos após a descoberta que mudou o mundo, o pesquisador Arny Longsing emergiu de seu esconderijo. Um homem que cresceu em uma fazenda, Arny sempre teve uma conexão profunda com as vacas. Quando um incêndio na plantação de trigo do vizinho tirou a vida de seu pai, ele precisou amadurecer rápido para ajudar sua mãe a cuidar da fazenda da família. Enquanto aprendia a arar a terra e alimentar os animais, sua paixão pelas vacas cresceu, transformando-o em um estudioso dedicado.
+│   ├── Scenes/
 
-Em 1942, sua expertise chamou a atenção da TupperWare. A empresa, famosa por seus potes, fez uma proposta que prometia mudar o futuro. Eles queriam que Arny usasse seu conhecimento para aumentar drasticamente a produção de leite, que seria transformado no que eles chamaram de 'leite nuclear'. Furioso, Arny viu a proposta como um ciclo de crueldade e exploração. Ele expressou seu repúdio pela ideia, sendo rapidamente expulso da sede e juramentado a nunca revelar o projeto.
+│   │   ├── Sala1/
 
-Esse encontro assustador foi o ponto de virada. Arny se isolou em sua fazenda, transformando-a em um esconderijo para reunir o máximo de informações sobre as vacas e mapear os problemas que a TupperWare (agora LactoNuke) estava causando. Ele documentou o desaparecimento das populações de bovinos, a ascensão da Lactrópolis - uma sociedade construída sobre o dinheiro do leite nuclear - e os eventos catastróficos que se seguiam. Por anos, ele tentou avisar amigos e conhecidos com poder, mas ninguém se importava com suas informações. Agora, com a raça à beira da extinção, Arny escutou um rumor que reacendeu sua esperança: a lenda da vaca Xuxa, a última de sua espécie, protegida em uma fazenda-labirinto por um fazendeiro com enigmas indecifráveis. Arny decide então se aventurar, com o objetivo de encontrar a lendária vaca e, talvez, descobrir uma forma de salvar a espécie da aniquilação total.
+│   │   ├── Sala2/
 
-# 🚧 Roadmap & Problemas Conhecidos
+│   │   └── Sala3/
 
-## Funcionalidades
+│   ├── Scripts/
 
-| Status | Item                | Descrição                                    |
-| ------ | ------------------- | -------------------------------------------- |
-| ✅      | Altar de Sacrifício | Mecânica principal que ajusta a dificuldade. |
-| ✅      | Geração Procedural  | Mapas e armas com combinações únicas.        |
-| ⚙️     | Mecânicas de Armas  | Algumas feitas, outras planejadas.           |
-| 🔜     | Loja 2x1            | Troca de dois itens por um melhor.           |
-| 🔜     | IA Variada          | Novos padrões de inimigos.                   |
-| 🔜     | Bossfights          | Temáticos, como “medo do escuro”.            |
-| 🔜     | Estéticas de Fase   | Ex: fase com visibilidade reduzida.          |
+│   │   ├── Audio/                 ← Controle e gerenciamento de áudio
 
-## Bugs Conhecidos
+│   │   ├── Effects/               ← Scripts de efeitos
 
-| Área      | Problema            | Descrição                         |
-| --------- | ------------------- | --------------------------------- |
-| Knockback | Força instável      | Pode jogar inimigos fora do mapa. |
-| Player    | Rotação na morte    | Personagem revive deitado.        |
-| Dash      | Player fora do mapa | Há respawn, mas precisa melhoria. |
+│   │   ├── Elevador.Portas/       ← Mecânica de portas do elevador
 
-## Organização
+│   │   ├── GeralPuzzles/          ← Scripts gerais de puzzles
 
-· Código-fonte: GitHub
+│   │   ├── Player/                ← Controle do player
 
-![25231](https://github.com/user-attachments/assets/404d27a5-61c0-4625-bbff-45b3bf03d08c)
+│   │   └── UI/                    ← Scripts de interface
 
-· Tarefas: Hack n Plan
+│   └── Settings/                  ← Configurações do projeto
 
-![images](https://github.com/user-attachments/assets/cb43d901-921f-4dbd-a7a6-b34029d296b2)
+---
 
-## 📚️📚️ Links de Auxílio
+## 📜 Organização do Código (Mecânicas e Códigos)
 
- | Aulas | Resumos |
- |------|---------|
- | Git LFS em Unity | - [Link](https://www.youtube.com/watch?v=_ewoEQFEURg) |
- | Arquivos base git | - [Link](https://www.patreon.com/posts/63076977) |
- | Unity - Collaborating with version control| - [Link](https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3) |
+Esta é a documentação completa de todos os scripts principais do projeto, explicando sua função.
 
- - [Digital Innovation One](https://web.dio.me/home).https://learn.unity.com/tutorial/collaborate-with-plastic-scm#631f4f5dedbc2a27152629c3
- - [Documentação Git](https://git-scm.com/doc)
- - [Documentação GitHub](https://docs.github.com/)
- - [Github Material de Apoio](https://github.com/elidianaandrade/dio-curso-git-github)
- - [Apresentação Versionamento de Código](https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EYjkgVZuUv5HsVgJUEPv1_oB_QWs8MFBY_PBQ2UAtLqucg?rtime=FOF68ttW3Ug)
+### Scripts do Jogador e Interação
 
-### 🐛🐛 Resolução de bugs
+| Script | Função |
+| :--- | :--- |
+| **Movement.cs** | Controla o movimento (`CharacterController`), rotação, gravidade e passos do jogador. Também gerencia a interação com o `Elevator` e permite o *override* de rotação pela mira. |
+| **PlayerAnimationController.cs** | Gerencia o Animator, recebendo comandos de outros scripts (como `Movement` e `ObjectGrabbing`) para ativar as animações corretas (andar, segurar, arremessar). |
+| **Direction.cs** | Calcula o vetor de direção 3D (no chão) do jogador até a posição do mouse, usando `Plane.Raycast`. Este vetor é usado para a mira do arremesso. |
+| **ObjectGrabbing.cs** | **(Script Central)** Gerencia a mecânica de "agarrar e arremessar". Controla a detecção (trigger), o "pegar", o "carregar" (com força variável) e o "arremesso" (física) do jarro de leite. |
+| **AimIndicator.cs** | Controla a visibilidade e rotação do indicador visual (seta) de mira, ativando-o apenas durante o carregamento do arremesso (`IsCharging`). |
+| **BallController.cs** | Script do galão de leite (a "Ball"). Aplica gravidade customizada, toca som de impacto (`hitSound`) e instancia o efeito 'LeiteQuebrado'. |
+| **RespawnLeite.cs** | Garante que sempre exista um galão de leite. Instancia um novo prefab de leite (`leitePrefab`) em um `pontoRespanw` se o `leiteAtivo` for destruído ou nulo. |
 
+### Scripts de Puzzles e Nível
 
- ## 🎬️🎬️ Vídeos de Auxílio
- 
- ### 1 - [How To Add Sound Effects the RIGHT Way | Unity Tutorial](https://www.youtube.com/watch?v=DU7cgVsU2rM&t=87s)
- 
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=DU7cgVsU2rM&t=87s)
- 
- ### 2 - [CineMachine](https://www.youtube.com/watch?v=wB-EQH7jvFY)
- 
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=wB-EQH7jvFY)
+| Script | Função |
+| :--- | :--- |
+| **Activate.cs** | Script do pedestal de ativação. Captura o `BallController` (galão), anima sua posição/rotação até um ponto e, ao final, invoca um `UnityEvent` (ex: para abrir uma porta). |
+| **Elevator.cs** | Gerencia toda a sequência do elevador. Controla o movimento da cabine (usando `Lerp` e `AnimationCurve`), troca de câmeras (Cinemachine), trava/libera o jogador e coordena as portas e áudio. |
+| **ElevatorCollider.cs** | Script de Trigger que detecta a entrada/saída do jogador. Informa ao script `Movement` do jogador qual elevador está "ativo" para interação. |
+| **OpenCloseDoor.cs** | Anima a abertura e fechamento de portas usando `SkinnedMeshRenderer` (Blend Shapes). Gerencia a troca de colisores e os efeitos sonoros de abertura/fechamento. |
+| **DoorController.cs** | Controla a animação da porta final. Executa uma sequência de 'destrava' (Blend Shape) e 'abertura' (Rotação com `AnimationCurve`). |
+| **FloorBallsFX.cs** | Script de trigger (no chão ou armadilhas). Detecta o galão de leite ('Ball'), toca um som de impacto, chama o `InstantiateEfect` do galão e o destrói. |
 
+### Scripts de Sistema e Carregamento
 
- 
- ## 🔎 Inspirações e Referências
+| Script | Função |
+| :--- | :--- |
+| **SceneLoader.cs** | Classe estática para gerenciamento de cenas. Armazena a 'próxima cena' a ser carregada e chama a 'TelaCarregamento'. |
+| **LoadingScreenController.cs**| Controla a cena 'TelaCarregamento'. Carrega a cena alvo (definida pelo `SceneLoader`) de forma assíncrona, exibindo uma barra de progresso com tempo de espera simulado. |
+| **SwithScene.cs** | Script de Trigger (colisor) que, ao ser tocado pelo jogador, chama o `SceneLoader` para carregar a próxima cena (fase). |
+| **ExitGame.cs** | Script de utilidade (provavelmente em um botão) que executa `Application.Quit()` para fechar o jogo. |
 
- | Jogos | Inspirou | Link |
- | ----------------- | ------------------- | ------------------------------------------------------------------------------ |
- |   Série Fallout   |       Universo      | - [Link](https://store.steampowered.com/bundle/3782/Fallout_Franchise_Bundle/) |
- | Little Nightmares | 2D com Profundidade | - [Link](https://store.steampowered.com/app/424840/Little_Nightmares/ )        |
+### Scripts de UI e Cinemática
 
-![fallout-resume](https://github.com/user-attachments/assets/b6e6eddd-2631-4c4e-8358-3783d461b3b0)
+| Script | Função |
+| :--- | :--- |
+| **MenuManager.cs** | Gerencia o menu principal (Singleton). Controla as animações de fade/movimento (DOTween) dos botões na entrada e o fade-out ao carregar uma cena. |
+| **ButtonEffect.cs** | Script individual de botão (UI). Controla os efeitos de DOTween (hover, click), toca sons e informa ao `MenuManager` ou `SceneLoader` qual cena carregar. |
+| **UpdateInfoPlayer_UI.cs** | Gerencia toda a UI contextual do jogador, exibindo/escondendo o slider de força e os textos de informação (Pegar, Usar Elevador, etc.) com base no estado do jogador. |
+| **CheckObjetive.cs** | Script de feedback visual que muda a cor de um texto (UI) para verde, provavelmente chamado por um `UnityEvent` ao completar um puzzle. |
+| **ObjetiveCanvasManager.cs** | Gerencia a UI de objetivos. Carrega e exibe a lista de objetivos (texto) correta com base no nome da cena atual. |
+| **HUDAnimator.cs** | Script de animação (DOTween) para elementos da UI, como pulsar a escala de um objeto ou fazer um texto piscar (fade), usado para feedback. |
+| **TypeWritterEffect.cs** | Controla o efeito de "máquina de escrever" para `TextMeshProUGUI`, revelando o texto caractere por caractere com pausas para pontuação. |
+| **SlideshowController.cs** | Gerencia uma sequência de "slideshow" (fade de `CanvasGroup`) para a cena final, controlando a transição e o fade-out do áudio. |
+| **SetTextToDisplay.cs** | Gerencia o fluxo do sistema de diálogo. Envia textos para o `TypeWritterEffect`, aguarda o input (Espaço) e chama o `SceneLoader` ao final da lista de falas. |
+
+### Scripts de Efeitos Visuais (VFX)
+
+| Script | Função |
+| :--- | :--- |
+| **MudancaPedestal.cs** | Controla o material do pedestal. Observa o script `Activate` e usa `Color.Lerp` para animar a cor base e a emissão do material (de 'Off' para 'On'). |
+| **AtivacaoPedestal.cs** | Controla os VFX do pedestal. Observa o script `Activate` e usa `Color.Lerp` para animar a cor de um `ParticleSystem` e de uma `Light` (de 'Off' para 'On'). |
+| **LightControler.cs** | Controla uma luz, animando sua intensidade (ligando/desligando) com uma `AnimationCurve` e um efeito de 'flicker' aleatório. |
+| **LeiteDissolve.cs** | Controla um shader de 'dissolve'. Anima um valor (`_Cutoff`) do material ao longo do tempo (usando `Lerp`) e destrói o objeto ao final da animação. |
+
+### Scripts de Áudio
+
+| Script | Função |
+| :--- | :--- |
+| **SoundFXManager.cs** | **(Script Central de Áudio)** Singleton (DontDestroyOnLoad) que gerencia todos os SFX. Instancia prefabs de `AudioSource` no local do evento, toca um clipe (único ou aleatório) e o destrói após a reprodução. |
+| **SoundMixerManager.cs** | Interface para o `AudioMixer`. Recebe valores (de Sliders) e ajusta os volumes ('masterVolume', 'soundFXVolume', 'musicVolume') no mixer. |
+| **RandomLoopingSpeaker.cs** | Simula o som de 'fala' (blips) para diálogos. Toca clipes aleatórios em sequência (um após o outro) e gerencia um 'fade out' suave ao ser interrompido. |
+| **AmbientSoundPlayer.cs** | Toca sons de ambiente em intervalos de tempo aleatórios (entre `minWaitTime` e `maxWaitTime`), utilizando o `SoundFXManager` para a reprodução. |
+
+---
+
+## 📚 Inspirações, Referências e Créditos
+
+### Inspirações de Jogos
+
+| Jogo | Inspirou |
+| :--- | :--- |
+| **Série Fallout** | A estética "AtomPunk", a narrativa satírica de um futuro distópico e o tom cômico-absurdo. |
+| **Little Nightmares** | A direção de câmera (Side-Scroller 2.5D), que cria uma sensação de profundidade e claustrofobia. |
+
+![fallout-resume](https://github.com/user-attachments/assets/b6e6eddd-2631-4c4e-8358-3783d461b30b)
+
 ![littlenightmares](https://github.com/user-attachments/assets/46bd2138-b2b2-4160-b49f-3a192773f952)
+
+### Ferramentas e Assets
+
+* **Engine:** Unity 6000.0.35f1 (Universal Render Pipeline)
+* **Plugins Unity:** Cinemachine (v3.1.4), DOTWEEN (v1.2.765)
+* **Arte:** Blender, Figma, Krita
+* **Versionamento:** Git, GitHub
+* **Organização:** Hack n Plan
+* **Assistência (IA):** Gemini (para auxílio na estruturação de código e documentação)
+* **Assets:** *Todos os modelos 3D, artes 2D, músicas e efeitos sonoros são criações originais da Weird Milk Studios.*
+
+---
