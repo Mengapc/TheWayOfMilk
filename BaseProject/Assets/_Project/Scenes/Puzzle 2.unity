@@ -16954,7 +16954,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79cd90010760ea4f9507c98d4ee1eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToDisable: []
+  objectsToDisable:
+  - {fileID: 1822602533}
+  - {fileID: 1918985182}
+  - {fileID: 1116763372}
+  - {fileID: 1594742220}
+  - {fileID: 848074490}
+  - {fileID: 2028120938}
+  - {fileID: 1043917847}
+  - {fileID: 8319098}
   delayBetween: 0.2
 --- !u!82 &860728112
 AudioSource:
@@ -22246,6 +22254,14 @@ PrefabInstance:
     - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: soundVolume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: verticallForceMax
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
+      propertyPath: horizontalForceMax
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6283824435645916975, guid: 14cd98f80bca8394089d2acd1bae165f, type: 3}
       propertyPath: chargingSoundSource
@@ -47720,6 +47736,20 @@ PrefabInstance:
     - target: {fileID: 6298392982979622919, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.4331
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[0]'
+      value: "Pegue o gal\xE3o de leite no andar de cima e leve at\xE9 o primeiro
+        pedestal ativador."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[1]'
+      value: "Agora que os lasers foram desativados, jogue mais um gal\xE3o no segundo
+        pedestal ativador."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527439296077603230, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
+      propertyPath: 'allSceneObjectives.Array.data[1].objectives.Array.data[2]'
+      value: "entre na porta e v\xE1 para a pr\xF3xima sala"
       objectReference: {fileID: 0}
     - target: {fileID: 8243113994079749329, guid: 2d7f2ccb8ed90f94eb8a7746224b2bc2, type: 3}
       propertyPath: m_Pivot.x
