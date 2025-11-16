@@ -1,8 +1,11 @@
 # 👾 Lactrópolis
 
-![weirdmilk_branco](https://github.com/user-attachments/assets/1a855ed0-f8e7-425f-867f-ce45523614ee)
+<img width="612" alt="Slide1" src="https://github.com/user-attachments/assets/16c57659-ecfd-45b9-8669-f401d385cc65" />
 
 **Estúdio:** Weird Milk Studios
+
+<img width="400" alt="weirdmilk_branco" src="https://github.com/user-attachments/assets/751be303-41ba-4c02-8c86-1d411036379c" />
+
 
 Este repositório funciona como um **GDD (Game Design Document)** vivo para o protótipo de "Lactrópolis", reunindo todas as informações, sistemas e decisões que formam o nosso jogo.
 
@@ -77,13 +80,67 @@ Esta seção detalha as **decisões de design** tomadas durante o desenvolviment
 *A premissa de "Lactrópolis" nasceu de uma sátira ao "AtomPunk" (popularizado por **Fallout**) e à cultura de consumo. A decisão de usar a "TupperWare" como vilã inicial foi para criar um contraste cômico imediato entre o banal (potes de plástico) e o apocalíptico (energia nuclear). A narrativa é contada visualmente através dos pôsteres de propaganda da LactoNuke e pela própria progressão do jogador, que explora um mundo onde algo tão comum quanto o leite se tornou uma arma de destruição.*
 
 ### 2. Arte e Estética
-*A direção de arte busca um "Retrofuturismo Cômico". Enquanto a inspiração em **Fallout** dita a paleta de cores (tons pastéis, verdes nucleares) e a estética dos anos 50, a inspiração em **Little Nightmares** ditou a nossa decisão de câmera. Escolhemos uma câmera 2.5D fixa (Side-Scroller com profundidade) para: 1) Criar uma sensação claustrofóbica de "bunker" e 2) Simplificar o design dos puzzles, focando a mira do jogador em um plano mais controlado, mas ainda permitindo a exploração de profundidade.*
+*Na direção de arte queriamos um "Retrofuturismo Cômico". Enquanto a inspiração em **Fallout** dita a paleta de cores (tons pastéis, verdes nucleares) e a estética dos anos 50, a inspiração em **Little Nightmares** ditou a nossa decisão de câmera. Escolhemos uma câmera 2.5D fixa (Side-Scroller com profundidade) para: 1) Criar uma sensação claustrofóbica de "bunker" e 2) Simplificar o design dos puzzles, focando a mira do jogador em um plano mais controlado, mas ainda permitindo a exploração de profundidade.*
 
 ### 3. Mecânicas e Códigos
 *A principal decisão de design foi limitar a interação do jogador a **uma única mecânica: o arremesso**. Isso nos forçou a criar puzzles diversos usando apenas esta ferramenta. O jarro de leite não é apenas uma "chave", ele é a forma de ativar pedestais, mover plataformas e (em puzzles futuros) quebrar objetos. Tecnicamente, isso foi centralizado no script `ObjectGrabbing.cs`, que gerencia o estado do jogador (livre, segurando, mirando), e no script `Activate.cs`, que usa `UnityEvents` para permitir que o Level Designer conecte o pedestal a qualquer outro objeto (portas, elevadores, etc.) sem precisar escrever código novo.*
 
 ### 4. Som e Música
 *A sonorização foi desenhada para reforçar o tom. A música ambiente mistura suspense com um toque "industrial" e burocrático, refletindo a LactoNuke. Os efeitos sonoros (SFX) são exagerados de propósito: o som de "pegar" o galão, o "blip" dos diálogos (controlado pelo `RandomLoopingSpeaker.cs`), e os sons de ativação dos pedestais são todos desenhados para dar um feedback claro e satisfatório ao jogador, informando que sua ação teve um resultado imediato.*
+
+---
+
+## 🎨Concepts, Artes e Animações
+
+### 1. Concept Rosto Arny:
+<img width="400" alt="pers_Concept_Face (1)" src="https://github.com/user-attachments/assets/176f23c1-77a8-4650-82af-67b5f7d1d9d6" />
+
+### 2. Concept Geral Arny:
+<img width="400" alt="Pers_Concept_Body tank" src="https://github.com/user-attachments/assets/fcfbdb0d-a1ff-43d4-bdca-b08ff490ccb4" />
+
+### 3. Modelo Final Arny Logsing:
+<img width="400" alt="Pose 1" src="https://github.com/user-attachments/assets/c8fb19a2-ea3b-4d59-bcd2-2a4343a3101a" />
+
+### 4. Botton Vaca:
+<img width="400" alt="Concept_BottonVacaB" src="https://github.com/user-attachments/assets/5f58ca8d-946c-4aca-b26d-de03f837285b" />
+
+### 5. Cenario 1:
+<img width="450" alt="Bunker1" src="https://github.com/user-attachments/assets/5197f41d-064b-42f6-aa5b-65f8dec680df" />
+
+### 6. Cenario 2:
+<img width="450" alt="Bunker2" src="https://github.com/user-attachments/assets/34d17a77-1eca-42fa-bd50-124c830a9a24" />
+
+### 7. Cenario 3:
+<img width="450" alt="Bunker3" src="https://github.com/user-attachments/assets/240816a7-d270-431b-aa39-a10e6035da1f" />
+
+### 8. Elemento de Cenario:
+<img width="250" alt="GranadasArtBible" src="https://github.com/user-attachments/assets/6160bfd0-2269-4043-b999-bbc2ce9bd4b5" />
+
+### 9. Item Principal:
+<img width="250" alt="LitroLeiteArtBible" src="https://github.com/user-attachments/assets/f71535cc-92e3-46af-892d-6d4657ea0a34" />
+
+### 10. Caixa de Dialogo Xuxa:
+<img width="400" alt="CaixaDialogo_baseB" src="https://github.com/user-attachments/assets/f7b352ad-3462-4a84-8be6-4e7850b5fd8d" />
+
+### 11. Idle:
+https://github.com/user-attachments/assets/fc97ab63-659e-4d35-90ee-c1582371ed06
+
+### 12. Walk:
+https://github.com/user-attachments/assets/50a0ee85-c379-4063-81ea-7fc5f230c55d
+
+### 13. Canalizando:
+https://github.com/user-attachments/assets/67dfc2ed-8ea7-4336-a2fd-2b06e3a31d0e
+
+### 14. Arremesso:
+https://github.com/user-attachments/assets/024e5819-3e30-41b4-b312-78ad7387b06b
+
+### 15. Coletando:
+https://github.com/user-attachments/assets/a7416547-009e-4c57-a2fc-c2228ae35e6a
+
+
+
+
+
 
 ---
 
