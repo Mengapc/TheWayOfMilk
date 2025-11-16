@@ -6,7 +6,7 @@ public class DestructionBalls : MonoBehaviour
     [Header("Áudio")]
     [Tooltip("Som que toca ao destruir o galão.")]
     [SerializeField] private AudioClip explosionSound;
-    [SerializeField] private float soundVolume = 1f;
+    [SerializeField] private float soundVolume = 0.5f;
 
     private void OnTriggerEnter(Collider other)
     {
