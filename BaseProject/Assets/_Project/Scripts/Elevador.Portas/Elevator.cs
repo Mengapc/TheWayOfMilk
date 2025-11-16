@@ -67,12 +67,9 @@ public class Elevator : MonoBehaviour
     [SerializeField] private float soundVolume = 1f;
     [Space]
 
-    #endregion
-
-
     private bool movendo = false;
     public bool colliderPlayer = false;
-
+    #endregion
 
     #region Lógica Principal do Elevador
 
