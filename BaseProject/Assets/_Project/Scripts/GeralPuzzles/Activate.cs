@@ -22,6 +22,7 @@ public class Activate : MonoBehaviour
     [SerializeField] private float rotationSpeed = 30f;
     [Tooltip("Boleana para controle da ativação.")]
     public bool Ativado;
+    [SerializeField] private GameObject EfeitoDrag;
 
     [Header("Áudio")]
     [Tooltip("Som que toca ao ativar o pedestal.")]
@@ -77,6 +78,7 @@ public class Activate : MonoBehaviour
 
             //animação de posição (seu código já estava correto)
             other.position = Vector3.Lerp(startPos, finalPos, curveValue);
+            EfeitoDrag.SetActive(true);
 
             // --- CORREÇÃO DE LÓGICA ---
             // O yield return null deve estar DENTRO do loop while
@@ -119,6 +121,7 @@ public class Activate : MonoBehaviour
             // O yield return null deve estar DENTRO do loop while
             yield return null;
         }
+        EfeitoDrag.SetActive(false);
         other.position = finalPos;
         other.rotation = finalRotation;
         _evento.Invoke();
