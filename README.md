@@ -53,7 +53,7 @@ Este repositório funciona como um **GDD (Game Design Document)** vivo para o pr
 
 💥 **O Desastre Lácteo Começou!** 💥
 
-Mergulhe em Lactrópolis, uma aventura de **Puzzle/Plataforma 3D** que vai testar sua mira e seu senso de humor. Prepare-se para guiar Arny Longsing, o último defensor dos bovinos, em sua missão mais urgente: desvendar o mistério da Caseína-235 e encontrar a útlima sobrevivente, a Vaca Xuxa, antes que a LactoNuke transforme o mundo em um laticínio radioativo!
+Mergulhe em Lactrópolis, uma aventura de **Puzzle/Plataforma 3D** que vai testar sua mira e seu senso de humor. Prepare-se para guiar Arny Longsing, o último defensor dos bovinos, em sua missão mais urgente: desvendar o mistério da Caseína-235 e encontrar a última sobrevivente, a Vaca Xuxa, antes que a LactoNuke transforme o mundo em um laticínio radioativo!
 
 ### A História: Leite, Ciência e Destino Atômico
 
@@ -77,10 +77,12 @@ Em Lactrópolis, você navegará por salas de câmera **Side-Scroller** com u
 Esta seção detalha as **decisões de design** tomadas durante o desenvolvimento, explicando como integramos tema, mecânicas, arte e som.
 
 ### 1. Narrativa e Tema
-*A premissa de "Lactrópolis" nasceu de uma sátira ao "AtomPunk" (popularizado por **Fallout**) e à cultura de consumo. A decisão de usar a "TupperWare" como vilã inicial foi para criar um contraste cômico imediato entre o banal (potes de plástico) e o apocalíptico (energia nuclear). A narrativa é contada visualmente através dos pôsteres de propaganda da LactoNuke e pela própria progressão do jogador, que explora um mundo onde algo tão comum quanto o leite se tornou uma arma de destruição.*
+*A premissa de "Lactrópolis" nasceu de uma sátira ao "Atompunk" (popularizado por **Fallout**) e à cultura de consumo. A decisão de usar a "TupperWare" como vilã inicial foi para criar um contraste cômico imediato entre o banal (potes de plástico) e o apocalíptico (energia nuclear). A narrativa é contada visualmente através dos pôsteres de propaganda da LactoNuke e pela própria progressão do jogador, que explora um mundo onde algo tão comum quanto o leite se tornou uma arma de destruição.*
 
 ### 2. Arte e Estética
 *Na direção de arte queriamos um "Retrofuturismo Cômico". Enquanto a inspiração em **Fallout** dita a paleta de cores (tons pastéis, verdes nucleares) e a estética dos anos 50, a inspiração em **Little Nightmares** ditou a nossa decisão de câmera. Escolhemos uma câmera 2.5D fixa (Side-Scroller com profundidade) para: 1) Criar uma sensação claustrofóbica de "bunker" e 2) Simplificar o design dos puzzles, focando a mira do jogador em um plano mais controlado, mas ainda permitindo a exploração de profundidade.*
+
+*Durante o desenvolvimento dos assets que seriam usados no jogo, nós queriamos manter a estética Atompunk que tinhamos imaginado mas também trazer um lado comico que a história do jogo tem, então decidimos usar materiais simples, combinados com um shader de outline. Então com isso conseguimos manter a estetica com os modelos e paletas seguindo a estética Atompunk, e com o outline conseguimos dar um visual de cartoon para o jogo, reforçando o tom cômico que tem no jogo.*
 
 ### 3. Mecânicas e Códigos
 *A principal decisão de design foi limitar a interação do jogador a **uma única mecânica: o arremesso**. Isso nos forçou a criar puzzles diversos usando apenas esta ferramenta. O jarro de leite não é apenas uma "chave", ele é a forma de ativar pedestais, mover plataformas e (em puzzles futuros) quebrar objetos. Tecnicamente, isso foi centralizado no script `ObjectGrabbing.cs`, que gerencia o estado do jogador (livre, segurando, mirando), e no script `Activate.cs`, que usa `UnityEvents` para permitir que o Level Designer conecte o pedestal a qualquer outro objeto (portas, elevadores, etc.) sem precisar escrever código novo.*
