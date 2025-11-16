@@ -87,8 +87,12 @@ Esta seção detalha as **decisões de design** tomadas durante o desenvolviment
 ### 3. Mecânicas e Códigos
 *A principal decisão de design foi limitar a interação do jogador a **uma única mecânica: o arremesso**. Isso nos forçou a criar puzzles diversos usando apenas esta ferramenta. O jarro de leite não é apenas uma "chave", ele é a forma de ativar pedestais, mover plataformas e (em puzzles futuros) quebrar objetos. Tecnicamente, isso foi centralizado no script `ObjectGrabbing.cs`, que gerencia o estado do jogador (livre, segurando, mirando), e no script `Activate.cs`, que usa `UnityEvents` para permitir que o Level Designer conecte o pedestal a qualquer outro objeto (portas, elevadores, etc.) sem precisar escrever código novo.*
 
+*Com essa mecânica de 'arremesso' como ferramenta única, nossa filosofia de Level Design foi focada na **complexidade crescente**. Em vez de dar novas habilidades ao jogador, cada sala introduz uma **nova variável de puzzle** (como pedestais de timing, o elevador, ou alvos múltiplos). As salas iniciais ensinam a mecânica de forma isolada, e a sala final age como um 'exame', exigindo que o jogador **combine todos os sistemas** que aprendeu para resolver um quebra-cabeça maior.*
+
 ### 4. Som e Música
 *A sonorização foi desenhada para reforçar o tom. A música ambiente mistura suspense com um toque "industrial" e burocrático, refletindo a LactoNuke. Os efeitos sonoros (SFX) são exagerados de propósito: o som de "pegar" o galão, o "blip" dos diálogos (controlado pelo `RandomLoopingSpeaker.cs`), e os sons de ativação dos pedestais são todos desenhados para dar um feedback claro e satisfatório ao jogador, informando que sua ação teve um resultado imediato.*
+
+*Para acentuar o tom cômico, os efeitos sonoros dos personagens (Arny e a Vaca) foram criados internamente. Nosso sonorizador gravou as próprias imitações de voz, que foram então digitalmente alteradas em *pitch* e *timbre*. Essa abordagem intencionalmente 'caseira' (DIY) reforça a sátira do jogo e transforma até as interações mais básicas, como os passos de Arny ou o esforço do arremesso, em momentos de humor.*
 
 ---
 
