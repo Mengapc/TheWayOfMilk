@@ -339,7 +339,7 @@ Esta é a documentação completa de todos os scripts principais do projeto, exp
 | **Série Fallout** | A estética "AtomPunk", a narrativa satírica de um futuro distópico e o tom cômico-absurdo. |
 | **Little Nightmares** | A direção de câmera (Side-Scroller 2.5D), que cria uma sensação de profundidade e claustrofobia. |
 
-![fallout-resume](https://github.com/user-attachments/assets/b6e6eddd-2631-4c4e-8358-3783d461b30b)
+<img width="400" alt="FalloutVaultBoyArtwork" src="https://github.com/user-attachments/assets/b0eb8572-7fd6-402c-940a-a4e460e2bd1d" />
 
 ![littlenightmares](https://github.com/user-attachments/assets/46bd2138-b2b2-4160-b49f-3a192773f952)
 
