@@ -164,7 +164,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 01ab1cf41f25c5f4d8b67cc718b93702, type: 3}
   m_Resource: {fileID: 8300000, guid: 01ab1cf41f25c5f4d8b67cc718b93702, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1309,6 +1309,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2424326819166396998, guid: d05334419b34cb241806c5959e78a19d, type: 3}
+      propertyPath: soundFXObject
+      value: 
+      objectReference: {fileID: 4390201965096911565, guid: 009b1d18b03e5814a8e514948c868827, type: 3}
     - target: {fileID: 3806048972033664418, guid: d05334419b34cb241806c5959e78a19d, type: 3}
       propertyPath: m_Name
       value: AudioManager
