@@ -13,6 +13,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float fadeDuration = 0.5f;
     [SerializeField] float moveOffsetY = 50f;
 
+    [Header("Elementos de UI Adicionais")] // Novo cabeçalho
+    [SerializeField] private RadioDisplayAnimator radioDisplayAnimator; // Referência ao novo script
+
     bool isLoadingScene = false; // evita double-load
 
     private void Awake()
@@ -59,11 +62,18 @@ public class MenuManager : MonoBehaviour
                 child.localPosition = startPos + new Vector3(0, -moveOffsetY, 0);
 
                 var moveTween = child.DOLocalMove(startPos, fadeDuration)
-                                    .SetEase(Ease.OutBack);
+                                     .SetEase(Ease.OutBack);
 
                 // Junta o movimento ao fade
                 seq.Join(moveTween);
             }
+        }
+
+        // Inicia a animação do rádio após a animação dos botões (ou em paralelo, ajuste o timing)
+        if (radioDisplayAnimator != null)
+        {
+            // Podemos iniciar a animação do rádio imediatamente ou com um pequeno atraso
+            radioDisplayAnimator.AnimateRadioIn();
         }
     }
 
@@ -90,6 +100,12 @@ public class MenuManager : MonoBehaviour
             // desabilita interações para evitar múltiplos cliques
             group.interactable = false;
             group.blocksRaycasts = false;
+
+            // Para sair, você pode adicionar uma animação de fade-out para o rádio também
+            if (radioDisplayAnimator != null)
+            {
+                radioDisplayAnimator.AnimateRadioOut(fadeDuration); // Usa a mesma duração do fade da cena
+            }
 
             group.DOFade(0f, fadeDuration).OnComplete(() =>
             {
