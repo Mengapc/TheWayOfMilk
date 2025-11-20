@@ -452,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262020583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -854,11 +854,12 @@ RectTransform:
   - {fileID: 990857043}
   - {fileID: 1192291656}
   - {fileID: 1886033259}
+  - {fileID: 1855168207}
   m_Father: {fileID: 1825638670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1363131552
@@ -1295,7 +1296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240229019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfc78a0ba1d0d854fa2b31fc69cd6711, type: 3}
   m_Name: 
@@ -1308,6 +1309,83 @@ MonoBehaviour:
   fadeOutTime: 1
   ambientAudioSource: {fileID: 71426627}
   objectToActivateOnEnd: {fileID: 1234328793}
+--- !u!1 &1855168206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855168207}
+  - component: {fileID: 1855168209}
+  - component: {fileID: 1855168208}
+  m_Layer: 5
+  m_Name: OptionsContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1855168207
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855168206}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1234328794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -302}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1855168208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855168206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
+--- !u!114 &1855168209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855168206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1886033258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1886033259}
-  - component: {fileID: 1886033260}
+  - component: {fileID: 1886033262}
   - component: {fileID: 1886033261}
   m_Layer: 0
   m_Name: Textos
@@ -1343,51 +1421,6 @@ Transform:
   - {fileID: 1363131553}
   m_Father: {fileID: 1234328794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1886033260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886033258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6e42266135dff4783e542517eeba41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textToDisplay:
-  - "Um humano...? O que voc\xEA procura? O outro que me aprisionou aqui falou que
-    eu jamais iria ver outro ser... Voc\xEA quer ajudar as vacas e dar um destino
-    digno para n\xF3s? Eu n\xE3o sabia que havia algu\xE9m por ai que se importava...
-    Pode me chamar de Xuxa, A vaca."
-  - "As vacas foram exploradas pela sua esp\xE9cie, foram aprisionadas e sugadas,
-    at\xE9 que uma ap\xF3s outra foram sumindo, mas voc\xEAs nem repararam at\xE9
-    ser tarde demais."
-  - "Eu lamento dizer mas eu n\xE3o posso te ajudar, eu n\xE3o tenho conhecimento
-    sobre o que realmente aconteceu, eu fui aprisionada aqui quando os desaparecimentos
-    tinham come\xE7ado, eu n\xE3o consegui descobrir nada infelizmente..."
-  - "Mas... Mesmo que eu seja conhecida como a ultima vaca, isso n\xE3o \xE9 a verdade
-    completa. Escute porque eu sou o ultimo ser que sabe disso, antes dos experimentos
-    com a minha esp\xE9cie come\xE7arem..."
-  - "Uma vaca foi sequestrada por uma esp\xE9cie ancestral inimiga, voc\xEAs os chamam
-    de Aliens, ela conseguiu de alguma forma voltar um tempo depois, mas ela estava
-    diferente, ela tinha poderes e conseguia fazer coisas incr\xEDveis al\xE9m das
-    capacidades de qualquer vaca."
-  - "Se algu\xE9m sabe o que aconteceu com o meu povo e como salvar todos n\xF3s
-    \xE9 ela... A Deusa Shakira. V\xE1 e procure o Templo do Pasto Dourado se ela
-    estiver em algum lugar desse mundo... \xE9 l\xE1."
-  textBox: {fileID: 957626315}
-  nextPrompt: {fileID: 1363131552}
-  typingSoundClips:
-  - {fileID: 8300000, guid: 66c975de3c0bae643898432c32a2f9ee, type: 3}
-  - {fileID: 8300000, guid: a83030efd0b55314abebfffb027e1085, type: 3}
-  - {fileID: 8300000, guid: 387cbabedfecbf54db29dc10f48bbf4b, type: 3}
-  speaker: {fileID: 1825638678}
-  typingSoundInterval: 0.05
-  typingVolume: 0.5
-  sceneAsset: {fileID: 102900000, guid: e48309779b9fd1e48abbbd1fa9d2f681, type: 3}
-  sceneName: Menu
-  hudanimator: {fileID: 1825638674}
 --- !u!82 &1886033261
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1485,6 +1518,158 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1886033262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886033258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96238896aef6274caf312121393b25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 957626315}
+  nextPrompt: {fileID: 1363131552}
+  hudanimator: {fileID: 1825638674}
+  optionsContainer: {fileID: 1855168207}
+  choiceButtonPrefab: {fileID: 7549133560183195721, guid: e11eb6ae463bae54585fc981cfaa69a4, type: 3}
+  dialogueNodes:
+  - dialogueText: "Um humano...? O que voc\xEA procura? O outro que me aprisionou
+      aqui falou que eu jamais iria ver outro ser... Voc\xEA quer ajudar as vacas
+      e dar um destino digno para n\xF3s? Eu n\xE3o sabia que havia algu\xE9m por
+      ai que se importava... Pode me chamar de Xuxa, A vaca."
+    choices:
+    - buttonText: Sim quero ajudar vcs
+      targetNodeID: 1
+    - buttonText: "Quero entender oq est\xE1 acontecendo"
+      targetNodeID: 1
+  - dialogueText: "As vacas foram exploradas pela sua esp\xE9cie, foram aprisionadas
+      e sugadas, at\xE9 que uma ap\xF3s outra foram sumindo, mas voc\xEAs nem repararam
+      at\xE9 ser tarde demais."
+    choices:
+    - buttonText: "O que voc\xEA pode me contar?"
+      targetNodeID: 2
+    - buttonText: "Mas porque elas est\xE3o sumindo?"
+      targetNodeID: 2
+  - dialogueText: "Eu lamento dizer mas eu n\xE3o posso te ajudar, eu n\xE3o tenho
+      conhecimento sobre o que realmente aconteceu, eu fui aprisionada aqui quando
+      os desaparecimentos tinham come\xE7ado, eu n\xE3o consegui descobrir nada infelizmente..."
+    choices:
+    - buttonText: "Voc\xEA \xE9 a minha ultima esperan;a."
+      targetNodeID: 3
+    - buttonText: "Sua esp\xE9cie vai morrer"
+      targetNodeID: 3
+  - dialogueText: "Mas... Mesmo que eu seja conhecida como a ultima vaca, isso n\xE3o
+      \xE9 a verdade completa. Escute porque eu sou o ultimo ser que sabe disso,
+      antes dos experimentos com a minha esp\xE9cie come\xE7arem..."
+    choices:
+    - buttonText: Como assim?
+      targetNodeID: 4
+    - buttonText: "O que voc\xEA quer dizer com isso?"
+      targetNodeID: 4
+  - dialogueText: "Uma vaca foi sequestrada por uma esp\xE9cie ancestral inimiga,
+      voc\xEAs os chamam de Aliens, ela conseguiu de alguma forma voltar um tempo
+      depois, mas ela estava diferente, ela tinha poderes e conseguia fazer coisas
+      incr\xEDveis al\xE9m das capacidades de qualquer vaca."
+    choices:
+    - buttonText: "Ela \xE9 capaz de me explicar tudo?"
+      targetNodeID: 5
+    - buttonText: "Quem \xE9 essa lenda?"
+      targetNodeID: 5
+  - dialogueText: "Se algu\xE9m sabe o que aconteceu com o meu povo e como salvar
+      todos n\xF3s \xE9 ela... A Deusa Shakira. V\xE1 e procure o Templo do Pasto
+      Dourado se ela estiver em algum lugar desse mundo... \xE9 l\xE1.\r"
+    choices: []
+  typingSoundClips:
+  - {fileID: 8300000, guid: 66c975de3c0bae643898432c32a2f9ee, type: 3}
+  - {fileID: 8300000, guid: a83030efd0b55314abebfffb027e1085, type: 3}
+  - {fileID: 8300000, guid: 387cbabedfecbf54db29dc10f48bbf4b, type: 3}
+  typingSoundInterval: 0.05
+  typingVolume: 0.5
+  speaker: {fileID: 1825638678}
+  sceneAsset: {fileID: 102900000, guid: e48309779b9fd1e48abbbd1fa9d2f681, type: 3}
+  sceneName: Menu
+--- !u!1 &1897236518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897236521}
+  - component: {fileID: 1897236520}
+  - component: {fileID: 1897236519}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1897236519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897236518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &1897236520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897236518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1897236521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897236518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026011167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2026011168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1713,5 +1898,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 2121738003}
   - {fileID: 108166917}
+  - {fileID: 1897236521}
   - {fileID: 1825638669}
   - {fileID: 169865808}
