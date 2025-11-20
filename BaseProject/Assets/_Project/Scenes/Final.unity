@@ -452,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &262020583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1537,50 +1537,93 @@ MonoBehaviour:
   choiceButtonPrefab: {fileID: 7549133560183195721, guid: e11eb6ae463bae54585fc981cfaa69a4, type: 3}
   dialogueNodes:
   - dialogueText: "Um humano...? O que voc\xEA procura? O outro que me aprisionou
-      aqui falou que eu jamais iria ver outro ser... Voc\xEA quer ajudar as vacas
-      e dar um destino digno para n\xF3s? Eu n\xE3o sabia que havia algu\xE9m por
-      ai que se importava... Pode me chamar de Xuxa, A vaca."
+      aqui falou que eu jamais iria ver outro ser... "
     choices:
-    - buttonText: "Quero entender oq est\xE1 acontecendo"
+    - buttonText: Quero entender o que aconteceu com as bovinas.
       targetNodeID: 1
-    - buttonText: "Quero entender oq est\xE1 acontecendo"
-      targetNodeID: 1
+    - buttonText: O que aconteceu com o outro?
+      targetNodeID: 2
   - dialogueText: "As vacas foram exploradas pela sua esp\xE9cie, foram aprisionadas
       e sugadas, at\xE9 que uma ap\xF3s outra foram sumindo, mas voc\xEAs nem repararam
       at\xE9 ser tarde demais."
     choices:
-    - buttonText: "O que voc\xEA pode me contar?"
-      targetNodeID: 2
-    - buttonText: "Mas porque elas est\xE3o sumindo?"
-      targetNodeID: 2
+    - buttonText: "Os sumi\xE7os tem rela\xE7\xE3o \xE0 corrida do leite nuclear?"
+      targetNodeID: 3
+    - buttonText: 'Sinto muito... consigo fazer algo para ajudar? Senhorita... milady? '
+      targetNodeID: 4
+  - dialogueText: "O Wagner...? Depois que fui presa aqui, raramente o vi, fazem
+      anos desde sua \xFAltima visita e honestamente n\xE3o sinto falta nenhuma de
+      sua presen\xE7a. Provavelmente se perdeu ou... talvez tenha morrido."
+    choices:
+    - buttonText: "Mas o que aconteceu com voc\xEAs?"
+      targetNodeID: 1
   - dialogueText: "Eu lamento dizer mas eu n\xE3o posso te ajudar, eu n\xE3o tenho
       conhecimento sobre o que realmente aconteceu, eu fui aprisionada aqui quando
       os desaparecimentos tinham come\xE7ado, eu n\xE3o consegui descobrir nada infelizmente..."
     choices:
-    - buttonText: "Voc\xEA \xE9 a minha ultima esperan;a."
-      targetNodeID: 3
-    - buttonText: "Sua esp\xE9cie vai morrer"
-      targetNodeID: 3
-  - dialogueText: "Mas... Mesmo que eu seja conhecida como a ultima vaca, isso n\xE3o
-      \xE9 a verdade completa. Escute porque eu sou o ultimo ser que sabe disso,
-      antes dos experimentos com a minha esp\xE9cie come\xE7arem..."
-    choices:
-    - buttonText: Como assim?
+    - buttonText: "Mas Dona Vaca, n\xE3o tem nada que eu possa fazer??"
       targetNodeID: 4
-    - buttonText: "O que voc\xEA quer dizer com isso?"
-      targetNodeID: 4
-  - dialogueText: "Uma vaca foi sequestrada por uma esp\xE9cie ancestral inimiga,
-      voc\xEAs os chamam de Aliens, ela conseguiu de alguma forma voltar um tempo
-      depois, mas ela estava diferente, ela tinha poderes e conseguia fazer coisas
-      incr\xEDveis al\xE9m das capacidades de qualquer vaca."
+  - dialogueText: "Voc\xEA quer ajudar as vacas e dar um destino digno para n\xF3s?
+      Eu n\xE3o sabia que havia algu\xE9m por ai que se importava... Pode me chamar
+      de Xuxa, A vaca."
     choices:
-    - buttonText: "Ela \xE9 capaz de me explicar tudo?"
+    - buttonText: "Xuxa, voc\xEA \xE9 a \xFAnica vaca... minha \xFAltima esperan\xE7a..."
       targetNodeID: 5
-    - buttonText: "Quem \xE9 essa lenda?"
-      targetNodeID: 5
+    - buttonText: "Sim, eu quero ajudar voc\xEAs! Me diga como..."
+      targetNodeID: 7
+  - dialogueText: "Mesmo que eu seja conhecida como a ultima vaca, isso n\xE3o \xE9
+      a verdade completa. Existe mais uma, voc\xEA conhece A Deusa Shakira?"
+    choices:
+    - buttonText: Sim
+      targetNodeID: 6
+    - buttonText: "N\xE3o"
+      targetNodeID: 7
+  - dialogueText: "Ent\xE3o me explica sobre!!"
+    choices:
+    - buttonText: (Silencio)
+      targetNodeID: 8
+  - dialogueText: "Ent\xE3o escute porque eu sou o ultimo ser que sabe disso, antes
+      dos experimentos com a minha esp\xE9cie come\xE7arem, uma vaca foi sequestrada
+      por uma esp\xE9cie ancestral inimiga, sabe qual?"
+    choices:
+    - buttonText: Minions???
+      targetNodeID: 9
+    - buttonText: As cabras??? Nunca gostei delas...
+      targetNodeID: 10
+  - dialogueText: "Humf... Ent\xE3o escute porque eu sou o ultimo ser que sabe disso,
+      antes dos experimentos com a minha esp\xE9cie come\xE7arem, uma vaca foi sequestrada
+      por uma esp\xE9cie ancestral inimiga, sabe qual?"
+    choices:
+    - buttonText: Minions???
+      targetNodeID: 9
+    - buttonText: As cabras??? Nunca gostei delas...
+      targetNodeID: 10
+  - dialogueText: "QU\xCA???? Claro que n\xE3o!! Voc\xEAs os chamam de Aliens, ela
+      conseguiu de alguma forma voltar um tempo depois, mas ela estava diferente,
+      ela tinha poderes e conseguia fazer coisas incr\xEDveis al\xE9m das capacidades
+      de qualquer vaca."
+    choices:
+    - buttonText: Como assim, do que ela era capaz?
+      targetNodeID: 11
+    - buttonText: Como ela pode ajudar?
+      targetNodeID: 12
+  - dialogueText: "Eu tamb\xE9m n\xE3o, mas elas s\xE3o insignificantes. Foi uma
+      outra esp\xE9cie, voc\xEAs os chamam de Aliens, ela conseguiu de alguma forma
+      voltar um tempo depois, mas ela estava diferente, ela tinha poderes e conseguia
+      fazer coisas incr\xEDveis al\xE9m das capacidades de qualquer vaca."
+    choices:
+    - buttonText: Como assim, do que ela era capaz?
+      targetNodeID: 11
+    - buttonText: Como ela pode ajudar?
+      targetNodeID: 12
+  - dialogueText: "Se acha que o seu leite nuclear \xE9 poderoso, \xE9 porque voc\xEA
+      nunca viu ela pingar o dela."
+    choices:
+    - buttonText: 'Ok... vou procurar ela e ajudar seu povo '
+      targetNodeID: 12
   - dialogueText: "Se algu\xE9m sabe o que aconteceu com o meu povo e como salvar
       todos n\xF3s \xE9 ela... A Deusa Shakira. V\xE1 e procure o Templo do Pasto
-      Dourado se ela estiver em algum lugar desse mundo... \xE9 l\xE1.\r"
+      Dourado se ela estiver em algum lugar desse mundo... \xE9 l\xE1."
     choices: []
   typingSoundClips:
   - {fileID: 8300000, guid: 66c975de3c0bae643898432c32a2f9ee, type: 3}
@@ -1688,7 +1731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2026011168
 RectTransform:
   m_ObjectHideFlags: 0
