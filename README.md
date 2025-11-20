@@ -74,6 +74,11 @@ Em Lactrópolis, você navegará por salas de câmera **Side-Scroller** com u
 
 ## 🧠 Design, Arte e Narrativa
 
+<a href="https://www.youtube.com/watch?v=ELZIf4M19T8">
+  Vídeo de Relatório<br>
+  <img src="https://img.youtube.com/vi/ELZIf4M19T8/maxresdefault.jpg" width="300">
+</a>
+
 Esta seção detalha as **decisões de design** tomadas durante o desenvolvimento, explicando como integramos tema, mecânicas, arte e som.
 
 ### 1. Narrativa e Tema
