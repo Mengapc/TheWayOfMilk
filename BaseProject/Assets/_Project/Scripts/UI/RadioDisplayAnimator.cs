@@ -1,62 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Para TextMeshPro
-using DG.Tweening; // Para DOTween
+using TMPro;
+using DG.Tweening;
 
 public class RadioDisplayAnimator : MonoBehaviour
 {
     [Header("Componentes")]
     [SerializeField] private CanvasGroup radioCanvasGroup;
     [SerializeField] private Image radioImage;
-    [SerializeField] private TextMeshProUGUI radioText; // Use TextMeshProUGUI
-    [SerializeField] private Sprite radioFrame1; // Sem notas musicais (Image 2)
-    [SerializeField] private Sprite radioFrame2; // Com notas musicais (Image 3)
+    [SerializeField] private TextMeshProUGUI radioText;
+    [SerializeField] private RectTransform textMaskRect;
+    [SerializeField] private Sprite radioFrame1;
+    [SerializeField] private Sprite radioFrame2;
 
-    [Header("Configurações da Animação")]
+    [Header("Configurações da Animação de Entrada")]
     [SerializeField] private float appearDuration = 0.8f;
     [SerializeField] private float textAppearDelay = 0.4f;
     [SerializeField] private float textAppearDuration = 0.5f;
+
+    [Header("Configurações do Loop (Playing)")]
     [SerializeField] private float pulseScale = 1.05f;
     [SerializeField] private float pulseDuration = 0.8f;
     [SerializeField] private Ease pulseEase = Ease.InOutSine;
-    [SerializeField] private float imageSwapInterval = 0.5f; // Tempo para alternar frames do rádio
+    [SerializeField] private float imageSwapInterval = 0.5f;
+
+    [Header("Configurações do Scroll Infinito")]
+    [SerializeField] private float scrollSpeed = 50f;
+    [SerializeField] private float scrollGap = 100f; // NOVO: Espaço entre o fim do texto e o recomeço dele
 
     private bool isPlayingAnimation = false;
     private Tween currentPulseTween;
+    private Tween scrollTweenOriginal; // Tween do texto original
+    private Tween scrollTweenClone;    // Tween do texto clone
     private Coroutine imageSwapCoroutine;
+
+    private TextMeshProUGUI textClone; // Variável para guardar a cópia do texto
 
     void Awake()
     {
-        // Garante que os componentes estão atribuídos
         if (radioCanvasGroup == null) radioCanvasGroup = GetComponent<CanvasGroup>();
-        if (radioCanvasGroup == null)
-        {
-            Debug.LogError("RadioDisplayAnimator: CanvasGroup não encontrado!");
-            enabled = false;
-            return;
-        }
+        if (radioCanvasGroup == null) { enabled = false; return; }
 
-        // Inicializa o estado
         radioCanvasGroup.alpha = 0;
         radioCanvasGroup.interactable = false;
         radioCanvasGroup.blocksRaycasts = false;
 
-        // Garante que o texto está invisível inicialmente
-        if (radioText != null)
-        {
-            radioText.alpha = 0;
-        }
-
-        // Garante que a imagem inicial é o frame 1 (sem notas)
-        if (radioImage != null && radioFrame1 != null)
-        {
-            radioImage.sprite = radioFrame1;
-        }
+        if (radioText != null) radioText.alpha = 0;
+        if (radioImage != null && radioFrame1 != null) radioImage.sprite = radioFrame1;
     }
 
     void Start()
     {
-        // Inicia a animação quando a cena carrega
         AnimateRadioIn();
     }
 
@@ -65,32 +59,28 @@ public class RadioDisplayAnimator : MonoBehaviour
         if (isPlayingAnimation) return;
         isPlayingAnimation = true;
 
+        // Antes de animar, removemos qualquer clone antigo se existir
+        if (textClone != null) Destroy(textClone.gameObject);
+
         Sequence sequence = DOTween.Sequence();
 
-        // 1. Fade In do CanvasGroup (rádio e texto juntos)
         sequence.Append(radioCanvasGroup.DOFade(1, appearDuration).SetEase(Ease.OutQuad));
 
-        // 2. Pequeno movimento ou pulso inicial para o rádio (opcional, mas pode dar um toque legal)
-        // Por exemplo, podemos fazer um pequeno salto para cima e para baixo
         if (radioImage != null)
         {
-            Vector3 originalScale = radioImage.transform.localScale;
-            sequence.Join(radioImage.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0), appearDuration * 0.7f, 5, 0.5f)); // Um pequeno "punch"
+            sequence.Join(radioImage.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0), appearDuration * 0.7f, 5, 0.5f));
         }
 
-        // 3. Fade In e movimento para o texto (atrasado)
         if (radioText != null)
         {
-            radioText.alpha = 0; // Garante que o texto está invisível
-            Vector3 originalTextPos = radioText.rectTransform.anchoredPosition;
-            Vector3 startTextPos = originalTextPos + new Vector3(0, -20, 0); // Começa um pouco abaixo
-            radioText.rectTransform.anchoredPosition = startTextPos;
+            radioText.alpha = 0;
+            // Resetamos posição para animação de entrada
+            radioText.rectTransform.anchoredPosition = new Vector3(0, -20, 0);
 
             sequence.Insert(textAppearDelay, radioText.DOFade(1, textAppearDuration));
-            sequence.Insert(textAppearDelay, radioText.rectTransform.DOAnchorPos(originalTextPos, textAppearDuration).SetEase(Ease.OutBack));
+            sequence.Insert(textAppearDelay, radioText.rectTransform.DOAnchorPos(Vector2.zero, textAppearDuration).SetEase(Ease.OutBack));
         }
 
-        // 4. Ao completar a sequência de entrada, inicia a animação de "playing"
         sequence.OnComplete(() =>
         {
             isPlayingAnimation = false;
@@ -100,19 +90,71 @@ public class RadioDisplayAnimator : MonoBehaviour
 
     private void StartPlayingAnimation()
     {
+        // Animação do Rádio
         if (radioImage != null)
         {
-            // Animação de pulso contínuo para a imagem do rádio
             currentPulseTween = radioImage.transform.DOScale(pulseScale, pulseDuration)
                 .SetEase(pulseEase)
-                .SetLoops(-1, LoopType.Yoyo); // Loop infinito, volta ao tamanho original
+                .SetLoops(-1, LoopType.Yoyo);
 
-            // Inicia a alternância de sprites para as notas musicais
             if (radioFrame1 != null && radioFrame2 != null)
-            {
                 imageSwapCoroutine = StartCoroutine(SwapRadioImage());
-            }
         }
+
+        // Animação do Texto
+        if (radioText != null && textMaskRect != null)
+        {
+            AnimateSeamlessScroll();
+        }
+    }
+
+    // --- NOVA FUNÇÃO DE LOOP INFINITO ---
+    private void AnimateSeamlessScroll()
+    {
+        KillScrollTweens();
+
+        // 1. Verifica tamanho do texto
+        float textWidth = radioText.preferredWidth;
+        float maskWidth = textMaskRect.rect.width;
+
+        // 2. Cria ou configura o Clone
+        if (textClone == null)
+        {
+            // Instancia uma cópia do objeto de texto
+            GameObject cloneObj = Instantiate(radioText.gameObject, radioText.transform.parent);
+            textClone = cloneObj.GetComponent<TextMeshProUGUI>();
+
+            // Remove scripts do clone para não gerar conflito (caso o prefab tenha scripts)
+            Destroy(cloneObj.GetComponent<RadioDisplayAnimator>());
+
+            // Garante que o clone tenha o mesmo texto e propriedades
+            textClone.text = radioText.text;
+            textClone.rectTransform.localScale = radioText.rectTransform.localScale;
+        }
+        else
+        {
+            textClone.gameObject.SetActive(true);
+            textClone.text = radioText.text; // Atualiza texto caso tenha mudado
+            textClone.alpha = radioText.alpha;
+        }
+
+        // 3. Cálculos de Posição
+        float cycleDistance = textWidth + scrollGap;
+        float duration = cycleDistance / scrollSpeed;
+
+
+        // Configuração Inicial
+        radioText.rectTransform.anchoredPosition = new Vector2(0, radioText.rectTransform.anchoredPosition.y);
+        textClone.rectTransform.anchoredPosition = new Vector2(cycleDistance, radioText.rectTransform.anchoredPosition.y);
+
+        scrollTweenOriginal = radioText.rectTransform.DOAnchorPosX(-cycleDistance, duration)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Restart);
+
+        scrollTweenClone = textClone.rectTransform.DOAnchorPosX(0, duration)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Restart)
+            .From(new Vector2(cycleDistance, radioText.rectTransform.anchoredPosition.y)); // Força o start position do clone
     }
 
     System.Collections.IEnumerator SwapRadioImage()
@@ -132,25 +174,25 @@ public class RadioDisplayAnimator : MonoBehaviour
         }
     }
 
-    public void StopPlayingAnimation()
+    private void KillScrollTweens()
     {
-        if (currentPulseTween != null)
-        {
-            currentPulseTween.Kill();
-        }
-        if (imageSwapCoroutine != null)
-        {
-            StopCoroutine(imageSwapCoroutine);
-        }
-        // Opcional: fade out ou animação de saída se necessário
+        if (scrollTweenOriginal != null) scrollTweenOriginal.Kill();
+        if (scrollTweenClone != null) scrollTweenClone.Kill();
     }
 
-    // Exemplo de como você chamaria para esconder o rádio (e.g., ao sair do menu)
+    public void StopPlayingAnimation()
+    {
+        if (currentPulseTween != null) currentPulseTween.Kill();
+        KillScrollTweens();
+        if (imageSwapCoroutine != null) StopCoroutine(imageSwapCoroutine);
+
+        // Esconde o clone ao parar
+        if (textClone != null) textClone.gameObject.SetActive(false);
+    }
+
     public void AnimateRadioOut(float duration = 0.5f)
     {
         StopPlayingAnimation();
         radioCanvasGroup.DOFade(0, duration);
-        // Opcional: Mover para fora da tela também
-        // radioCanvasGroup.transform.DOLocalMoveY(radioCanvasGroup.transform.localPosition.y + moveOffsetY, duration);
     }
 }
