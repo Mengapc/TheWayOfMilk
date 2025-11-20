@@ -1541,7 +1541,7 @@ MonoBehaviour:
       e dar um destino digno para n\xF3s? Eu n\xE3o sabia que havia algu\xE9m por
       ai que se importava... Pode me chamar de Xuxa, A vaca."
     choices:
-    - buttonText: Sim quero ajudar vcs
+    - buttonText: "Quero entender oq est\xE1 acontecendo"
       targetNodeID: 1
     - buttonText: "Quero entender oq est\xE1 acontecendo"
       targetNodeID: 1
