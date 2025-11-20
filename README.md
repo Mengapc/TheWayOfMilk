@@ -312,7 +312,8 @@ Esta é a documentação completa de todos os scripts principais do projeto, exp
 | **HUDAnimator.cs** | Script de animação (DOTween) para elementos da UI, como pulsar a escala de um objeto ou fazer um texto piscar (fade), usado para feedback. |
 | **TypeWritterEffect.cs** | Controla o efeito de "máquina de escrever" para `TextMeshProUGUI`, revelando o texto caractere por caractere com pausas para pontuação. |
 | **SlideshowController.cs** | Gerencia uma sequência de "slideshow" (fade de `CanvasGroup`) para a cena final, controlando a transição e o fade-out do áudio. |
-| **SetTextToDisplay.cs** | Gerencia o fluxo do sistema de diálogo. Envia textos para o `TypeWritterEffect`, aguarda o input (Espaço) e chama o `SceneLoader` ao final da lista de falas. |
+| **BranchingDialogueManager.cs** | Sistema de diálogo com ramificações. Gerencia árvores de conversa (Nós e Escolhas), instancia botões de decisão, sincroniza áudio de 'fala' e carrega cenas ao final. |
+| **RadioDisplayAnimator.cs** | Anima o rádio do menu. Controla efeitos de entrada (Fade/Punch), loop de escala (pulso), troca de sprites e cria um letreiro digital com scroll infinito de texto. |
 
 ### Scripts de Efeitos Visuais (VFX)
 
