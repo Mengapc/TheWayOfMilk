@@ -49,6 +49,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetLeite",
+                    "type": "Button",
+                    "id": "342d1f0a-1998-44d6-b06c-8cf573845bb1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetCena",
+                    "type": "Button",
+                    "id": "d38fef2b-f842-4e87-acb0-94fe6ed36484",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetJogo",
+                    "type": "Button",
+                    "id": "e7b72eba-42c2-4a5a-96e0-920e6ccc9727",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -170,6 +197,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pull",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e99f6a92-1c2d-4089-9eef-81e27c119ab8",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetLeite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87700d04-b4da-4faa-885d-6a76af724413",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetCena",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66e9df7e-50dc-4b6f-8b7c-96320a067fde",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetJogo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

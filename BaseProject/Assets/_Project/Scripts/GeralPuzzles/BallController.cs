@@ -49,4 +49,8 @@ public class BallController : MonoBehaviour
             Rigidbody.AddForce(new Vector3(0, gravidade, 0), ForceMode.Acceleration);
         }   
     }
+    public void Reset()
+    {
+        Destroy(gameObject);
+    }
 }

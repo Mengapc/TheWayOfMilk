@@ -71,6 +71,33 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetLeite"",
+                    ""type"": ""Button"",
+                    ""id"": ""342d1f0a-1998-44d6-b06c-8cf573845bb1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetCena"",
+                    ""type"": ""Button"",
+                    ""id"": ""d38fef2b-f842-4e87-acb0-94fe6ed36484"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetJogo"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7b72eba-42c2-4a5a-96e0-920e6ccc9727"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +219,39 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e99f6a92-1c2d-4089-9eef-81e27c119ab8"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetLeite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87700d04-b4da-4faa-885d-6a76af724413"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetCena"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66e9df7e-50dc-4b6f-8b7c-96320a067fde"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetJogo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -896,6 +956,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Elevator = m_Player.FindAction("Elevator", throwIfNotFound: true);
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
+        m_Player_ResetLeite = m_Player.FindAction("ResetLeite", throwIfNotFound: true);
+        m_Player_ResetCena = m_Player.FindAction("ResetCena", throwIfNotFound: true);
+        m_Player_ResetJogo = m_Player.FindAction("ResetJogo", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -986,6 +1049,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Elevator;
     private readonly InputAction m_Player_Pull;
+    private readonly InputAction m_Player_ResetLeite;
+    private readonly InputAction m_Player_ResetCena;
+    private readonly InputAction m_Player_ResetJogo;
     public struct PlayerActions
     {
         private @ControlsPlayer m_Wrapper;
@@ -995,6 +1061,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Elevator => m_Wrapper.m_Player_Elevator;
         public InputAction @Pull => m_Wrapper.m_Player_Pull;
+        public InputAction @ResetLeite => m_Wrapper.m_Player_ResetLeite;
+        public InputAction @ResetCena => m_Wrapper.m_Player_ResetCena;
+        public InputAction @ResetJogo => m_Wrapper.m_Player_ResetJogo;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1019,6 +1088,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Pull.started += instance.OnPull;
             @Pull.performed += instance.OnPull;
             @Pull.canceled += instance.OnPull;
+            @ResetLeite.started += instance.OnResetLeite;
+            @ResetLeite.performed += instance.OnResetLeite;
+            @ResetLeite.canceled += instance.OnResetLeite;
+            @ResetCena.started += instance.OnResetCena;
+            @ResetCena.performed += instance.OnResetCena;
+            @ResetCena.canceled += instance.OnResetCena;
+            @ResetJogo.started += instance.OnResetJogo;
+            @ResetJogo.performed += instance.OnResetJogo;
+            @ResetJogo.canceled += instance.OnResetJogo;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1038,6 +1116,15 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
             @Pull.started -= instance.OnPull;
             @Pull.performed -= instance.OnPull;
             @Pull.canceled -= instance.OnPull;
+            @ResetLeite.started -= instance.OnResetLeite;
+            @ResetLeite.performed -= instance.OnResetLeite;
+            @ResetLeite.canceled -= instance.OnResetLeite;
+            @ResetCena.started -= instance.OnResetCena;
+            @ResetCena.performed -= instance.OnResetCena;
+            @ResetCena.canceled -= instance.OnResetCena;
+            @ResetJogo.started -= instance.OnResetJogo;
+            @ResetJogo.performed -= instance.OnResetJogo;
+            @ResetJogo.canceled -= instance.OnResetJogo;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1287,6 +1374,9 @@ public partial class @ControlsPlayer: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnElevator(InputAction.CallbackContext context);
         void OnPull(InputAction.CallbackContext context);
+        void OnResetLeite(InputAction.CallbackContext context);
+        void OnResetCena(InputAction.CallbackContext context);
+        void OnResetJogo(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
