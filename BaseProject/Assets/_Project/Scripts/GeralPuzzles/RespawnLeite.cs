@@ -33,7 +33,7 @@ public class RespawnLeite : MonoBehaviour
 
     public void Respanw()
     {
+        Instantiate(DissolvePrefab, pontoRespanw.position, pontoRespanw.rotation);
         leiteAtivo = Instantiate(leitePrefab, pontoRespanw.position, pontoRespanw.rotation);
-        leiteAtivo = Instantiate(DissolvePrefab, pontoRespanw.position, pontoRespanw.rotation);
     }
 }
